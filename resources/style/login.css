@@ -1,0 +1,37 @@
+
+.blackbezel {
+	fill: #000000;
+	stroke-width: 0;
+	opacity: 0.5;
+}
+
+.limegreenbezel {
+	fill: #8DC63F;
+	stroke-width: 0;
+	opacity: 0.65;
+}
+
+.darkbluebezel {
+	fill: #005692;
+	stroke-width: 0;
+	opacity: 0.8;
+}
+
+.orangebezel {
+	fill: #FF8517;
+	stroke-width: 0;
+	opacity: 0.65;
+}
+
+.eplatformbezel {
+	fill: #7B92AF;
+	stroke-width: 0;
+	opacity: 0.75;
+}
+
+.smalltext{
+	fill:white;
+	font-size:10;
+	font-family: 'RotisSansSerif';
+	letter-spacing: 3px;
+}

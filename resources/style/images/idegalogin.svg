@@ -1,68 +1,28 @@
 <?xml version="1.0" standalone="no"?>
+<?xml-stylesheet href="../login.css" type="text/css"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20000303 Stylable//EN"
 "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
 <svg width="500" height="500">
 
-<pattern id="circles" x="0" y="0" width="15" height="15" 
-      patternUnits="userSpaceOnUse">  
-   <circle cx="6" cy="6" r="5" 
-          style="fill: none; stroke:white;stroke-weight:0.5;opacity:0.1;" />
- </pattern>
+<defs>
+<linearGradient id="orange_darkorange" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:rgb(255,133,23);
+stop-opacity:0.7"/>
+<stop offset="100%" style="stop-color:rgb(181,93,16);
+stop-opacity:0.15"/>
+</linearGradient>
+</defs>
 
-<pattern id="logos" x="0" y="0" width="100" height="30" 
-      patternUnits="userSpaceOnUse">  
-<image xlink:href="idega_allwhite.svg" width="70" height="20"
-style="opacity:0.3;"
-/>
-</pattern>
-
-
-<pattern id="dots" x="0" y="0" width="6" height="6" 
-      patternUnits="userSpaceOnUse">  
-   <circle cx="3" cy="3" r="1" 
-          style="fill: black; stroke:black;stroke-weight:3" />
-</pattern>
-
-
-
-  <filter id="fltrHighlight" filterUnits="objectBoundingBox" 
-           x="0" y="0" width="100%" height="100%">
-       
-         <feGaussianBlur in="SourceAlpha" stdDeviation="5,5" result="myBlur"/>
-     
-         <feOffset in="myBlur" dx="10" dy="10" result="myOffset" />
-     
-         <feComponentTransfer in="myOffset" result="myInvert">
-             <feFuncR type="linear" slope="-1" intercept="1"/>
-             <feFuncG type="linear" slope="-1" intercept="1"/>
-             <feFuncB type="linear" slope="-1" intercept="1"/>
-             <feFuncA type="identity"/>
-         </feComponentTransfer>
-     
-         <feBlend in="myInvert" in2="myBlur"
-            operator="multiply" result="myMultiply"/>
-         
-         <feComposite in="myMultiply" in2="SourceAlpha" 
-             operator="in" result="myComp"/>
-         
-         <feComposite in2="SourceGraphic" in="myComp" operator="arithmetic" 
-             k1="1" k2="0.85" k3="1" k4="0" />
-         
-    </filter>
-
-<rect width="496" height="496" x="2" y="2" rx="60" ry="60"
-style="fill:#000000;stroke-width:0;opacity:0.5">
+<rect width="496" height="496" x="2" y="2" rx="60" ry="60" style="fill:url(#orange_darkorange)">
 </rect>
 
 
- <text id="versiontext" x="50" y="460"
-    style="fill: white; font-size: 10; font-family: 'RotisSansSerif';letter-spacing: 3px;">
+ <text id="copyrighttext" x="50" y="460" class="smalltext">
     Copyright (c) 2000-2005 idega software All rights reserved
   </text>
   
- <text id="versiontext" x="120" y="-30" transform="rotate(90)"
-    style="fill: white; font-size: 10; font-family: 'RotisSansSerif';letter-spacing: 3px;">
+ <text id="versiontext" x="120" y="-30" transform="rotate(90)" class="smalltext">
     ePlatform version 3.0 Build 200408023
   </text>
 
