@@ -40,7 +40,7 @@
   </text>
   
  <text id="versiontext" x="120" y="-30" transform="rotate(90)" class="smalltext">
-    ePlatform version 3.0 Build 200408023
+    ePlatform version 3.0
  </text>
  
  <image x="160" y="350" xlink:href="idega_new_allwhite.svg" width="170" height="61"/>
