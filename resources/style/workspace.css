@@ -37,7 +37,7 @@
 .ws_functionmenu{
 	position:absolute;
 	width:200px;
-	top:4.5em;
+	top:7.5em;
 	left:0em;
 }
 
@@ -53,11 +53,11 @@
 }
 
 .ws_layout_onecolumn .ws_main{
-	margin: 4.5em 1em 1em 1em;
+	margin: 7.5em 1em 1em 1em;
 }
 
 .ws_layout_twocolumn .ws_main{
-	margin: 4.5em 0em 0em 200px;
+	margin: 7.5em 0em 0em 200px;
 }
 
 .ws_layout_twocolumn .ws_main .wf_block,.ws_layout_twocolumn .ws_main .wf_frame{
@@ -85,11 +85,34 @@
 	color: orange;
 }
 
+.ws_appinfo{
+	display:block;
+	height: 23px;
+	background-color: white;
+	font-size: 1.5em;
+	padding: 5px 5px 5px 25px;
+	background-image: url(images/appinfo_tile.gif);
+	background-repeat: repeat-x;
+}
+
+.ws_smallloginbox{
+	position:absolute;
+	top:0px;
+	right:0px;
+	height:28px;
+	width:300px;
+	color:white;
+	background-color: #4C627D;
+
+}
+
+
 .wf_login{
 	margin: 100px;
 	color: white;
 	display:inline;
 }
+
 
 .ws_loginpage{
 	margin: 0px;

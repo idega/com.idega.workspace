@@ -11,10 +11,13 @@ package com.idega.workspace;
 import java.io.Serializable;
 import java.util.Iterator;
 import javax.faces.component.UIComponent;
+import javax.faces.component.html.HtmlOutputText;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import com.idega.block.login.presentation.Login;
 import com.idega.core.view.ViewManager;
 import com.idega.core.view.ViewNode;
+import com.idega.idegaweb.IWMainApplication;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.text.Text;
 import com.idega.webface.WFContainer;
@@ -62,15 +65,30 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	
 	public void initializeContent(){
 		setStyleClass(STYLE_CLASS);
-		addApplicationDecoration();
+		UIComponent appdecor = addApplicationDecoration();
+		UIComponent login = getLogin();
+		add(login);
+		//appdecor.getChildren().add(login);
+		addApplicationInstallationInfo();
 		addTabbar();
-		addLogin();
+		
+		
 	}
 
 	/**
 	 * 
 	 */
-	private void addLogin() {
+	private UIComponent getLogin() {
+		WFContainer div = new WFContainer();
+		div.setStyleClass("ws_smallloginbox");
+		
+		Login login = new Login();
+		login.setLayout(Login.SINGLE_LINE);
+		login.setNoStyles();
+		
+		div.getChildren().add(login);
+		
+		return div;
 		//WFLogin login = new WFLogin();
 		//login.setHeight("60");
 		//login.setWidth("70");
@@ -83,23 +101,41 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	/**
 	 * 
 	 */
-	private void addTabbar() {
+	private UIComponent addTabbar() {
 		WFMenu bar = getMainTaskbar();
 		add(bar);
+		return bar;
 	}
 
 	/**
 	 * 
 	 */
-	private void addApplicationDecoration() {
+	private UIComponent addApplicationDecoration() {
 		WFContainer div = new WFContainer();
 		div.setStyleClass("wf_appdecor");
 		add(div);
+		return div;
 //		WFPlainOutputText text = new WFPlainOutputText();
 //		text.setValue("<i>e</i>Platform");
 //		div.add(text);
 	}
 
+	
+	private UIComponent addApplicationInstallationInfo() {
+		WFContainer div = new WFContainer();
+		div.setStyleClass("ws_appinfo");
+		
+		HtmlOutputText text = new HtmlOutputText();
+		String infoString = IWMainApplication.getDefaultIWApplicationContext().getDomain().getName();
+		text.setValue(infoString);
+		div.getChildren().add(text);
+				
+		add(div);
+		return div;
+//		WFPlainOutputText text = new WFPlainOutputText();
+//		text.setValue("<i>e</i>Platform");
+//		div.add(text);
+	}
 
 
 
