@@ -4,10 +4,11 @@
 /***Workspace Begin***/
 
 .ws_body {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family:Verdana,Sans-serif;
 	font-size: 12px;
 	background-color: #F1F1F1;
 	margin: 0px;
+	background-image: url(images/logingradient.psvg);
 }
 
 .ws_body a {
@@ -69,23 +70,43 @@
 }
 
 .ws_loginpage{
-	margin: 5px;
+	margin: 0px;
 	padding: 30px;
 	/***background-image: url(images/background9.jpg);***/
-	/***background-color: #333333;***/
-	background-image: url(images/wall12.gif);
+	background-color: #F1F1F1;
+	background-image: url(images/logingradient.psvg);
 }
 
 .ws_mainloginbox{
-	width: 400px;
+
+	width:400px;
 	height:400px;
+	margin: 0px;
+	padding:50px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border:none;
+	background: url(images/idegalogin.psvg);
+	
+	/***IE TRANSPARENCY HACKS***/
+	_background-image: none;
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../idegaweb/bundles/com.idega.workspace.bundle/resources/style/images/idegalogin.psvg',sizingMethod='scale');
+}
+
+.ws_mainloginbox * {
+	/***IE TRANSPARENCY HACKS - This is to make the form/link elements response over the div ***/
+	position:relative;
+}
+
+.ws_mainloginbox2{
+	width: 500px;
+	height: 500px;
 	margin: 0px;
 	padding: 50px;
 	
-	background-image: url(images/idegalogin.svg);
-	/*** IE transparency hack: ***/
-	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/idegalogin.svg',sizingMethod='scale');
-	
+	background: url(images/idegalogin.png);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/idegalogin.png', sizingMethod='scale');
+
 	background-position: center center;
 	background-repeat: no-repeat;
 	

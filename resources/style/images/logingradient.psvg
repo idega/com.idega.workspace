@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet href="../login.css" type="text/css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20000303 Stylable//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="20" height="1080">
+
+<defs>
+<linearGradient id="blue_lightblue" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(123,146,175);stop-opacity:1;"/>
+<stop offset="100%" style="stop-color:rgb(0,86,146);stop-opacity:1;"/>
+</linearGradient>
+<linearGradient id="grey_darkgrey" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(160,160,160);stop-opacity:1;"/>
+<stop offset="100%" style="stop-color:rgb(70,70,70);stop-opacity:1;"/>
+</linearGradient>
+<linearGradient id="lightgrey_grey" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#F1F1F1;stop-opacity:1;"/>
+<stop offset="100%" style="stop-color:rgb(160,160,160);stop-opacity:1;"/>
+</linearGradient>
+<linearGradient id="topshadowgradient" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:0.4;"/>
+<stop offset="25%" style="stop-color:rgb(0,0,0);stop-opacity:0.25;"/>
+<stop offset="50%" style="stop-color:rgb(0,0,0);stop-opacity:0.12;"/>
+<stop offset="75%" style="stop-color:rgb(0,0,0);stop-opacity:0.05;"/>
+<stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:0;"/>
+</linearGradient>
+
+<pattern id="pinstripePattern" patternUnits="userSpaceOnUse" x="0" y="0" width="3" height="3" viewBox="0 0 3 3">
+<line x1="-1" y1="2" x2="4" y2="2" style="stroke:#AAAAAA; stroke-width:1; opacity:0.3;"/>
+</pattern>
+
+</defs>
+
+<rect width="20" height="1080" x="0" y="0" style="fill:url(#lightgrey_grey)" />
+<rect width="20" height="1080" x="0" y="0" style="fill:url(#pinstripePattern)" />
+<rect width="20" height="30" x="0" y="0" style="fill:url(#topshadowgradient)"/>
+
+</svg>

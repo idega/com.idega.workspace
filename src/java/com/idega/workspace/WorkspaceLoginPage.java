@@ -40,30 +40,41 @@ public class WorkspaceLoginPage extends Page {
 		iwrb = this.getResourceBundle(iwc);
 		IWMainApplication iwma = iwc.getIWMainApplication();
 		Page thePage = this;
+		thePage.setDoctype(Page.DOCTYPE_HTML_4_0_1_STRICT);
+		
 		//thePage.setTitle("idegaWeb Applications");
 		String productName = iwma.getProductInfo().getFullProductName();
 		thePage.setTitle(productName);
 		thePage.setStyleClass("ws_loginpage");
 		
-		Table frameTable = new Table(1, 1);	
-		frameTable.setWidth("100%");
-		frameTable.setHeight("100%");
-		frameTable.setCellpadding(0);
-		frameTable.setCellspacing(0);
-		frameTable.setAlignment(1, 1, "center");
-		frameTable.setVerticalAlignment(1, 1, "middle");
+		Table pageTable = new Table(1, 1);	
+		pageTable.setWidth("100%");
+		pageTable.setHeight("100%");
+		pageTable.setCellpadding(0);
+		pageTable.setCellspacing(0);
+		pageTable.setAlignment(1, 1, "center");
+		pageTable.setVerticalAlignment(1, 1, "middle");
 		
-		WFBezel mainTable = new WFBezel();
-		//mainTable.setWidth("500px");
-		//mainTable.setHeight("500px");
-		mainTable.setStyleClass("ws_mainloginbox");
+		WFBezel loginBox = new WFBezel();
+		//mainTable.setWidth("350px");
+		//mainTable.setHeight("350px");
+		loginBox.setStyleClass("ws_mainloginbox");
+		
+		//This is a hack to make form elements respond in IE with a transparent IE
+		WFContainer ieHack = new WFContainer();
+		ieHack.setStyleClass("iehack");
+		ieHack.setStyleAttribute("position","relative");
+		ieHack.setStyleAttribute("margin","0");
+		ieHack.setStyleAttribute("padding","0");
+		//ieHack.setStyleAttribute("display","none");
+		loginBox.add(ieHack);
 		
 		//mainTable.setStyleAttribute("background:idegalogin.svg;");
 		//mainTable.setStyleAttribute("background","idegalogin.svg");
 		
-		frameTable.add(mainTable, 1, 1);
+		pageTable.add(loginBox, 1, 1);
 
-		Table dropdownTable = new Table(1, 1);
+		/*Table dropdownTable = new Table(1, 1);
 		dropdownTable.setWidth(148);
 		dropdownTable.setCellpadding(0);
 		dropdownTable.setCellspacing(0);
@@ -71,7 +82,7 @@ public class WorkspaceLoginPage extends Page {
 		//mainTable.setAlignment(1, 3, Table.HORIZONTAL_ALIGN_RIGHT);
 		mainTable.add(dropdownTable);
 
-		/*Form myForm = new Form();
+		Form myForm = new Form();
 		myForm.setEventListener(com.idega.core.localisation.business.LocaleSwitcher.class.getName());
 		DropdownMenu dropdown = LocalePresentationUtil.getAvailableLocalesDropdown(iwc);
 		dropdown.setStyleAttribute("font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; border-style:solid; border-width:1; border-color: #000000");
@@ -89,36 +100,30 @@ public class WorkspaceLoginPage extends Page {
 
 		if (isLoggedOn) {
 			IWControlCenter iwcc = new IWControlCenter();
-			mainTable.add(iwcc);
+			loginBox.add(iwcc);
 			//headerImage = iwrb.getImage("login/header_app_suite.jpg", "", 323, 196);
 
 		}	
-			try {
-				//WFLogin login = new WFLogin();
-				Login login = new Login();
-				login.setUseRegularButton();
-				login.setNoStyles();
-				login.setHeight("60");
-				login.setWidth("70");
-				
-				//login.setAllowCookieLogin(true);
-				String workspaceUrl = iwma.getWorkspaceURI();
-				login.setUrlToForwardToOnLogin(workspaceUrl);
-				
-				mainTable.add(login);
-			}
-			catch (Exception e) {
-				add(iwrb.getLocalizedString("login.init.error", "There was an error initialising the login component, most likely it is missing"));
-				e.printStackTrace();
-			}
+			//WFLogin login = new WFLogin();
+			Login login = new Login();
+			login.setUseRegularButton();
+			login.setNoStyles();
+			login.setHeight("60");
+			login.setWidth("70");
+			
+			//login.setAllowCookieLogin(true);
+			String workspaceUrl = iwma.getWorkspaceURI();
+			login.setUrlToForwardToOnLogin(workspaceUrl);
+			
+			loginBox.add(login);
 
-		mainTable.add(getProductName());
-		mainTable.add(getVersionInfo());
+
+		loginBox.add(getProductName());
+		loginBox.add(getVersionInfo());
+		loginBox.add(getBuildId());
+		loginBox.add(getCopyrightText());
 		
-		mainTable.add(getBuildId());
-		mainTable.add(getCopyrightText());
-		
-		thePage.add(frameTable);
+		thePage.add(pageTable);
 		//thePage.add(mainTable);
 	}
 

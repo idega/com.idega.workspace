@@ -1,0 +1,55 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet href="../login.css" type="text/css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20000303 Stylable//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="500" height="500">
+
+<defs>
+<linearGradient id="orange_darkorange" gradientTransform="rotate(35)" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:rgb(255,133,23);stop-opacity:0.8;"/>
+<stop offset="100%" style="stop-color:rgb(181,93,16);stop-opacity:0.35;"/>
+</linearGradient>
+<linearGradient id="limegreen_darkgreen" gradientTransform="rotate(35)" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:rgb(141,198,63);stop-opacity:0.8;"/>
+<stop offset="100%" style="stop-color:rgb(84,117,38);stop-opacity:0.35;"/>
+</linearGradient>
+<linearGradient id="lightgreen_limegreen" gradientTransform="rotate(35)" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:rgb(183,255,82);stop-opacity:0.8;"/>
+<stop offset="100%" style="stop-color:rgb(141,198,63);stop-opacity:0.35;"/>
+</linearGradient>
+<linearGradient id="lightgreen_limegreen" gradientTransform="rotate(35)" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:rgb(183,255,82);stop-opacity:0.8;"/>
+<stop offset="100%" style="stop-color:rgb(141,198,63);stop-opacity:0.35;"/>
+</linearGradient>
+<linearGradient id="blue_lightblue" gradientTransform="rotate(35)" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:rgb(123,146,175);stop-opacity:0.45;"/>
+<stop offset="100%" style="stop-color:rgb(0,86,146);stop-opacity:0.8;"/>
+</linearGradient>
+<linearGradient id="lightgrey_grey" gradientTransform="rotate(35)" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:rgb(160,160,160);stop-opacity:0.8;"/>
+<stop offset="100%" style="stop-color:rgb(70,70,70);stop-opacity:0.35;"/>
+</linearGradient>
+</defs>
+
+<rect width="496" height="496" x="2" y="2" rx="60" ry="60" style="fill:url(#blue_lightblue)">
+</rect>
+
+ <text id="copyrighttext" x="50" y="460" class="smalltext">
+    Copyright (c) 2000-2005 idega software All rights reserved
+  </text>
+  
+ <text id="versiontext" x="120" y="-30" transform="rotate(90)" class="smalltext">
+    ePlatform version 3.0 Build 200408023
+ </text>
+ 
+ <image x="160" y="350" xlink:href="idega_new_allwhite.svg" width="170" height="61"/>
+
+<!--
+ <text x="130" y="270" 
+    style="fill: white; font-size: 30; font-family: 'RotisSansSerif'">
+    idegaWeb ePlatform
+  </text>
+-->
+
+</svg>
