@@ -39,7 +39,7 @@ public class WorkspaceLoginPage extends Page {
 		iwrb = this.getResourceBundle(iwc);
 		IWMainApplication iwma = iwc.getIWMainApplication();
 		Page thePage = this;
-		thePage.setDoctype(Page.DOCTYPE_HTML_4_0_1_STRICT);
+		//thePage.setDoctype(Page.DOCTYPE_HTML_4_0_1_STRICT);
 		
 		//thePage.setTitle("idegaWeb Applications");
 		String productName = iwma.getProductInfo().getFullProductName();
