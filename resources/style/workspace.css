@@ -17,8 +17,8 @@
 }
 
 .ws_body a:hover {
-	/*text-decoration: underline;*/
-	font-weight: bold;
+	text-decoration: underline;
+	/*font-weight: bold;*/
 }
 
 .ws_head{
