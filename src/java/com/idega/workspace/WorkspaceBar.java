@@ -82,11 +82,11 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		WFContainer div = new WFContainer();
 		div.setStyleClass("ws_smallloginbox");
 		
-		Login2 login = new Login2();
+		//Login2 login = new Login2();
 		//login.setLayout(Login.SINGLE_LINE);
 		//login.setNoStyles();
 		
-		div.getChildren().add(login);
+		//div.getChildren().add(login);
 		
 		return div;
 		//WFLogin login = new WFLogin();
