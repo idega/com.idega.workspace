@@ -15,6 +15,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import com.idega.core.view.ViewManager;
 import com.idega.core.view.ViewNode;
+import com.idega.presentation.IWContext;
 import com.idega.presentation.text.Text;
 import com.idega.webface.WFContainer;
 import com.idega.webface.WFMenu;
@@ -129,7 +130,14 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	}
 	
 	protected boolean maySeeNode(FacesContext context,ViewNode node){
-		return node.isRendered();
+		boolean isRendered = node.isRendered();
+		if(isRendered){
+			IWContext iwc = IWContext.getIWContext(context);
+			return ViewManager.getInstance(context).hasUserAcess(node,iwc);
+		}
+		else{
+			return false;
+		}
 	}
 	
 	/**
