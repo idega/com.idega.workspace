@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.1 2005/01/26 19:15:14 tryggvil Exp $
+ *  $Id: WorkspacePage.java,v 1.2 2005/01/28 00:49:32 tryggvil Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -33,10 +33,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2005/01/26 19:15:14 $ by $Author: tryggvil $
+ * Last modified: $Date: 2005/01/28 00:49:32 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class WorkspacePage extends Page {
 
@@ -47,7 +47,7 @@ public class WorkspacePage extends Page {
 	private boolean embedForm=false;
 	private boolean isInitalized=false;
 	private transient UIForm form;
-	private String WF_PAGE_CLASS="wf_body";
+	private String WF_PAGE_CLASS="ws_body";
 	
 	private static String FACET_HEAD="ws_head";
 	private static String FACET_FUNCTIONMENU="ws_functionmenu";
@@ -325,10 +325,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2005/01/26 19:15:14 $ by $Author: tryggvil $
+	 *  Last modified: $Date: 2005/01/28 00:49:32 $ by $Author: tryggvil $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.1 $
+	 * @version $Revision: 1.2 $
 	 */
 	public class SpecialChildList implements List{
 		

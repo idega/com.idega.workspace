@@ -3,6 +3,24 @@
 
 /*Workspace Begin*/
 
+
+
+.ws_body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #F1F1F1;
+	margin: 0px;
+}
+
+.ws_body a {
+	text-decoration: none;
+  	font-weight: normal;
+}
+
+.ws_body a:hover {
+	text-decoration: underline;
+}
+
 .ws_head{
 	position: absolute;
 	top: 0px;
@@ -55,14 +73,72 @@
 
 .wf_appdecor i{
 	color: orange;
-        
 }
 
 .wf_login{
-	margin: 20px;
+	margin: 100px;
 	color: white;
-	font-size: 12px;
 	display:inline;
+}
+
+.ws_loginpage{
+	margin: 5px;
+	padding: 30px;
+	background-image: url(images/background7.jpg);
+}
+
+.ws_mainloginbox{
+	width: 400px;
+	height:400px;
+	margin: 0px;
+	padding: 50px;
+	
+	background-image: url(images/idegalogin.svg);
+	/*** IE transparency hack: ***/
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/idegalogin.svg',sizingMethod='scale');
+	
+	background-position: center center;
+	background-repeat: no-repeat;
+	
+	/***background-color: rgba(255,255,255,0.55);***/
+	/***
+		background-color: white;
+        filter:alpha(opacity=60);
+        -moz-opacity:0.6;
+        opacity: 0.6;
+    ***/
+}
+
+.ws_mainloginbox * {
+        position: relative;
+}
+
+.ws_mainloginbox,.ws_mainloginbox *{
+	font-size: 4px;
+	color:white;
+	font-family:Verdana,Sans-serif;
+  	font-size:1em;
+  	/***
+  	text-shadow: 4px 4px 10px #DDDDDD;
+  	***/
+}
+
+.ws_mainloginbox,.ws_mainloginbox div{
+	margin: 5px;
+}
+
+
+.ws_mainloginbox .productinfo{
+	margin: 15px;
+	font-size:2em;
+}
+
+.ws_mainloginbox .buildid{
+	font-size:0.7em;
+}
+
+.ws_mainloginbox .copyrighttext{
+	display: none;
 }
 
 /*Workspace End*/

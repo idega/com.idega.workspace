@@ -10,7 +10,7 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.context.FacesContext;
-import com.idega.core.localisation.presentation.LocalePresentationUtil;
+import com.idega.block.login.presentation.Login;
 import com.idega.idegaweb.IWBundle;
 import com.idega.idegaweb.IWMainApplication;
 import com.idega.idegaweb.IWResourceBundle;
@@ -18,8 +18,6 @@ import com.idega.presentation.IWContext;
 import com.idega.presentation.Page;
 import com.idega.presentation.Table;
 import com.idega.presentation.app.IWControlCenter;
-import com.idega.presentation.ui.DropdownMenu;
-import com.idega.presentation.ui.Form;
 import com.idega.webface.WFBezel;
 import com.idega.webface.WFContainer;
 import com.idega.webface.WFUtil;
@@ -45,6 +43,7 @@ public class WorkspaceLoginPage extends Page {
 		//thePage.setTitle("idegaWeb Applications");
 		String productName = iwma.getProductInfo().getFullProductName();
 		thePage.setTitle(productName);
+		thePage.setStyleClass("ws_loginpage");
 		
 		Table frameTable = new Table(1, 1);	
 		frameTable.setWidth("100%");
@@ -55,11 +54,12 @@ public class WorkspaceLoginPage extends Page {
 		frameTable.setVerticalAlignment(1, 1, "middle");
 		
 		WFBezel mainTable = new WFBezel();
-		mainTable.setWidth("500px");
-		mainTable.setHeight("500px");
-
+		//mainTable.setWidth("500px");
+		//mainTable.setHeight("500px");
+		mainTable.setStyleClass("ws_mainloginbox");
+		
 		//mainTable.setStyleAttribute("background:idegalogin.svg;");
-		mainTable.setStyleAttribute("background","idegalogin.svg");
+		//mainTable.setStyleAttribute("background","idegalogin.svg");
 		
 		frameTable.add(mainTable, 1, 1);
 
@@ -71,12 +71,12 @@ public class WorkspaceLoginPage extends Page {
 		//mainTable.setAlignment(1, 3, Table.HORIZONTAL_ALIGN_RIGHT);
 		mainTable.add(dropdownTable);
 
-		Form myForm = new Form();
+		/*Form myForm = new Form();
 		myForm.setEventListener(com.idega.core.localisation.business.LocaleSwitcher.class.getName());
 		DropdownMenu dropdown = LocalePresentationUtil.getAvailableLocalesDropdown(iwc);
 		dropdown.setStyleAttribute("font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; border-style:solid; border-width:1; border-color: #000000");
 		myForm.add(dropdown);
-		dropdownTable.add(myForm);
+		dropdownTable.add(myForm);*/
 
 
 		boolean isLoggedOn = false;
@@ -94,43 +94,16 @@ public class WorkspaceLoginPage extends Page {
 
 		}	
 			try {
-				WFLogin login = new WFLogin();
+				//WFLogin login = new WFLogin();
+				Login login = new Login();
+				login.setUseRegularButton();
+				login.setNoStyles();
 				login.setHeight("60");
 				login.setWidth("70");
-				login.setAllowCookieLogin(true);
+				
+				//login.setAllowCookieLogin(true);
 				String workspaceUrl = iwma.getWorkspaceURI();
 				login.setUrlToForwardToOnLogin(workspaceUrl);
-				//MethodInvoker invoker = MethodInvoker.getInstance();
-				//invoker.invokeMethodWithStringParameter(login, "setLogoutButtonImageURL", iwrb.getImageURI("login/logout.gif"));
-				//invoker.invokeMethodWithStringParameter(login, "setHeight", "60");
-				//invoker.invokeMethodWithStringParameter(login, "setWidth", "70");
-				//invoker.invokeMethodWithStringParameter(login, "setLoginAlignment", "center");
-				//invoker.invokeMethodWithBooleanParameter(login, "setViewOnlyLogoutButton", true);
-				//invoker.invokeMethodWithBooleanParameter(login, "setAllowCookieLogin", true);
-				mainTable.add(login);
-			}
-			catch (Exception e) {
-				add(iwrb.getLocalizedString("login.init.error", "There was an error initialising the login component, most likely it is missing"));
-				e.printStackTrace();
-			}
-/*
-		}
-
-		else {
-			try {
-				WFLogin login = new WFLogin();
-				login.setHeight("60");
-				login.setWidth("70");
-				login.setAllowCookieLogin(true);
-				String workspaceUrl = iwc.getIWMainApplication().getWorkspaceURI();
-				login.setUrlToForwardToOnLogin(workspaceUrl);
-				//MethodInvoker invoker = MethodInvoker.getInstance();
-				//invoker.invokeMethodWithStringParameter(login, "setLogoutButtonImageURL", iwrb.getImageURI("login/logout.gif"));
-				//invoker.invokeMethodWithStringParameter(login, "setHeight", "60");
-				//invoker.invokeMethodWithStringParameter(login, "setWidth", "70");
-				//invoker.invokeMethodWithStringParameter(login, "setLoginAlignment", "center");
-				//invoker.invokeMethodWithBooleanParameter(login, "setViewOnlyLogoutButton", true);
-				//invoker.invokeMethodWithBooleanParameter(login, "setAllowCookieLogin", true);
 				
 				mainTable.add(login);
 			}
@@ -138,8 +111,6 @@ public class WorkspaceLoginPage extends Page {
 				add(iwrb.getLocalizedString("login.init.error", "There was an error initialising the login component, most likely it is missing"));
 				e.printStackTrace();
 			}
-		}
-*/
 
 		mainTable.add(getProductName());
 		mainTable.add(getVersionInfo());
