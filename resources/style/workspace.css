@@ -90,6 +90,7 @@
 	height: 23px;
 	background-color: white;
 	font-size: 1.5em;
+	color:black;
 	padding: 5px 5px 5px 25px;
 	background-image: url(images/appinfo_tile.gif);
 	background-repeat: repeat-x;
