@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.2 2005/01/28 00:49:32 tryggvil Exp $
+ *  $Id: WorkspacePage.java,v 1.3 2005/02/02 03:01:13 tryggvil Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -33,10 +33,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2005/01/28 00:49:32 $ by $Author: tryggvil $
+ * Last modified: $Date: 2005/02/02 03:01:13 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class WorkspacePage extends Page {
 
@@ -49,9 +49,16 @@ public class WorkspacePage extends Page {
 	private transient UIForm form;
 	private String WF_PAGE_CLASS="ws_body";
 	
+	private static String LAYOUT_ONECOLUMN="ws_layout_onecolumn";
+	private static String LAYOUT_TWOCOLUMN="ws_layout_twocolumn";
+	private static String LAYOUT_THREECOLUMN="ws_layout_threecolumn";
+	
+	private String layout=LAYOUT_ONECOLUMN;
+	
 	private static String FACET_HEAD="ws_head";
 	private static String FACET_FUNCTIONMENU="ws_functionmenu";
 	private static String FACET_MAIN="ws_main";
+	private static String FACET_LAYOUT="ws_layout";
 	
 	public WorkspacePage() {
 		setTransient(false);
@@ -61,6 +68,7 @@ public class WorkspacePage extends Page {
 		//if(embedForm){
 		//	initalizeEmbeddedForm();
 		//}
+		setDoctype(Page.DOCTYPE_HTML_4_0_1_STRICT);
 		this.setStyleClass(WF_PAGE_CLASS);
 	}
 	public String getBundleIdentifier() {
@@ -84,16 +92,18 @@ public class WorkspacePage extends Page {
 
 		String requestUri = iwc.getRequestURI();
 		//TODO: Change this, this is a hack for the function menu:
-		ViewNode node = ViewManager.getInstance(iwc.getIWMainApplication()).getViewNodeForContext(iwc);
-		if(requestUri.indexOf("content")!=-1){
-		//if(node.getChildren().size()>0){
+		ViewManager viewManager = getViewManager(iwc);
+		ViewNode node = viewManager.getViewNodeForContext(iwc);
+		//if(requestUri.indexOf("content")!=-1){
+		
+		if(displayFunctionMenu(node)){
 			try{
-
+				setLayout(LAYOUT_TWOCOLUMN);
+				//String nodeId = node.getViewId();
+				String nodeId = getNodeNameForFunctionMenu(node);
 				WorkspaceFunctionMenu menu = new WorkspaceFunctionMenu();
-				menu.setApplication("content");
-				
-				add(FACET_FUNCTIONMENU,menu);		
-				
+				menu.setApplication(nodeId);
+				add(FACET_FUNCTIONMENU,menu);					
 			}
 			catch(Throwable t){
 				t.printStackTrace();
@@ -128,6 +138,17 @@ public class WorkspacePage extends Page {
 		}
 	}
 	
+	
+	private ViewManager getViewManager(){
+		FacesContext context = FacesContext.getCurrentInstance();
+		return getViewManager(context);
+	}
+	
+	private ViewManager getViewManager(FacesContext context){
+		IWContext iwc = IWContext.getIWContext(context);
+		return ViewManager.getInstance(iwc.getIWMainApplication());
+	}
+	
 	public List getChildren(){
 		if(embedForm){
 			return getForm().getChildren();
@@ -139,52 +160,95 @@ public class WorkspacePage extends Page {
 	}
 	
 	
+	protected boolean displayFunctionMenu(ViewNode node){
+		ViewNode appNode = node;
+		ViewNode parentNode = appNode.getParent();
+		ViewManager viewManager = getViewManager();
+		ViewNode workspaceNode = viewManager.getWorkspaceRoot();
+		while(!(parentNode.equals(workspaceNode)||appNode.equals(workspaceNode))){
+			appNode=parentNode;
+			parentNode=appNode.getParent();
+		}
+		return (appNode.getChildren().size()>0);
+	}
+	
+	public String getNodeNameForFunctionMenu(ViewNode node){
+		ViewNode appNode = node;
+		ViewNode parentNode = appNode.getParent();
+		ViewManager viewManager = getViewManager();
+		ViewNode workspaceNode = viewManager.getWorkspaceRoot();
+		while(!(parentNode.equals(workspaceNode)||appNode.equals(workspaceNode))){
+			appNode=parentNode;
+			parentNode=appNode.getParent();
+		}
+		return appNode.getViewId();
+	}
+	
 	public void add(UIComponent comp){
 		this.getForm().getChildren().add(comp);
 	}
 	
 	public void add(String key,UIComponent comp){
-		UIComponent setComp = getForm().getFacet(key);
+		UIForm f = getForm();
+		UIComponent setComp = getPageFacet(key);
 		if(setComp==null){
 			WFContainer container = new WFContainer();
+			setPageFacet(key,container);
 			container.setStyleClass(key);
 			container.add(comp);
-			this.getForm().getFacets().put(key,container);
 		}
 		else{
 			setComp.getChildren().add(comp);
 		}
 	}
 	
+	public void setPageFacet(String facetKey,UIComponent component){
+		getForm().getFacets().put(facetKey,component);
+	}
+	
+	public UIComponent getPageFacet(String facetKey){
+		return (UIComponent)getForm().getFacets().get(facetKey);
+	}
+	
+	public UIComponent getLayoutContainer(){
+		UIComponent area = getPageFacet(FACET_LAYOUT);
+		if(area==null){
+			WFContainer container = new WFContainer();
+			container.setStyleClass(getLayout());
+			setPageFacet(FACET_LAYOUT,container);
+			area=container;
+		}
+		return area;
+	}
 	
 	public UIComponent getMainArea(){
-		UIComponent area = getForm().getFacet(FACET_MAIN);
+		UIComponent area = getPageFacet(FACET_MAIN);
 		if(area==null){
 			WFContainer container = new WFContainer();
 			container.setStyleClass(FACET_MAIN);
-			getForm().getFacets().put(FACET_MAIN,container);
+			setPageFacet(FACET_MAIN,container);
 			area=container;
 		}
 		return area;
 	}
 	
 	public UIComponent getHead(){
-		UIComponent head = getForm().getFacet(FACET_HEAD);
+		UIComponent head = getPageFacet(FACET_HEAD);
 		if(head==null){
 			WFContainer container = new WFContainer();
 			container.setStyleClass(FACET_HEAD);
-			getForm().getFacets().put(FACET_HEAD,container);
+			setPageFacet(FACET_HEAD,container);
 			head=container;
 		}
 		return head;
 	}
 	
 	public UIComponent getFunctionMenu(){
-		UIComponent menu = getForm().getFacet(FACET_FUNCTIONMENU);
+		UIComponent menu = getPageFacet(FACET_FUNCTIONMENU);
 		if(FACET_HEAD==null){
 			WFContainer container = new WFContainer();
 			container.setStyleClass(FACET_FUNCTIONMENU);
-			getForm().getFacets().put(FACET_FUNCTIONMENU,container);
+			setPageFacet(FACET_FUNCTIONMENU,container);
 			menu=container;
 		}
 		return menu;
@@ -219,10 +283,11 @@ public class WorkspacePage extends Page {
 		//String formId = this.getId()+"-form";
 		//return (UIForm)getFacets().get(formId);
 		if(form==null){
-			form = findSubForm();
-			if(form==null){
+			UIForm myForm  = findSubForm();
+			if(myForm==null){
 				throw new RuntimeException("WorkspacePage: No form found in page, it must be explicitly added inside page");
 			}
+			return myForm;
 		}
 		return this.form;
 	}
@@ -248,11 +313,19 @@ public class WorkspacePage extends Page {
 	
 	public void encodeChildren(FacesContext context) throws IOException{
 		
+		UIComponent layoutContainer = getLayoutContainer();
+		layoutContainer.encodeBegin(context);
+		
 		UIForm form = getForm();
 		//if(this.embedForm){
 			form.encodeBegin(context);
 		//}
 		//super.encodeChildren(context);
+		
+		if(layoutContainer.getRendersChildren()){
+			layoutContainer.encodeChildren(context);
+		}
+			
 		UIComponent bar = getHead();
 		this.renderChild(context,bar);
 		UIComponent fMenu = getFunctionMenu();
@@ -283,6 +356,8 @@ public class WorkspacePage extends Page {
 			//form.encodeChildren(context);
 			form.encodeEnd(context);
 		//}
+			
+		layoutContainer.encodeEnd(context);
 	}
 	
 	public void encodeEnd(FacesContext context) throws IOException{
@@ -298,14 +373,16 @@ public class WorkspacePage extends Page {
 		super.restoreState(ctx, values[0]);
 		Boolean bIsInitalized = (Boolean) values[1];
 		this.isInitalized=bIsInitalized.booleanValue();
+		this.layout=(String)values[2];
 	}
 	/* (non-Javadoc)
 	 * @see javax.faces.component.StateHolder#saveState(javax.faces.context.FacesContext)
 	 */
 	public Object saveState(FacesContext ctx) {
-		Object values[] = new Object[2];
+		Object values[] = new Object[3];
 		values[0] = super.saveState(ctx);
 		values[1] = Boolean.valueOf(this.isInitalized);
+		values[2] = layout;
 		return values;
 	}
 	
@@ -325,10 +402,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2005/01/28 00:49:32 $ by $Author: tryggvil $
+	 *  Last modified: $Date: 2005/02/02 03:01:13 $ by $Author: tryggvil $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.2 $
+	 * @version $Revision: 1.3 $
 	 */
 	public class SpecialChildList implements List{
 		
@@ -529,6 +606,24 @@ public class WorkspacePage extends Page {
 		public String toString() {
 			return list.toString();
 		}
+	}
+	
+	
+	/**
+	 * Sets the layout (style class) that will control how the main content of the page is displayed.
+	 * <br>The standard style classes are defined as static contants called LAYOUT_... in this class.
+	 * @param layoutClass
+	 */
+	public void setLayout(String layoutClass){
+		this.layout=layoutClass;
+	}
+	
+	/**
+	 * Gets the set layout (style class).
+	 * @return
+	 */
+	public String getLayout(){
+		return layout;
 	}
 	
 

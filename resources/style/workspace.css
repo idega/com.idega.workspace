@@ -17,7 +17,8 @@
 }
 
 .ws_body a:hover {
-	text-decoration: underline;
+	/*text-decoration: underline;*/
+	font-weight: bold;
 }
 
 .ws_head{
@@ -40,6 +41,26 @@
 	position:absolute;
 	/***top:4em;***/
 	/***left:20em;***/
+}
+
+.ws_layout_onecolumn .ws_functionmenu{
+	display:none;
+}
+
+.ws_layout_onecolumn .ws_main{
+	margin: 4.5em 0em 0em 0em;
+}
+
+.ws_layout_twocolumn .ws_main{
+	margin: 4.5em 0em 0em 200px;
+}
+
+.ws_layout_twocolumn .ws_main .wf_block{
+	/*** Eliminating double margins between the columns:***/
+	margin-left: 0px;
+}
+
+.ws_layout_threecolumn .ws_main{
 	margin: 4.5em 0em 0em 200px;
 }
 

@@ -29,6 +29,12 @@
 	opacity: 0.75;
 }
 
+.pinstripeline{
+	stroke:#AAAAAA;
+	stroke-width:1;
+	opacity:0.3;
+}
+
 .smalltext{
 	fill:white;
 	font-size:10;
