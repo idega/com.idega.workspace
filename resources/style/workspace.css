@@ -8,6 +8,7 @@ html, body{
 	font-size: 70%;
 	background-color: #F2F2F2;
 	margin: 0px;
+	background-image: url(images/logingradient.psvg);
 	overflow: hidden;
 }
 .ws_body a {
@@ -145,6 +146,13 @@ div.ws_functionmenu div.ws_bottom{
 }
 html>body div.ws_functionmenu div.ws_bottom{
 	bottom: 0;
+}
+
+
+div.ws_functionmenu div.wf_titlebar_icon,
+div.ws_functionmenu ul.wf_toolbar
+{
+	display:none;
 }
 
 div.ws_smallloginbox{
