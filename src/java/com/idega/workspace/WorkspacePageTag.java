@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspacePageTag.java,v 1.1 2005/01/26 19:15:14 tryggvil Exp $
+ * $Id: WorkspacePageTag.java,v 1.2 2005/03/08 10:30:53 gimmi Exp $
  *
  * Copyright (C) 2004 Idega. All Rights Reserved.
  *
@@ -9,17 +9,17 @@
  */
 package com.idega.workspace;
 
-import javax.faces.webapp.UIComponentTag;
+import com.idega.presentation.PageTag;
 
 /**
  * JSP tag for Workspace
  * <p>
- * Last modified: $Date: 2005/01/26 19:15:14 $ by $Author: tryggvil $
+ * Last modified: $Date: 2005/03/08 10:30:53 $ by $Author: gimmi $
  *
  * @author tryggvil
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
-public class WorkspacePageTag extends UIComponentTag {
+public class WorkspacePageTag extends PageTag {
 	
 	/**
 	 * @see javax.faces.webapp.UIComponentTag#getRendererType()
@@ -34,4 +34,5 @@ public class WorkspacePageTag extends UIComponentTag {
 	public String getComponentType() {
 		return "WorkspacePage";
 	}
+	
 }
