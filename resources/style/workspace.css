@@ -42,9 +42,10 @@
 }
 
 .ws_layout_twocolumn, .ws_layout_onecolumn{
-	margin: 0px;
 	width: 100%;
 	height: 100%;
+	margin: 0px 0px 0px 0px;
+	height:600px;
 }
 
 .ws_layout_onecolumn .ws_functionmenu{
@@ -52,7 +53,7 @@
 }
 
 .ws_layout_onecolumn .ws_main{
-	margin: 4.5em 0em 0em 0em;
+	margin: 4.5em 1em 1em 1em;
 }
 
 .ws_layout_twocolumn .ws_main{
