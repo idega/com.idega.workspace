@@ -156,6 +156,8 @@ div.ws_smallloginbox{
 	background: #4C627D url(images/smallloginbox/bg_left.gif) left bottom no-repeat;
 	font-size: 0.9em;
 	font-weight: bold;
+	text-align:right;
+	padding-right:15px;
 }
 div.ws_smallloginbox input{
 	margin: 0;
