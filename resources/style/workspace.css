@@ -279,6 +279,12 @@ html>body div.ws_main .wf_block.BlockStretch{
 }
 
 */
+
+
+.ws_appinfo{
+	font-size: 1.5em;
+}
+
 .wf_login{
 	margin: 100px;
 	color: white;
