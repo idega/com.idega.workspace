@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspaceFunctionMenu.java,v 1.3 2005/02/28 17:26:04 gummi Exp $
+ * $Id: WorkspaceFunctionMenu.java,v 1.4 2005/03/03 04:23:40 tryggvil Exp $
  * Created on 2.11.2004
  *
  * Copyright (C) 2004 Idega Software hf. All Rights Reserved.
@@ -21,10 +21,10 @@ import com.idega.webface.WFVerticalMenu;
 /**
  * This class holds a "function menu" in the workspace environment for the current selected tab.
  * This menu is usually displayd to the left on the page.
- *  Last modified: $Date: 2005/02/28 17:26:04 $ by $Author: gummi $
+ *  Last modified: $Date: 2005/03/03 04:23:40 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class WorkspaceFunctionMenu extends WFBlock {
 
@@ -69,9 +69,10 @@ public class WorkspaceFunctionMenu extends WFBlock {
 	}
 	
 	public void populateMenu(WFLinkMenu menu,ViewNode node){
+		FacesContext context = FacesContext.getCurrentInstance();
 		for (Iterator iter = node.getChildren().iterator(); iter.hasNext();) {
 			ViewNode childNode = (ViewNode) iter.next();
-			if(childNode.isRendered()){
+			if(maySeeNode(context,childNode)){
 				if(childNode.getChildren().size()>0){
 					WFVerticalMenu subMenu = new WFVerticalMenu();
 					subMenu.setMenuHeader(childNode.getName(),childNode.getURI());
@@ -87,5 +88,9 @@ public class WorkspaceFunctionMenu extends WFBlock {
 				}
 			}
 		}
+	}
+	
+	protected boolean maySeeNode(FacesContext context,ViewNode node){
+		return node.isRendered();
 	}
 }

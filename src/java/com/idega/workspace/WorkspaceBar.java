@@ -119,11 +119,17 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		
 		for (Iterator iter = workspaceNode.getChildren().iterator(); iter.hasNext();) {
 			ViewNode subNode = (ViewNode) iter.next();
-			String url = subNode.getURI();
-			tb.addLink(subNode.getName(),url);
+			if(maySeeNode(context,subNode)){
+				String url = subNode.getURI();
+				tb.addLink(subNode.getName(),url);
+			}
 		}
 		
 		return tb;
+	}
+	
+	protected boolean maySeeNode(FacesContext context,ViewNode node){
+		return node.isRendered();
 	}
 	
 	/**
