@@ -8,7 +8,7 @@
 
 	<component>
 		<component-type>WorkspacePage</component-type>
-		<component-class>com.idega.webface.workspace.WorkspacePage</component-class>
+		<component-class>com.idega.workspace.WorkspacePage</component-class>
 	</component>
 	
 </faces-config>
