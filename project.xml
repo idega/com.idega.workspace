@@ -8,6 +8,13 @@
   <shortDescription>idegaWeb ePlatform Workspace</shortDescription>
   <description>idegaWeb ePlatform Workspace is the new working environment or "shell" in idegaWeb Applications</description>
   <versions>
+    <versions>
+    <version>
+      <id>0.1.0</id>
+      <name>0.1.0</name>
+      <tag>WORKSPACE_0_1_0</tag>
+    </version>
+   </versions>
   </versions>  
   <developers>
     <developer>
