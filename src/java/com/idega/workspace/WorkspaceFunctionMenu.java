@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspaceFunctionMenu.java,v 1.2 2005/02/07 22:19:50 tryggvil Exp $
+ * $Id: WorkspaceFunctionMenu.java,v 1.3 2005/02/28 17:26:04 gummi Exp $
  * Created on 2.11.2004
  *
  * Copyright (C) 2004 Idega Software hf. All Rights Reserved.
@@ -15,17 +15,16 @@ import com.idega.core.view.ViewManager;
 import com.idega.core.view.ViewNode;
 import com.idega.webface.WFBlock;
 import com.idega.webface.WFLinkMenu;
-import com.idega.webface.WFUtil;
 import com.idega.webface.WFVerticalMenu;
 
 
 /**
  * This class holds a "function menu" in the workspace environment for the current selected tab.
  * This menu is usually displayd to the left on the page.
- *  Last modified: $Date: 2005/02/07 22:19:50 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2005/02/28 17:26:04 $ by $Author: gummi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class WorkspaceFunctionMenu extends WFBlock {
 
@@ -72,20 +71,21 @@ public class WorkspaceFunctionMenu extends WFBlock {
 	public void populateMenu(WFLinkMenu menu,ViewNode node){
 		for (Iterator iter = node.getChildren().iterator(); iter.hasNext();) {
 			ViewNode childNode = (ViewNode) iter.next();
-			if(childNode.getChildren().size()>0){
-				WFVerticalMenu subMenu = new WFVerticalMenu();
-				subMenu.setMenuHeader(WFUtil.getText(childNode.getName()));
-				menu.addMenuItem(subMenu);
-				
-				populateMenu(subMenu,childNode);
-				
+			if(childNode.isRendered()){
+				if(childNode.getChildren().size()>0){
+					WFVerticalMenu subMenu = new WFVerticalMenu();
+					subMenu.setMenuHeader(childNode.getName(),childNode.getURI());
+					menu.addMenuItem(subMenu);
+					
+					populateMenu(subMenu,childNode);
+					
+				}
+				else{
+					String url = childNode.getURI();
+					String name = childNode.getName();
+					menu.addLink(name,url);
+				}
 			}
-			else{
-				String url = childNode.getURI();
-				String name = childNode.getName();
-				menu.addLink(name,url);
-			}
-			
 		}
 	}
 }
