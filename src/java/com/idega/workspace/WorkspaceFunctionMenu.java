@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspaceFunctionMenu.java,v 1.1 2005/01/26 19:15:14 tryggvil Exp $
+ * $Id: WorkspaceFunctionMenu.java,v 1.2 2005/02/07 22:19:50 tryggvil Exp $
  * Created on 2.11.2004
  *
  * Copyright (C) 2004 Idega Software hf. All Rights Reserved.
@@ -22,10 +22,10 @@ import com.idega.webface.WFVerticalMenu;
 /**
  * This class holds a "function menu" in the workspace environment for the current selected tab.
  * This menu is usually displayd to the left on the page.
- *  Last modified: $Date: 2005/01/26 19:15:14 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2005/02/07 22:19:50 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class WorkspaceFunctionMenu extends WFBlock {
 
@@ -33,7 +33,7 @@ public class WorkspaceFunctionMenu extends WFBlock {
 	 * 
 	 */
 	public WorkspaceFunctionMenu() {
-		this("Functions");
+		this("Functions");	
 	}
 
 	/**
@@ -41,6 +41,7 @@ public class WorkspaceFunctionMenu extends WFBlock {
 	 */
 	public WorkspaceFunctionMenu(String titleBarText) {
 		super(titleBarText);
+		this.setNoMarginsOnMainArea();
 		// TODO Auto-generated constructor stub
 	}
 	/* (non-Javadoc)

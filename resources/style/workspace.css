@@ -30,6 +30,10 @@
 	height: 2em;
 }
 
+.ws_main{
+	padding:1px;
+}
+
 .ws_functionmenu{
 	position:absolute;
 	width:200px;
@@ -37,10 +41,10 @@
 	left:0em;
 }
 
-.ws_main{
-	position:absolute;
-	/***top:4em;***/
-	/***left:20em;***/
+.ws_layout_twocolumn, .ws_layout_onecolumn{
+	margin: 0px;
+	width: 100%;
+	height: 100%;
 }
 
 .ws_layout_onecolumn .ws_functionmenu{
@@ -55,13 +59,9 @@
 	margin: 4.5em 0em 0em 200px;
 }
 
-.ws_layout_twocolumn .ws_main .wf_block{
+.ws_layout_twocolumn .ws_main .wf_block,.ws_layout_twocolumn .ws_main .wf_frame{
 	/*** Eliminating double margins between the columns:***/
 	margin-left: 0px;
-}
-
-.ws_layout_threecolumn .ws_main{
-	margin: 4.5em 0em 0em 200px;
 }
 
 .wf_workspacebar{
