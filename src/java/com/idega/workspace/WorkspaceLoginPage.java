@@ -17,7 +17,6 @@ import com.idega.idegaweb.IWResourceBundle;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.Page;
 import com.idega.presentation.Table;
-import com.idega.presentation.app.IWControlCenter;
 import com.idega.webface.WFBezel;
 import com.idega.webface.WFContainer;
 import com.idega.webface.WFUtil;
@@ -99,10 +98,9 @@ public class WorkspaceLoginPage extends Page {
 		}
 
 		if (isLoggedOn) {
-			IWControlCenter iwcc = new IWControlCenter();
-			loginBox.add(iwcc);
-			//headerImage = iwrb.getImage("login/header_app_suite.jpg", "", 323, 196);
-
+			//commented out this is now a security hole:
+			//IWControlCenter iwcc = new IWControlCenter();
+			//loginBox.add(iwcc);
 		}	
 			//WFLogin login = new WFLogin();
 			Login login = new Login();
