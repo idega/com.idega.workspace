@@ -4,7 +4,7 @@
   <extend>${base.project.dir}/base-dependencies.xml</extend>
   <name>idegaWeb Workspace</name>
   <artifactId>com.idega.workspace</artifactId>
-  <currentVersion>0.3.0-SNAPSHOT/currentVersion>
+  <currentVersion>0.3.0-SNAPSHOT</currentVersion>
   <inceptionYear>2004</inceptionYear>
   <shortDescription>idegaWeb ePlatform Workspace</shortDescription>
   <description>idegaWeb ePlatform Workspace is the new working environment or "shell" in idegaWeb Applications</description>
