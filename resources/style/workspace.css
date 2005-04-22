@@ -114,6 +114,7 @@ html>body div.ws_functionmenu{
 div.ws_helpdesk div.wf_tabbarmainarea{
 	margin: 0;
 	padding: 0;
+	display: none;
 }
 div.ws_helpdesk div.wf_container{
 	margin: 0;
@@ -148,13 +149,6 @@ html>body div.ws_functionmenu div.ws_bottom{
 	bottom: 0;
 }
 
-
-div.ws_functionmenu div.wf_titlebar_icon,
-div.ws_functionmenu ul.wf_toolbar
-{
-	display:none;
-}
-
 div.ws_smallloginbox{
 	position: absolute;
 	right: 0;
@@ -164,8 +158,6 @@ div.ws_smallloginbox{
 	background: #4C627D url(images/smallloginbox/bg_left.gif) left bottom no-repeat;
 	font-size: 0.9em;
 	font-weight: bold;
-	text-align:right;
-	padding-right:15px;
 }
 div.ws_smallloginbox input{
 	margin: 0;
@@ -184,13 +176,47 @@ div.ws_layout_twocolumn div.ws_main{
 	margin: 0 0 0 202px;
 }
 div.ws_main .wf_block.BlockStretch{
+	position: relative;
 	height: expression(
 	(
 	document.body.clientHeight) ?
-	document.body.clientHeight - 98 + 'px'
+	document.body.clientHeight - 99 + 'px'
 	:
 	document.documentElement.clientHeight - 98 + 'px'
 	);
+
+	width: expression(
+	(
+	document.body.clientWidth) ?
+	document.body.clientWidth - 209 + 'px'
+	:
+	document.documentElement.clientWidth - 209 + 'px'
+	);
+}
+
+html>body div.ws_main .wf_block.BlockStretch{
+	height: auto;
+	position: absolute;
+	top: 93px;
+	bottom: 4px;
+	left: 202px;
+	right: 0;
+	margin-bottom: 0;
+	overflow: hidden;
+}
+
+div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea{
+	position: absolute;
+	top: 46px;
+	left: 0;
+	height: expression(
+	(
+	document.body.clientHeight) ?
+	document.body.clientHeight - 175 + 'px'
+	:
+	document.documentElement.clientHeight - 169 + 'px'
+	);
+
 	width: expression(
 	(
 	document.body.clientWidth) ?
@@ -199,14 +225,16 @@ div.ws_main .wf_block.BlockStretch{
 	document.documentElement.clientWidth - 225 + 'px'
 	);
 	overflow-y: scroll;
+	width: 100%;
+	background: #fff;
 }
-html>body div.ws_main .wf_block.BlockStretch{
+
+html>body div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea{
 	position: absolute;
-	top: 93px;
-	bottom: 4px;
-	left: 202px;
+	top: 46px;
+	left: 0;
 	right: 0;
-	margin-bottom: 0;
+	bottom: 0;
 	overflow: scroll;
 	overflow:-moz-scrollbars-vertical;
 }
@@ -289,12 +317,6 @@ html>body div.ws_main .wf_block.BlockStretch{
 }
 
 */
-
-
-.ws_appinfo{
-	font-size: 1.5em;
-}
-
 .wf_login{
 	margin: 100px;
 	color: white;
