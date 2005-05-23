@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.5 2005/03/05 22:07:17 tryggvil Exp $
+ *  $Id: WorkspacePage.java,v 1.6 2005/05/23 07:43:29 gummi Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -33,10 +33,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2005/03/05 22:07:17 $ by $Author: tryggvil $
+ * Last modified: $Date: 2005/05/23 07:43:29 $ by $Author: gummi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class WorkspacePage extends Page {
 
@@ -375,15 +375,17 @@ public class WorkspacePage extends Page {
 		Boolean bIsInitalized = (Boolean) values[1];
 		this.isInitalized=bIsInitalized.booleanValue();
 		this.layout=(String)values[2];
+		this.embedForm=((Boolean)values[3]).booleanValue();
 	}
 	/* (non-Javadoc)
 	 * @see javax.faces.component.StateHolder#saveState(javax.faces.context.FacesContext)
 	 */
 	public Object saveState(FacesContext ctx) {
-		Object values[] = new Object[3];
+		Object values[] = new Object[4];
 		values[0] = super.saveState(ctx);
 		values[1] = Boolean.valueOf(this.isInitalized);
 		values[2] = layout;
+		values[3] = Boolean.valueOf(this.embedForm);
 		return values;
 	}
 	
@@ -403,10 +405,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2005/03/05 22:07:17 $ by $Author: tryggvil $
+	 *  Last modified: $Date: 2005/05/23 07:43:29 $ by $Author: gummi $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.5 $
+	 * @version $Revision: 1.6 $
 	 */
 	public class SpecialChildList implements List{
 		
