@@ -8,6 +8,7 @@ html, body{
 	font-size: 70%;
 	background-color: #F2F2F2;
 	margin: 0px;
+	padding: 0px;
 	background-image: url(images/logingradient.psvg);
 	overflow: hidden;
 }
@@ -326,14 +327,13 @@ html>body div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea{
 
 .ws_loginpage{
 	margin: 0px;
-	padding: 30px;
+	padding: 0px;
 	/***background-image: url(images/background9.jpg);***/
 	background-color: #F2F2F2;
 	background-image: url(images/logingradient.psvg);
 }
 
 .ws_mainloginbox{
-
 	width:400px;
 	height:400px;
 	margin: 0px;
@@ -380,10 +380,9 @@ html>body div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea{
 }
 
 .ws_mainloginbox,.ws_mainloginbox *{
-	font-size: 4px;
 	color:white;
 	font-family:Verdana,Sans-serif;
-  	font-size:1em;
+  	font-size: 0.99em;
   	/***
   	text-shadow: 4px 4px 10px #DDDDDD;
   	***/
@@ -395,7 +394,7 @@ html>body div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea{
 
 .ws_mainloginbox .productinfo{
 	margin: 15px;
-	font-size:2em;
+	font-size:1.6em;
 }
 
 .ws_mainloginbox .buildid{

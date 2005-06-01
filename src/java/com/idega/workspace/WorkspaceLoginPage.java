@@ -16,6 +16,7 @@ import com.idega.idegaweb.IWMainApplication;
 import com.idega.idegaweb.IWResourceBundle;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.Page;
+import com.idega.presentation.Table;
 import com.idega.webface.WFBezel;
 import com.idega.webface.WFContainer;
 import com.idega.webface.WFUtil;
@@ -42,6 +43,15 @@ public class WorkspaceLoginPage extends Page {
 		thePage.setTitle(productName);
 		thePage.setStyleClass("ws_loginpage");
 
+		Table pageTable = new Table(1, 1);	
+		pageTable.setWidth("100%");
+		pageTable.setHeight("100%");
+		pageTable.setCellpadding(0);
+		pageTable.setCellspacing(0);
+		pageTable.setAlignment(1, 1, "center");
+		pageTable.setVerticalAlignment(1, 1, "middle");
+		add(pageTable);
+		
 		WFBezel loginBox = new WFBezel();
 		loginBox.setStyleClass("ws_mainloginbox");
 		
@@ -52,7 +62,7 @@ public class WorkspaceLoginPage extends Page {
 		ieHack.setStyleAttribute("margin","0");
 		ieHack.setStyleAttribute("padding","0");
 		loginBox.add(ieHack);
-		add(loginBox);
+		pageTable.add(loginBox);
 		
 
 		boolean isLoggedOn = false;
@@ -87,7 +97,6 @@ public class WorkspaceLoginPage extends Page {
 		loginBox.add(getBuildId());
 		loginBox.add(getCopyrightText());
 		
-		//thePage.add(mainTable);
 	}
 
 	
