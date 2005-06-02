@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspaceFunctionMenu.java,v 1.6 2005/03/06 12:26:20 tryggvil Exp $
+ * $Id: WorkspaceFunctionMenu.java,v 1.7 2005/06/02 17:13:04 eiki Exp $
  * Created on 2.11.2004
  *
  * Copyright (C) 2004 Idega Software hf. All Rights Reserved.
@@ -10,7 +10,9 @@
 package com.idega.workspace;
 
 import java.util.Iterator;
+import javax.faces.component.html.HtmlOutputLink;
 import javax.faces.context.FacesContext;
+import com.idega.core.view.KeyboardShortcut;
 import com.idega.core.view.ViewManager;
 import com.idega.core.view.ViewNode;
 import com.idega.presentation.IWContext;
@@ -22,10 +24,10 @@ import com.idega.webface.WFVerticalMenu;
 /**
  * This class holds a "function menu" in the workspace environment for the current selected tab.
  * This menu is usually displayd to the left on the page.
- *  Last modified: $Date: 2005/03/06 12:26:20 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2005/06/02 17:13:04 $ by $Author: eiki $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class WorkspaceFunctionMenu extends WFBlock {
 
@@ -77,7 +79,13 @@ public class WorkspaceFunctionMenu extends WFBlock {
 			if(maySeeNode(context,childNode)){
 				if(childNode.getChildren().size()>0){
 					WFVerticalMenu subMenu = new WFVerticalMenu();
-					subMenu.setMenuHeader(childNode.getName(),childNode.getURI());
+					HtmlOutputLink link = subMenu.setMenuHeader(childNode.getName(),childNode.getURI());
+					//Add a shortcut key if the view node has one
+					KeyboardShortcut shortCut = childNode.getKeyboardShortcut();
+					if(shortCut!=null){
+						link.setAccesskey(shortCut.getActionKey());
+					}
+					
 					menu.addMenuItem(subMenu);
 					
 					populateMenu(subMenu,childNode);
@@ -86,7 +94,13 @@ public class WorkspaceFunctionMenu extends WFBlock {
 				else{
 					String url = childNode.getURI();
 					String name = childNode.getName();
-					menu.addLink(name,url);
+					HtmlOutputLink link =  menu.addLink(name,url);
+					
+					//Add a shortcut key if the view node has one
+					KeyboardShortcut shortCut = childNode.getKeyboardShortcut();
+					if(shortCut!=null){
+						link.setAccesskey(shortCut.getActionKey());
+					}
 				}
 			}
 		}

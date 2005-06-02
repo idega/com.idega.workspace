@@ -11,10 +11,12 @@ package com.idega.workspace;
 import java.io.Serializable;
 import java.util.Iterator;
 import javax.faces.component.UIComponent;
+import javax.faces.component.html.HtmlOutputLink;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import com.idega.block.login.presentation.Login2;
+import com.idega.core.view.KeyboardShortcut;
 import com.idega.core.view.ViewManager;
 import com.idega.core.view.ViewNode;
 import com.idega.idegaweb.IWMainApplication;
@@ -156,7 +158,13 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 			ViewNode subNode = (ViewNode) iter.next();
 			if(maySeeNode(context,subNode)){
 				String url = subNode.getURI();
-				tb.addLink(subNode.getName(),url);
+				HtmlOutputLink link =  tb.addLink(subNode.getName(),url);
+				
+				//Add a shortcut key if the view node has one
+				KeyboardShortcut shortCut = subNode.getKeyboardShortcut();
+				if(shortCut!=null){
+					link.setAccesskey(shortCut.getActionKey());
+				}
 			}
 		}
 		
