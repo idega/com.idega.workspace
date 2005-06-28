@@ -11,6 +11,7 @@ package com.idega.workspace;
 import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import com.idega.repository.data.RefactorClassRegistry;
 import com.idega.util.reflect.MethodInvoker;
 import com.idega.webface.WFContainer;
 
@@ -54,7 +55,7 @@ public class WFLogin extends WFContainer {
 		}
 		if(login==null){
 			try {
-				login = (UIComponent) Class.forName("com.idega.block.login.presentation.Login").newInstance();
+				login = (UIComponent) RefactorClassRegistry.forName("com.idega.block.login.presentation.Login").newInstance();
 				getChildren().add(login);
 			}
 			catch (Exception e) {
