@@ -16,8 +16,8 @@ html, body{
   	font-weight: normal;
 }
 .ws_body a:hover {
-	/*text-decoration: underline;*/
-	font-weight: bold;
+	/*font-weight: bold;*/
+	text-decoration:underline;
 }
 form{
 	margin: 0;
