@@ -76,11 +76,11 @@ div.ws_head ul.wf_tabbar li a:hover{
 	background: url(images/tabbar/bg_item_main_hover.gif) repeat-x;
 }
 
-div.ws_head ul.wf_tabbar li.wf_tabbarbuttonselected{
+div.ws_head ul.wf_tabbar li.selected{
 	background: url(images/tabbar/bg_item_left_selected.gif) left top no-repeat;
 }
-div.ws_head ul.wf_tabbar li.wf_tabbarbuttonselected a,
-div.ws_head ul.wf_tabbar li.wf_tabbarbuttonselected a:hover
+div.ws_head ul.wf_tabbar li.selected a,
+div.ws_head ul.wf_tabbar li.selected a:hover
 {
 	font-weight: bold;
 	background: url(images/tabbar/bg_item_right_selected.gif) right top no-repeat;
@@ -230,7 +230,20 @@ div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea{
 	);
 	overflow-y: scroll;
 	width: 100%;
-	background: #fff;
+	/*background: #fff;*/
+	
+	background-color: #E8E8E8;
+
+	
+}
+
+html>body div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea .wf_container{
+	margin: 0px 0px 0px 0px;
+	padding: 8px 8px 8px 8px;
+}
+
+html>body div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea .wf_container textarea{
+	width: 400px;
 }
 
 html>body div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea{
@@ -374,7 +387,7 @@ div.ws_main div.wf_block ul.wf_toolbar li span
 	font-weight: normal;
 	color: #464646;
 }
-div.ws_main div.wf_block ul.wf_tabbar li.wf_tabbarbuttonselected,
+div.ws_main div.wf_block ul.wf_tabbar li.selected,
 div.ws_main div.wf_block ul.wf_toolbar li.wf_toolbarbuttonselected
 {
 	background: #E7E7E7 url(images/tabbar/bg_item_selected.gif) repeat-x;
@@ -487,10 +500,10 @@ div.ws_functionmenu ul.wf_viewmenu li:hover{
 	background: #FAFAFA;
 }
 
-div.ws_functionmenu ul.wf_viewmenu li.wf_viewmenubuttonselected{
+div.ws_functionmenu ul.wf_viewmenu li.selected{
 	background: #025FD0 url(images/functionmenu/bg_item_selected.gif) repeat-x;
 }
-div.ws_functionmenu ul.wf_viewmenu li.wf_viewmenubuttonselected a{
+div.ws_functionmenu ul.wf_viewmenu li.selected a{
 	color: #fff;
 }
 div.ws_functionmenu ul.wf_viewmenu li ul{
