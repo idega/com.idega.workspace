@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.7 2005/06/02 18:08:06 tryggvil Exp $
+ *  $Id: WorkspacePage.java,v 1.8 2005/09/14 01:30:03 tryggvil Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -33,10 +33,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2005/06/02 18:08:06 $ by $Author: tryggvil $
+ * Last modified: $Date: 2005/09/14 01:30:03 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 public class WorkspacePage extends Page {
 
@@ -52,6 +52,7 @@ public class WorkspacePage extends Page {
 	private static String LAYOUT_ONECOLUMN="ws_layout_onecolumn";
 	private static String LAYOUT_TWOCOLUMN="ws_layout_twocolumn";
 	private static String LAYOUT_THREECOLUMN="ws_layout_threecolumn";
+	private static String LAYOUT_COMPACT="ws_layout_compact";
 	
 	private String layout=LAYOUT_ONECOLUMN;
 	
@@ -122,6 +123,7 @@ public class WorkspacePage extends Page {
 		//form.getChildren().add(savestate);
 		
 		WorkspaceBar bar = new WorkspaceBar();
+		bar.setStyleClass("ws_mainnavigation");
 		//form.getChildren().add(bar);
 		add(FACET_HEAD,bar);
 		
@@ -163,15 +165,20 @@ public class WorkspacePage extends Page {
 	
 	
 	protected boolean displayFunctionMenu(ViewNode node){
-		ViewNode appNode = node;
-		ViewNode parentNode = appNode.getParent();
-		ViewManager viewManager = getViewManager();
-		ViewNode workspaceNode = viewManager.getWorkspaceRoot();
-		while(!(parentNode.equals(workspaceNode)||appNode.equals(workspaceNode))){
-			appNode=parentNode;
-			parentNode=appNode.getParent();
+		if(getLayout().equals(LAYOUT_COMPACT)){
+			return false;
 		}
-		return (appNode.getChildren().size()>0);
+		else{
+			ViewNode appNode = node;
+			ViewNode parentNode = appNode.getParent();
+			ViewManager viewManager = getViewManager();
+			ViewNode workspaceNode = viewManager.getWorkspaceRoot();
+			while(!(parentNode.equals(workspaceNode)||appNode.equals(workspaceNode))){
+				appNode=parentNode;
+				parentNode=appNode.getParent();
+			}
+			return (appNode.getChildren().size()>0);
+		}
 	}
 	
 	public String getNodeNameForFunctionMenu(ViewNode node){
@@ -406,10 +413,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2005/06/02 18:08:06 $ by $Author: tryggvil $
+	 *  Last modified: $Date: 2005/09/14 01:30:03 $ by $Author: tryggvil $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.7 $
+	 * @version $Revision: 1.8 $
 	 */
 	public class SpecialChildList implements List{
 		

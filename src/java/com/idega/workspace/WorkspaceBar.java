@@ -56,7 +56,11 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	private final static String CASE_LIST_ID = P + "case_list";	
 	
 	
-	private static String STYLE_CLASS="wf_workspacebar";
+	public static String MAIN_STYLE_CLASS="ws_mainbar";
+	public static String MAIN_NAVIGATION_STYLE_CLASS="ws_mainnavigation";
+	public static String LOGIN_STYLE_CLASS="ws_smallloginbox";
+	public static String APP_DECORATION_STYLE_CLASS="ws_appdecor";
+	public static String APP_INFO_STYLE_CLASS="ws_appinfo";
 	
 	/**
 	 * 
@@ -66,7 +70,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	}
 	
 	public void initializeContent(){
-		setStyleClass(STYLE_CLASS);
+		setStyleClass(MAIN_STYLE_CLASS);
 		UIComponent appdecor = addApplicationDecoration();
 		UIComponent login = getLogin();
 		add(login);
@@ -80,7 +84,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	 */
 	private UIComponent getLogin() {
 		WFContainer div = new WFContainer();
-		div.setStyleClass("ws_smallloginbox");
+		div.setStyleClass(LOGIN_STYLE_CLASS);
 		
 		Login2 login = new Login2();
 		//login.setLayout(Login.SINGLE_LINE);
@@ -112,7 +116,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	 */
 	private UIComponent addApplicationDecoration() {
 		WFContainer div = new WFContainer();
-		div.setStyleClass("wf_appdecor");
+		div.setStyleClass(APP_DECORATION_STYLE_CLASS);
 		add(div);
 		return div;
 //		WFPlainOutputText text = new WFPlainOutputText();
@@ -123,7 +127,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	
 	private UIComponent addApplicationInstallationInfo() {
 		WFContainer div = new WFContainer();
-		div.setStyleClass("ws_appinfo");
+		div.setStyleClass(APP_INFO_STYLE_CLASS);
 		
 		HtmlOutputText text = new HtmlOutputText();
 		String infoString = IWMainApplication.getDefaultIWApplicationContext().getDomain().getName();
@@ -146,6 +150,8 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 
 		WFTabBar tb = new WFTabBar();
 		tb.setId(MAIN_TASKBAR_ID);
+		tb.setStyleClass(MAIN_NAVIGATION_STYLE_CLASS);
+		//tb.setMenuStyleClass("ws_mainnavigation");
 		
 		FacesContext context = FacesContext.getCurrentInstance();
 		
