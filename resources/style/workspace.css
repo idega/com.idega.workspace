@@ -34,7 +34,7 @@ div.ws_head{
 }
 
 /* App Logo */
-div.ws_head div.wf_appdecor{
+div.ws_head div.ws_appdecor{
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -50,21 +50,28 @@ div.ws_head div.ws_appinfo{
 }
 
 /* Tabbar Inside ws_head */
-div.ws_head ul.wf_tabbar, 
-div.ws_head ul.wf_tabbar li{
+
+.ws_body .ws_mainnavigation{
+	position:absolute;
+	right:0px;
+	top: 0px;
+}
+
+.ws_body .ws_mainnavigation ul.wf_tabbar, 
+.ws_body .ws_mainnavigation ul.wf_tabbar li{
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-div.ws_head ul.wf_tabbar{
+.ws_body .ws_mainnavigation ul.wf_tabbar{
 	margin-top: 60px;
 	float: right;
 }
-div.ws_head ul.wf_tabbar li{
+.ws_body .ws_mainnavigation ul.wf_tabbar li{
 	float: left;
 	background: url(images/tabbar/bg_item_left.gif) left top no-repeat;
 }
-div.ws_head ul.wf_tabbar li a{
+.ws_body .ws_mainnavigation ul.wf_tabbar li a{
 	padding: 8px 12px 0;
 	margin: 0 0 0 2px;
 	float: left;
@@ -72,15 +79,15 @@ div.ws_head ul.wf_tabbar li a{
 	font-weight: bold;
 	color: #575757;
 }
-div.ws_head ul.wf_tabbar li a:hover{
+.ws_body .ws_mainnavigation ul.wf_tabbar li a:hover{
 	background: url(images/tabbar/bg_item_main_hover.gif) repeat-x;
 }
 
-div.ws_head ul.wf_tabbar li.selected{
+.ws_body .ws_mainnavigation ul.wf_tabbar li.selected{
 	background: url(images/tabbar/bg_item_left_selected.gif) left top no-repeat;
 }
-div.ws_head ul.wf_tabbar li.selected a,
-div.ws_head ul.wf_tabbar li.selected a:hover
+.ws_body .ws_mainnavigation ul.wf_tabbar li.selected a,
+.ws_body .ws_mainnavigation ul.wf_tabbar li.selected a:hover
 {
 	font-weight: bold;
 	background: url(images/tabbar/bg_item_right_selected.gif) right top no-repeat;
@@ -528,6 +535,35 @@ div.ws_functionmenu ul.wf_viewmenu li ul li:hover{
 	background: none;
 }
 
+.ws_body .ws_layout_compact .ws_head .ws_mainnavigation{
+	display:none;
+}
 
+.ws_body table, .ws_body table tr, .ws_body table tr td{
+	/*This is done because of IE, doesn't inherit font style from page:*/
+	font-size: 11px;
+	font-family:inherit;
+}
+
+.ws_body input,.ws_loginpage input,.ws_body textarea{
+	font-size: 1.1em;
+	color: #000000;
+	text-align: justify;
+	border: 1px solid #ABABAB;
+	margin: 3px;
+	font-family:inherit;
+}
+
+.ws_body select{
+	font-size:  1.1em;
+	color: #000000;
+	text-align: justify;
+	border: 1px solid #ABABAB;
+	margin: 3px;
+}
+
+.ws_body iframe{
+	border: 0px solid black;
+}
 
 /***Workspace End***/
