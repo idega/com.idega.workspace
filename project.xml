@@ -6,6 +6,7 @@
   <artifactId>com.idega.workspace</artifactId>
   <currentVersion>1.0</currentVersion>
   <!--currentVersion>1.0.1-SNAPSHOT</currentVersion-->
+
   <inceptionYear>2004</inceptionYear>
   <shortDescription>idegaWeb ePlatform Workspace</shortDescription>
   <description>idegaWeb ePlatform Workspace is the new working environment or "shell" in idegaWeb Applications</description>
@@ -25,10 +26,15 @@
       <name>0.2.1</name>
       <tag>WORKSPACE_0_2_1</tag>
     </version>
-        <version>
+    <version>
       <id>0.2.2</id>
       <name>0.2.2</name>
       <tag>WORKSPACE_0_2_2</tag>
+    </version>
+    <version>
+      <id>1.0</id>
+      <name>1.0</name>
+      <tag>WORKSPACE_1_0</tag>
     </version>
   </versions>
   <developers>
@@ -44,8 +50,12 @@
     <dependency>
       <groupId>bundles</groupId>
       <artifactId>com.idega.core</artifactId>
-      <!--HELPER--><version>3.0.6</version><!--HELPER-->
+      <!--HELPER-->
+
+      <version>3.0.6</version>
+      <!--HELPER-->
       <!--HELPERversion>SNAPSHOT</versionHELPER-->
+
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
@@ -55,8 +65,12 @@
     <dependency>
       <groupId>bundles</groupId>
       <artifactId>com.idega.faces</artifactId>
-      <!--HELPER--><version>1.0.3</version><!--HELPER-->
+      <!--HELPER-->
+
+      <version>1.0.3</version>
+      <!--HELPER-->
       <!--HELPERversion>SNAPSHOT</versionHELPER-->
+
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
@@ -66,8 +80,12 @@
     <dependency>
       <groupId>bundles</groupId>
       <artifactId>com.idega.webface</artifactId>
-      <!--HELPER--><version>1.0</version><!--HELPER-->
+      <!--HELPER-->
+
+      <version>1.0</version>
+      <!--HELPER-->
       <!--HELPERversion>SNAPSHOT</versionHELPER-->
+
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
@@ -77,8 +95,12 @@
     <dependency>
       <groupId>bundles</groupId>
       <artifactId>com.idega.block.login</artifactId>
-      <!--HELPER--><version>1.1.5</version><!--HELPER-->
+      <!--HELPER-->
+
+      <version>1.1.5</version>
+      <!--HELPER-->
       <!--HELPERversion>SNAPSHOT</versionHELPER-->
+
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
