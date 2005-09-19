@@ -4,8 +4,8 @@ html, body{
 	height: 100%;
 }
 .ws_body {
-	font-family:Verdana,Sans-serif;
-	font-size: 70%;
+	font-family: Arial, Helvetica, Sans-serif;
+	font-size: 11px;
 	background-color: #F2F2F2;
 	margin: 0px;
 	padding: 0px;
@@ -45,8 +45,10 @@ div.ws_head div.ws_appdecor{
 div.ws_head div.ws_appinfo{
 	float: left;
 	margin: 32px 0 0 0;
-	padding: 6px 0 0 10px;
-	font-size: 1.5em;
+	padding: 8px 0 0 16px;
+	font-size: 1.4em;
+	font-weight: bold;
+	color:  #38485C;
 }
 
 /* Tabbar Inside ws_head */
@@ -70,27 +72,41 @@ div.ws_head div.ws_appinfo{
 .ws_body .ws_mainnavigation ul.wf_tabbar li{
 	float: left;
 	background: url(images/tabbar/bg_item_left.gif) left top no-repeat;
+	z-index: 0;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li a{
-	padding: 8px 12px 0;
-	margin: 0 0 0 2px;
+	padding: 10px 12px 0 12px;
+	margin: 0;
 	float: left;
 	height: 21px;
 	font-weight: bold;
 	color: #575757;
+	font-size: 1.0em;
+	z-index: 0;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li a:hover{
-	background: url(images/tabbar/bg_item_main_hover.gif) repeat-x;
+	background: url(images/tabbar/bg_item_main_hover.gif) no-repeat;
+	text-decoration: none;
+	color:  #38485C;
+	z-index: 0;
 }
 
 .ws_body .ws_mainnavigation ul.wf_tabbar li.selected{
 	background: url(images/tabbar/bg_item_left_selected.gif) left top no-repeat;
+	z-index: 1;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li.selected a,
 .ws_body .ws_mainnavigation ul.wf_tabbar li.selected a:hover
 {
+	color: #38485C;
 	font-weight: bold;
 	background: url(images/tabbar/bg_item_right_selected.gif) right top no-repeat;
+	text-decoration: none;
+	margin-right: -3px;
+	padding-right: 16px;
+	padding-top: 7px;
+	height: 24px;
+	z-index: 1;
 }
 
 div.ws_layout_twocolumn{
@@ -104,7 +120,7 @@ div.ws_functionmenu{
 	bottom: 4px;
 	left: 0;
 	width: 202px;
-	background: url(images/bg_left.gif) repeat-y;
+	#background: url(images/bg_left.gif) repeat-y;
 
 /* IE fix for non support for bottom:0  */
 	height: expression(
@@ -157,23 +173,37 @@ html>body div.ws_functionmenu div.ws_bottom{
 	bottom: 0;
 }
 
+/*Small login box*/
 div.ws_smallloginbox{
 	position: absolute;
 	right: 0;
-	padding: 0 0 0 25px;
-	width: 400px;
+	padding: 7px 4px 0 25px;
+	width: 271px;
+	height: 19px;
 	color: #fff;
 	background: #4C627D url(images/smallloginbox/bg_left.gif) left bottom no-repeat;
-	font-size: 0.9em;
-	font-weight: bold;
+}
+div.ws_smallloginbox .login {
+	width: 271px;
+	max-width: 271px;
+}
+div.ws_smallloginbox .currentUser {
+	font-weight: normal;
+	font-size: 1em;
+	width: 120px;
+}
+div.ws_smallloginbox p{
+	float: left;
 }
 div.ws_smallloginbox input{
+	float: right;
 	margin: 0;
-	padding: 0;
+	padding: 0 6px 0 6px;
 	background: #38485C;
 	color: #fff;
-	font-size: 0.9em;
+	font-size: 0.8em;
 	border: 1px solid #6F89A8;
+	text-transform: uppercase;
 }
 
 /* Main Layout Definition Begin */
@@ -437,10 +467,14 @@ div.ws_functionmenu .wf_block{
 	margin-left: 4px;
 	margin-bottom: 0;
 }
+div.ws_functionmenu div.wf_titlebar_icon{
+	display: none;
+}
 div.ws_functionmenu div.wf_titlebar{
-	height: 34px;
-	background: url(images/bg_titlebar_big.gif) repeat-x;
-	padding: 8px 0 0 12px;
+	border-top: 1px #fff solid;
+	height: 35px;
+	background: url(images/wf_background.gif) repeat-x;
+	padding: 6px 0 0 11px;
 	color: #515151;
 	font-weight: bold;
 	font-size: 1.2em;
@@ -475,10 +509,10 @@ div.ws_functionmenu ul.wf_viewmenu li{
 	border-top: 1px solid #F4F4F4;
 	clear: both;
 	display: block;
-	min-height:31px;
+	#min-height:31px;
 	overflow:auto;
-	padding-bottom:3px;
-	padding-right:3px;
+	#padding-bottom:3px;
+	#padding-right:3px;
 }
 
 div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu li{
@@ -489,9 +523,10 @@ div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu li{
 div.ws_functionmenu ul.wf_viewmenu li a{
 	color: #303030;
 	font-weight: bold;
-	padding: 5px 0 0 24px;
+	padding: 6px 0 6px 24px;
 	display: block;
 	background: url(images/viewmenu_mainbullet2.png) 11px 7px no-repeat;
+	font-size: 11px;
 
 	/***IE TRANSPARENCY HACKS***/
   /* Mozilla ignores crazy MS image filters, so it will skip the following */
@@ -522,13 +557,15 @@ div.ws_functionmenu ul.wf_viewmenu li ul li{
 	float: left;
 	clear: none;
 	height: auto;
-	font-size: 0.9em;
+	padding-bottom: 4px;
 }
 div.ws_functionmenu ul.wf_viewmenu li ul li a{
 	display: inline;
 	font-weight: normal;
 	padding: 0 0 0 5px;
 	background: none;
+	font-size: 10px;
+	color: #777777;
 /* 	_filter: none;*/
 }
 div.ws_functionmenu ul.wf_viewmenu li ul li:hover{
