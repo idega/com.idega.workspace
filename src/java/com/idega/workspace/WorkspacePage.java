@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.8 2005/09/14 01:30:03 tryggvil Exp $
+ *  $Id: WorkspacePage.java,v 1.9 2005/09/20 16:24:38 thomas Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -33,10 +33,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2005/09/14 01:30:03 $ by $Author: tryggvil $
+ * Last modified: $Date: 2005/09/20 16:24:38 $ by $Author: thomas $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public class WorkspacePage extends Page {
 
@@ -173,7 +173,7 @@ public class WorkspacePage extends Page {
 			ViewNode parentNode = appNode.getParent();
 			ViewManager viewManager = getViewManager();
 			ViewNode workspaceNode = viewManager.getWorkspaceRoot();
-			while(!(parentNode.equals(workspaceNode)||appNode.equals(workspaceNode))){
+			while(!(parentNode == null || parentNode.equals(workspaceNode)||appNode.equals(workspaceNode))){
 				appNode=parentNode;
 				parentNode=appNode.getParent();
 			}
@@ -413,10 +413,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2005/09/14 01:30:03 $ by $Author: tryggvil $
+	 *  Last modified: $Date: 2005/09/20 16:24:38 $ by $Author: thomas $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.8 $
+	 * @version $Revision: 1.9 $
 	 */
 	public class SpecialChildList implements List{
 		
