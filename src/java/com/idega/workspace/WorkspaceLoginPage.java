@@ -1,8 +1,11 @@
 /*
- * Created on 13.7.2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * $Id: WorkspaceLoginPage.java,v 1.8 2005/09/23 17:26:44 tryggvil Exp $ Created on 13.7.2004
+ * in project com.idega.core
+ * 
+ * Copyright (C) 2004-2005 Idega Software hf. All Rights Reserved.
+ * 
+ * This software is the proprietary information of Idega hf. Use is subject to
+ * license terms.
  */
 package com.idega.workspace;
 
@@ -11,21 +14,27 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.context.FacesContext;
 import com.idega.block.login.presentation.Login;
-import com.idega.idegaweb.IWBundle;
 import com.idega.idegaweb.IWMainApplication;
-import com.idega.idegaweb.IWResourceBundle;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.Page;
 import com.idega.presentation.Table;
+import com.idega.servlet.filter.IWAuthenticator;
 import com.idega.webface.WFBezel;
 import com.idega.webface.WFContainer;
 import com.idega.webface.WFUtil;
 
-
+/**
+ * <p>
+ * This is the component for the default login page in the idegaWeb Workspace.
+ * </p>
+ * Last modified: $Date: 2005/09/23 17:26:44 $ by $Author: tryggvil $
+ * 
+ * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
+ * @version $Revision: 1.8 $
+ */
 public class WorkspaceLoginPage extends Page {
 	private final static String IW_BUNDLE_IDENTIFIER = "com.idega.webface";
-	private IWBundle iwb;
-	private IWResourceBundle iwrb;
+
 	String backgroundColor = "#B0B29D";
 
 	public WorkspaceLoginPage() {
@@ -34,9 +43,10 @@ public class WorkspaceLoginPage extends Page {
 	public String getBundleIdentifier() {
 		return IW_BUNDLE_IDENTIFIER;
 	}
-	public void main(IWContext iwc) {
-		iwb = this.getBundle(iwc);
-		iwrb = this.getResourceBundle(iwc);
+	//public void main(IWContext iwc) {
+	public void initializeContent(FacesContext context){
+		IWContext iwc = IWContext.getIWContext(context);
+
 		IWMainApplication iwma = iwc.getIWMainApplication();
 		Page thePage = this;
 		String productName = iwma.getProductInfo().getFullProductName();
@@ -85,9 +95,18 @@ public class WorkspaceLoginPage extends Page {
 			login.setHeight("60");
 			login.setWidth("70");
 			
+			String redirectUri = iwc.getParameter(IWAuthenticator.PARAMETER_REDIRECT_URI_ONLOGON);
+			String loginUri=null;
+			
+			if(redirectUri!=null&&!redirectUri.equals("")){
+				loginUri=redirectUri;
+			}
+			else{
+				loginUri=iwma.getWorkspaceURI();
+			}
+			
 			//login.setAllowCookieLogin(true);
-			String workspaceUrl = iwma.getWorkspaceURI();
-			login.setUrlToForwardToOnLogin(workspaceUrl);
+			login.setUrlToForwardToOnLogin(loginUri);
 			
 			loginBox.add(login);
 
@@ -136,7 +155,34 @@ public class WorkspaceLoginPage extends Page {
 	 * @see javax.faces.component.UIComponent#encodeBegin(javax.faces.context.FacesContext)
 	 */
 	public void encodeBegin(FacesContext context) throws IOException {
+		if(!isInitalized()){
+			initializeContent(context);
+			setInitialized(true);
+		}
+		
 		super.encodeBegin(context);
+	}
+	/**
+	 * <p>
+	 * TODO tryggvil describe method setInitialized
+	 * </p>
+	 * @param b
+	 */
+	private void setInitialized(boolean b) {
+		getAttributes().put("initialized",Boolean.valueOf(b));
+	}
+	/**
+	 * <p>
+	 * TODO tryggvil describe method isInitalized
+	 * </p>
+	 * @return
+	 */
+	private boolean isInitalized() {
+		Boolean b = (Boolean) getAttributes().get("initialized");
+		if(b!=null){
+			return b.booleanValue();
+		}
+		return false;
 	}
 	/* (non-Javadoc)
 	 * @see javax.faces.component.UIComponent#encodeChildren(javax.faces.context.FacesContext)
