@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.9 2005/09/20 16:24:38 thomas Exp $
+ *  $Id: WorkspacePage.java,v 1.10 2005/10/10 11:30:54 tryggvil Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -33,10 +33,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2005/09/20 16:24:38 $ by $Author: thomas $
+ * Last modified: $Date: 2005/10/10 11:30:54 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.9 $
+ * @version $Revision: 1.10 $
  */
 public class WorkspacePage extends Page {
 
@@ -104,6 +104,7 @@ public class WorkspacePage extends Page {
 				//String nodeId = node.getViewId();
 				String nodeId = getNodeNameForFunctionMenu(node);
 				WorkspaceFunctionMenu menu = new WorkspaceFunctionMenu();
+				menu.setId(getId()+"WorkspaceFunctionMenu");
 				menu.setApplication(nodeId);
 				add(FACET_FUNCTIONMENU,menu);					
 			}
@@ -124,6 +125,7 @@ public class WorkspacePage extends Page {
 		
 		WorkspaceBar bar = new WorkspaceBar();
 		bar.setStyleClass("ws_mainnavigation");
+		bar.setId(getId()+"WorkspaceBar");
 		//form.getChildren().add(bar);
 		add(FACET_HEAD,bar);
 		
@@ -197,17 +199,17 @@ public class WorkspacePage extends Page {
 		this.getForm().getChildren().add(comp);
 	}
 	
-	public void add(String key,UIComponent comp){
+	public void add(String key,UIComponent child){
 		UIForm f = getForm();
 		UIComponent setComp = getPageFacet(key);
 		if(setComp==null){
 			WFContainer container = new WFContainer();
 			setPageFacet(key,container);
 			container.setStyleClass(key);
-			container.add(comp);
+			container.add(child);
 		}
 		else{
-			setComp.getChildren().add(comp);
+			setComp.getChildren().add(child);
 		}
 	}
 	
@@ -223,6 +225,7 @@ public class WorkspacePage extends Page {
 		UIComponent area = getPageFacet(FACET_LAYOUT);
 		if(area==null){
 			WFContainer container = new WFContainer();
+			container.setId(FACET_LAYOUT);
 			container.setStyleClass(getLayout());
 			setPageFacet(FACET_LAYOUT,container);
 			area=container;
@@ -234,6 +237,7 @@ public class WorkspacePage extends Page {
 		UIComponent area = getPageFacet(FACET_MAIN);
 		if(area==null){
 			WFContainer container = new WFContainer();
+			container.setId(FACET_MAIN);
 			container.setStyleClass(FACET_MAIN);
 			setPageFacet(FACET_MAIN,container);
 			area=container;
@@ -245,6 +249,7 @@ public class WorkspacePage extends Page {
 		UIComponent head = getPageFacet(FACET_HEAD);
 		if(head==null){
 			WFContainer container = new WFContainer();
+			container.setId(FACET_HEAD);
 			container.setStyleClass(FACET_HEAD);
 			setPageFacet(FACET_HEAD,container);
 			head=container;
@@ -256,6 +261,7 @@ public class WorkspacePage extends Page {
 		UIComponent menu = getPageFacet(FACET_FUNCTIONMENU);
 		if(FACET_HEAD==null){
 			WFContainer container = new WFContainer();
+			container.setId(FACET_FUNCTIONMENU);
 			container.setStyleClass(FACET_FUNCTIONMENU);
 			setPageFacet(FACET_FUNCTIONMENU,container);
 			menu=container;
@@ -413,10 +419,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2005/09/20 16:24:38 $ by $Author: thomas $
+	 *  Last modified: $Date: 2005/10/10 11:30:54 $ by $Author: tryggvil $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.9 $
+	 * @version $Revision: 1.10 $
 	 */
 	public class SpecialChildList implements List{
 		
