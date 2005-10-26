@@ -69,7 +69,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		super();
 	}
 	
-	public void initializeContent(){
+	public void initializeComponent(FacesContext context){
 		setStyleClass(MAIN_STYLE_CLASS);
 		UIComponent appdecor = addApplicationDecoration();
 		UIComponent login = getLogin();
