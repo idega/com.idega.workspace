@@ -25,7 +25,6 @@ import com.idega.presentation.text.Text;
 import com.idega.webface.WFContainer;
 import com.idega.webface.WFMenu;
 import com.idega.webface.WFTabBar;
-import com.idega.webface.WFTabbedPane;
 import com.idega.webface.WFUtil;
 import com.idega.webface.event.WFTabEvent;
 
@@ -71,10 +70,9 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	
 	public void initializeComponent(FacesContext context){
 		setStyleClass(MAIN_STYLE_CLASS);
-		UIComponent appdecor = addApplicationDecoration();
+		addApplicationDecoration();
 		UIComponent login = getLogin();
 		add(login);
-		//appdecor.getChildren().add(login);
 		addApplicationInstallationInfo();
 		addTabbar();
 	}
@@ -218,7 +216,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	 * @see com.idega.webface.event.WFTabListener#taskbarButtonPressed() 
 	 */
 	public void tabPressed(WFTabEvent e) {
-		WFTabbedPane t = e.getTaskbar();
+		e.getTaskbar();
 		/*UIComponent articleVersionBlock = t.findComponent(ArticleVersionBlock.ARTICLE_VERSION_BLOCK_ID);
 		if (t.getSelectedButtonId().equals(ArticleBlock.TASK_ID_PREVIEW)) {
 			articleVersionBlock.setRendered(true);
@@ -233,7 +231,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	 */
 	public void processAction(ActionEvent event) {
 		UIComponent link = event.getComponent();
-		String id = WFUtil.getParameter(link, "id");
+		WFUtil.getParameter(link, "id");
 		/*WFTabBar tb = (WFTabBar) link.getParent().getParent().getParent().findComponent(MAIN_TASKBAR_ID);
 		tb.setSelectedButtonId(TASK_ID_EDIT);
 		ArticleBlock ab = (ArticleBlock) tb.findComponent(ArticleBlock.ARTICLE_BLOCK_ID);

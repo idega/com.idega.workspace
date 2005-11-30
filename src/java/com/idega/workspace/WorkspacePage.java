@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.10 2005/10/10 11:30:54 tryggvil Exp $
+ *  $Id: WorkspacePage.java,v 1.11 2005/11/30 09:36:54 laddi Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -33,10 +33,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2005/10/10 11:30:54 $ by $Author: tryggvil $
+ * Last modified: $Date: 2005/11/30 09:36:54 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public class WorkspacePage extends Page {
 
@@ -92,7 +92,6 @@ public class WorkspacePage extends Page {
 
 		thePage.setTitle("idegaWeb Applications");
 
-		String requestUri = iwc.getRequestURI();
 		//TODO: Change this, this is a hack for the function menu:
 		ViewManager viewManager = getViewManager(iwc);
 		ViewNode node = viewManager.getViewNodeForContext(iwc);
@@ -200,7 +199,7 @@ public class WorkspacePage extends Page {
 	}
 	
 	public void add(String key,UIComponent child){
-		UIForm f = getForm();
+		getForm();
 		UIComponent setComp = getPageFacet(key);
 		if(setComp==null){
 			WFContainer container = new WFContainer();
@@ -419,10 +418,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2005/10/10 11:30:54 $ by $Author: tryggvil $
+	 *  Last modified: $Date: 2005/11/30 09:36:54 $ by $Author: laddi $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.10 $
+	 * @version $Revision: 1.11 $
 	 */
 	public class SpecialChildList implements List{
 		
