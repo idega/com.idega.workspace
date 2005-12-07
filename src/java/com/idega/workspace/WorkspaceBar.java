@@ -161,7 +161,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		for (Iterator iter = workspaceNode.getChildren().iterator(); iter.hasNext();) {
 			ViewNode subNode = (ViewNode) iter.next();
 			if(maySeeNode(context,subNode)){
-				String url = subNode.getURI();
+				String url = subNode.getURIWithContextPath();
 				HtmlOutputLink link =  tb.addLink(subNode.getName(),url);
 				
 				//Add a shortcut key if the view node has one

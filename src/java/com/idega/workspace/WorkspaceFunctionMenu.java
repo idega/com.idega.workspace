@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspaceFunctionMenu.java,v 1.11 2005/11/30 09:36:54 laddi Exp $
+ * $Id: WorkspaceFunctionMenu.java,v 1.12 2005/12/07 21:39:23 tryggvil Exp $
  * Created on 2.11.2004
  *
  * Copyright (C) 2004 Idega Software hf. All Rights Reserved.
@@ -24,10 +24,10 @@ import com.idega.webface.WFVerticalMenu;
 /**
  * This class holds a "function menu" in the workspace environment for the current selected tab.
  * This menu is usually displayd to the left on the page.
- *  Last modified: $Date: 2005/11/30 09:36:54 $ by $Author: laddi $
+ *  Last modified: $Date: 2005/12/07 21:39:23 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public class WorkspaceFunctionMenu extends WFBlock {
 
@@ -83,7 +83,7 @@ public class WorkspaceFunctionMenu extends WFBlock {
 			if(maySeeNode(context,childNode)){
 				if(childNode.getChildren().size()>0){
 					WFVerticalMenu subMenu = new WFVerticalMenu();
-					HtmlOutputLink link = subMenu.setMenuHeader(childNode.getName(),childNode.getURI());
+					HtmlOutputLink link = subMenu.setMenuHeader(childNode.getName(),childNode.getURIWithContextPath());
 					//Add a shortcut key if the view node has one
 					KeyboardShortcut shortCut = childNode.getKeyboardShortcut();
 					if(shortCut!=null){
@@ -96,7 +96,7 @@ public class WorkspaceFunctionMenu extends WFBlock {
 					
 				}
 				else{
-					String url = childNode.getURI();
+					String url = childNode.getURIWithContextPath();
 					String name = childNode.getName();
 					HtmlOutputLink link =  menu.addLink(name,url);
 					
