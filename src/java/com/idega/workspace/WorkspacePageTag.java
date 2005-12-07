@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspacePageTag.java,v 1.4 2005/10/10 11:30:54 tryggvil Exp $
+ * $Id: WorkspacePageTag.java,v 1.5 2005/12/07 11:47:48 tryggvil Exp $
  *
  * Copyright (C) 2004 Idega. All Rights Reserved.
  *
@@ -16,14 +16,15 @@ import com.idega.presentation.PageTag;
 /**
  * JSP tag for Workspace
  * <p>
- * Last modified: $Date: 2005/10/10 11:30:54 $ by $Author: tryggvil $
+ * Last modified: $Date: 2005/12/07 11:47:48 $ by $Author: tryggvil $
  *
  * @author tryggvil
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class WorkspacePageTag extends PageTag {
 	
 	String layout;
+	Boolean showFunctionMenu;
 	
 	/**
 	 * @see javax.faces.webapp.UIComponentTag#getRendererType()
@@ -50,10 +51,17 @@ public class WorkspacePageTag extends PageTag {
 		if(layout!=null){
 			page.setLayout(layout);
 		}
+		if(showFunctionMenu!=null){
+			page.setShowFunctionMenu(showFunctionMenu.booleanValue());
+		}
 	}
 
 	public void setLayout(String layout){
 		this.layout=layout;
+	}
+	
+	public void setShowFunctionMenu(boolean showMenu){
+		this.showFunctionMenu=new Boolean(showMenu);
 	}
 
 	/* (non-Javadoc)

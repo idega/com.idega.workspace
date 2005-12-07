@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.11 2005/11/30 09:36:54 laddi Exp $
+ *  $Id: WorkspacePage.java,v 1.12 2005/12/07 11:47:48 tryggvil Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -33,10 +33,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2005/11/30 09:36:54 $ by $Author: laddi $
+ * Last modified: $Date: 2005/12/07 11:47:48 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 public class WorkspacePage extends Page {
 
@@ -55,6 +55,8 @@ public class WorkspacePage extends Page {
 	private static String LAYOUT_COMPACT="ws_layout_compact";
 	
 	private String layout=LAYOUT_ONECOLUMN;
+
+	private Boolean showFunctionMenu;
 	
 	private static String FACET_HEAD="ws_head";
 	private static String FACET_FUNCTIONMENU="ws_functionmenu";
@@ -166,19 +168,24 @@ public class WorkspacePage extends Page {
 	
 	
 	protected boolean displayFunctionMenu(ViewNode node){
-		if(getLayout().equals(LAYOUT_COMPACT)){
-			return false;
+		if(showFunctionMenu!=null){
+			return showFunctionMenu.booleanValue();
 		}
 		else{
-			ViewNode appNode = node;
-			ViewNode parentNode = appNode.getParent();
-			ViewManager viewManager = getViewManager();
-			ViewNode workspaceNode = viewManager.getWorkspaceRoot();
-			while(!(parentNode == null || parentNode.equals(workspaceNode)||appNode.equals(workspaceNode))){
-				appNode=parentNode;
-				parentNode=appNode.getParent();
+			if(getLayout().equals(LAYOUT_COMPACT)){
+				return false;
 			}
-			return (appNode.getChildren().size()>0);
+			else{
+				ViewNode appNode = node;
+				ViewNode parentNode = appNode.getParent();
+				ViewManager viewManager = getViewManager();
+				ViewNode workspaceNode = viewManager.getWorkspaceRoot();
+				while(!(parentNode == null || parentNode.equals(workspaceNode)||appNode.equals(workspaceNode))){
+					appNode=parentNode;
+					parentNode=appNode.getParent();
+				}
+				return (appNode.getChildren().size()>0);
+			}
 		}
 	}
 	
@@ -418,10 +425,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2005/11/30 09:36:54 $ by $Author: laddi $
+	 *  Last modified: $Date: 2005/12/07 11:47:48 $ by $Author: tryggvil $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.11 $
+	 * @version $Revision: 1.12 $
 	 */
 	public class SpecialChildList implements List{
 		
@@ -640,6 +647,10 @@ public class WorkspacePage extends Page {
 	 */
 	public String getLayout(){
 		return layout;
+	}
+	
+	public void setShowFunctionMenu(boolean showMenu){
+		showFunctionMenu=new Boolean(showMenu);
 	}
 	
 
