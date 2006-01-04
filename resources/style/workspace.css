@@ -216,7 +216,7 @@ div.ws_layout_twocolumn div.ws_main{
 div.ws_layout_onecolumn div.ws_main{
 	margin: 0 0 0 4px;
 }
-div.ws_main .wf_block.BlockStretch{
+div.ws_main .wf_block.maximizedvertically{
 	position: relative;
 	height: expression(
 	(
@@ -235,7 +235,7 @@ div.ws_main .wf_block.BlockStretch{
 	);
 }
 
-html>body div.ws_main .wf_block.BlockStretch{
+html>body div.ws_main .wf_block.maximizedvertically{
 	height: auto;
 	position: absolute;
 	top: 93px;
@@ -246,52 +246,41 @@ html>body div.ws_main .wf_block.BlockStretch{
 	overflow: hidden;
 }
 
-div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea{
+div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 	position: absolute;
-	top: 46px;
+	top: 45px;
 	left: 0;
 	height: expression(
 	(
 	document.body.clientHeight) ?
-	document.body.clientHeight - 175 + 'px'
+	document.body.clientHeight - 146 + 'px'
 	:
-	document.documentElement.clientHeight - 169 + 'px'
+	document.documentElement.clientHeight - 146 + 'px'
 	);
 
 	width: expression(
 	(
 	document.body.clientWidth) ?
-	document.body.clientWidth - 225 + 'px'
+	document.body.clientWidth - 212 + 'px'
 	:
-	document.documentElement.clientWidth - 225 + 'px'
+	document.documentElement.clientWidth - 212 + 'px'
 	);
 	overflow-y: scroll;
 	width: 100%;
 	/*background: #fff;*/
 	
-	background-color: #E8E8E8;
-
-	
 }
 
-html>body div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea .wf_container{
-	margin: 0px 0px 0px 0px;
-	padding: 8px 8px 8px 8px;
-}
-
-html>body div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea .wf_container textarea{
-	width: 400px;
-}
-
-html>body div.ws_main .wf_block.BlockStretch .wf_tabbarmainarea{
+html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 	position: absolute;
-	top: 46px;
 	left: 0;
 	right: 0;
+	width: auto;
 	bottom: 0;
 	overflow: scroll;
 	overflow:-moz-scrollbars-vertical;
 }
+
 .wf_login{
 	margin: 100px;
 	color: white;

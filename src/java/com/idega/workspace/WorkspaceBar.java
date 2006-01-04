@@ -216,7 +216,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	 * @see com.idega.webface.event.WFTabListener#taskbarButtonPressed() 
 	 */
 	public void tabPressed(WFTabEvent e) {
-		e.getTaskbar();
+		e.getTabbedPane();
 		/*UIComponent articleVersionBlock = t.findComponent(ArticleVersionBlock.ARTICLE_VERSION_BLOCK_ID);
 		if (t.getSelectedButtonId().equals(ArticleBlock.TASK_ID_PREVIEW)) {
 			articleVersionBlock.setRendered(true);
