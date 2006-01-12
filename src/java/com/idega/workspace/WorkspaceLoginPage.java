@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspaceLoginPage.java,v 1.8 2005/09/23 17:26:44 tryggvil Exp $ Created on 13.7.2004
+ * $Id: WorkspaceLoginPage.java,v 1.9 2006/01/12 15:33:13 tryggvil Exp $ Created on 13.7.2004
  * in project com.idega.core
  * 
  * Copyright (C) 2004-2005 Idega Software hf. All Rights Reserved.
@@ -27,10 +27,10 @@ import com.idega.webface.WFUtil;
  * <p>
  * This is the component for the default login page in the idegaWeb Workspace.
  * </p>
- * Last modified: $Date: 2005/09/23 17:26:44 $ by $Author: tryggvil $
+ * Last modified: $Date: 2006/01/12 15:33:13 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.8 $
+ * @version $Revision: 1.9 $
  */
 public class WorkspaceLoginPage extends Page {
 	private final static String IW_BUNDLE_IDENTIFIER = "com.idega.webface";
@@ -90,6 +90,7 @@ public class WorkspaceLoginPage extends Page {
 		}	
 			//WFLogin login = new WFLogin();
 			Login login = new Login();
+			login.setAllowCookieLogin(true);
 			login.setUseRegularButton();
 			login.setNoStyles();
 			login.setHeight("60");
