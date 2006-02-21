@@ -8,7 +8,6 @@ import javax.faces.component.UIForm;
 import javax.faces.component.html.HtmlForm;
 import javax.faces.context.FacesContext;
 import com.idega.core.view.ComponentClassViewNode;
-import com.idega.core.view.DefaultViewNode;
 import com.idega.core.view.ViewNode;
 import com.idega.idegaweb.IWMainApplication;
 import com.idega.webface.WFBlock;
@@ -19,10 +18,10 @@ import com.idega.workspace.WorkspacePage;
  * <p>
  * TODO tryggvil Describe Type WorkspaceClassViewNode
  * </p>
- *  Last modified: $Date: 2006/02/20 23:24:55 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2006/02/21 16:17:40 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class WorkspaceClassViewNode extends ComponentClassViewNode {
 

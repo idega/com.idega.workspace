@@ -3,7 +3,6 @@
  */
 package com.idega.workspace.view;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import com.idega.core.view.ApplicationViewNode;
 import com.idega.core.view.ViewNode;
@@ -15,10 +14,10 @@ import com.idega.idegaweb.IWMainApplication;
  * <p>
  * TODO tryggvil Describe Type WorkspaceApplicationNode
  * </p>
- *  Last modified: $Date: 2006/02/20 23:24:55 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2006/02/21 16:17:40 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class WorkspaceApplicationNode extends ApplicationViewNode {
 
