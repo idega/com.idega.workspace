@@ -18,13 +18,15 @@ import com.idega.workspace.WorkspacePage;
  * <p>
  * TODO tryggvil Describe Type WorkspaceClassViewNode
  * </p>
- *  Last modified: $Date: 2006/02/21 16:17:40 $ by $Author: laddi $
+ *  Last modified: $Date: 2006/02/22 18:18:23 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class WorkspaceClassViewNode extends ComponentClassViewNode {
 
+	private boolean maximizeBlockVertically=false;
+	
 	/**
 	 * @param iwma
 	 */
@@ -63,6 +65,7 @@ public class WorkspaceClassViewNode extends ComponentClassViewNode {
 		
 		WFBlock block = new WFBlock();
 		block.setTitle(getName());
+		block.setMaximizedVertically(isMaximizeBlockVertically());
 		//block.setMaximizedVertically(true);
 		if(componentInstance!=null){
 			block.getChildren().add(componentInstance);
@@ -70,6 +73,22 @@ public class WorkspaceClassViewNode extends ComponentClassViewNode {
 		form.getChildren().add(block);
 		
 		return page;
+	}
+
+	
+	/**
+	 * @return Returns the maximizeBlockVertically.
+	 */
+	public boolean isMaximizeBlockVertically() {
+		return maximizeBlockVertically;
+	}
+
+	
+	/**
+	 * @param maximizeBlockVertically The maximizeBlockVertically to set.
+	 */
+	public void setMaximizeBlockVertically(boolean maximizeBlockVertically) {
+		this.maximizeBlockVertically = maximizeBlockVertically;
 	}
 	
 }
