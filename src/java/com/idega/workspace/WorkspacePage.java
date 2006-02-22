@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.13 2006/02/20 23:24:55 tryggvil Exp $
+ *  $Id: WorkspacePage.java,v 1.14 2006/02/22 20:54:43 laddi Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.ListIterator;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIForm;
-import javax.faces.component.html.HtmlForm;
 import javax.faces.context.FacesContext;
 import com.idega.core.view.FramedApplicationViewNode;
 import com.idega.core.view.ViewManager;
@@ -33,10 +32,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2006/02/20 23:24:55 $ by $Author: tryggvil $
+ * Last modified: $Date: 2006/02/22 20:54:43 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public class WorkspacePage extends Page {
 
@@ -51,7 +50,6 @@ public class WorkspacePage extends Page {
 	
 	private static String LAYOUT_ONECOLUMN="ws_layout_onecolumn";
 	private static String LAYOUT_TWOCOLUMN="ws_layout_twocolumn";
-	private static String LAYOUT_THREECOLUMN="ws_layout_threecolumn";
 	private static String LAYOUT_COMPACT="ws_layout_compact";
 	
 	private String layout=LAYOUT_ONECOLUMN;
@@ -284,22 +282,6 @@ public class WorkspacePage extends Page {
 		this.embedForm=doEmbed;
 	}
 	
-	private void initalizeEmbeddedForm(){
-		HtmlForm form = new HtmlForm();
-		//form.setId(this.getId()+"-form");
-		form.setParent(this);
-		//specialList = new SpecialChildList(this,form);
-		
-		//add(form);
-		setForm(form);
-	}
-	
-	private void setForm(UIForm form){
-		//String formId = this.getId()+"-form";
-		//getFacets().put(formId,form); 
-		this.form=form;
-	}
-	
 	private UIForm getForm(){
 		//String formId = this.getId()+"-form";
 		//return (UIForm)getFacets().get(formId);
@@ -425,10 +407,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2006/02/20 23:24:55 $ by $Author: tryggvil $
+	 *  Last modified: $Date: 2006/02/22 20:54:43 $ by $Author: laddi $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.13 $
+	 * @version $Revision: 1.14 $
 	 */
 	public class SpecialChildList implements List{
 		

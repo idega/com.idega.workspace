@@ -45,16 +45,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 
 	private final static String P = "cms_page_"; // Parameter prefix
 	
-	private final static String TASK_ID_CONTENT = P + "t_content";
-	private final static String TASK_ID_EDIT = P + "t_edit";
-	private final static String TASK_ID_BUILDER = P + "t_builder";
-	private final static String TASK_ID_WEBVIEW = P + "t_webview";
-	
 	private final static String MAIN_TASKBAR_ID = P + "main_taskbar";
-	private final static String ARTICLE_LIST_ID = P + "article_list";
-	private final static String CASE_LIST_ID = P + "case_list";	
-	
-	
 	public static String MAIN_STYLE_CLASS="ws_mainbar";
 	public static String MAIN_NAVIGATION_STYLE_CLASS="ws_mainnavigation";
 	public static String LOGIN_STYLE_CLASS="ws_smallloginbox";
