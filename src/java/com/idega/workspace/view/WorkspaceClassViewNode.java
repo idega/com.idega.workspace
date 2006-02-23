@@ -18,14 +18,21 @@ import com.idega.workspace.WorkspacePage;
  * <p>
  * TODO tryggvil Describe Type WorkspaceClassViewNode
  * </p>
- *  Last modified: $Date: 2006/02/22 18:18:23 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2006/02/23 16:31:42 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class WorkspaceClassViewNode extends ComponentClassViewNode {
 
 	private boolean maximizeBlockVertically=false;
+	
+	/**
+	 * @param iwma
+	 */
+	public WorkspaceClassViewNode() {
+		this(IWMainApplication.getDefaultIWMainApplication());
+	}
 	
 	/**
 	 * @param iwma
