@@ -44,7 +44,7 @@
     ePlatform version 3.0
  </text>
  
- <image x="160" y="350" xlink:href="idega_new_allwhite.svg" width="170" height="61"/>
+ <image x="160" y="350" style="background:url(idega_new_allwhite.svg)" xlink:href="idega_new_allwhite.svg" width="170" height="61"/>
 
 <!--
  <text x="130" y="270" 
