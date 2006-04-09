@@ -70,7 +70,7 @@ public class WFLogin extends WFContainer {
 		super.setHeight(height);
 		UIComponent login = this.getEmbeddedLogin();
 		try {
-			invoker.invokeMethodWithStringParameter(login, "setHeight", height);
+			this.invoker.invokeMethodWithStringParameter(login, "setHeight", height);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -81,7 +81,7 @@ public class WFLogin extends WFContainer {
 		super.setWidth(width);
 		UIComponent login = this.getEmbeddedLogin();
 		try {
-			invoker.invokeMethodWithStringParameter(login, "setWidth", width);
+			this.invoker.invokeMethodWithStringParameter(login, "setWidth", width);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -91,7 +91,7 @@ public class WFLogin extends WFContainer {
 	public void setAllowCookieLogin(boolean ifAllow){
 		UIComponent login = this.getEmbeddedLogin();
 		try {
-			invoker.invokeMethodWithBooleanParameter(login, "setAllowCookieLogin", ifAllow);
+			this.invoker.invokeMethodWithBooleanParameter(login, "setAllowCookieLogin", ifAllow);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -101,7 +101,7 @@ public class WFLogin extends WFContainer {
 	public void setLogoutButtonImageURL(String url){
 		UIComponent login = this.getEmbeddedLogin();
 		try {
-			invoker.invokeMethodWithStringParameter(login, "setLogoutButtonImageURL", url);
+			this.invoker.invokeMethodWithStringParameter(login, "setLogoutButtonImageURL", url);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -111,7 +111,7 @@ public class WFLogin extends WFContainer {
 	public void setViewOnlyLogoutButton(boolean ifView){
 		UIComponent login = this.getEmbeddedLogin();
 		try {
-			invoker.invokeMethodWithBooleanParameter(login, "setViewOnlyLogoutButton", ifView);
+			this.invoker.invokeMethodWithBooleanParameter(login, "setViewOnlyLogoutButton", ifView);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -122,7 +122,7 @@ public class WFLogin extends WFContainer {
 	public void setUrlToForwardToOnLogin(String url){
 		UIComponent login = this.getEmbeddedLogin();
 		try {
-			invoker.invokeMethodWithStringParameter(login, "setUrlToForwardToOnLogin", url);
+			this.invoker.invokeMethodWithStringParameter(login, "setUrlToForwardToOnLogin", url);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -139,7 +139,7 @@ public class WFLogin extends WFContainer {
 	public void setLayout(int layout){
 		UIComponent login = this.getEmbeddedLogin();
 		try {
-			invoker.invokeMethodWithIntParameter(login, "setLayout", layout);
+			this.invoker.invokeMethodWithIntParameter(login, "setLayout", layout);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

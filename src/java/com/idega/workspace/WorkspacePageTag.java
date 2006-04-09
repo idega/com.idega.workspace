@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspacePageTag.java,v 1.5 2005/12/07 11:47:48 tryggvil Exp $
+ * $Id: WorkspacePageTag.java,v 1.6 2006/04/09 11:45:30 laddi Exp $
  *
  * Copyright (C) 2004 Idega. All Rights Reserved.
  *
@@ -16,10 +16,10 @@ import com.idega.presentation.PageTag;
 /**
  * JSP tag for Workspace
  * <p>
- * Last modified: $Date: 2005/12/07 11:47:48 $ by $Author: tryggvil $
+ * Last modified: $Date: 2006/04/09 11:45:30 $ by $Author: laddi $
  *
  * @author tryggvil
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class WorkspacePageTag extends PageTag {
 	
@@ -48,11 +48,11 @@ public class WorkspacePageTag extends PageTag {
 		// TODO Auto-generated method stub
 		super.setProperties(component);
 		WorkspacePage page = (WorkspacePage)component;
-		if(layout!=null){
-			page.setLayout(layout);
+		if(this.layout!=null){
+			page.setLayout(this.layout);
 		}
-		if(showFunctionMenu!=null){
-			page.setShowFunctionMenu(showFunctionMenu.booleanValue());
+		if(this.showFunctionMenu!=null){
+			page.setShowFunctionMenu(this.showFunctionMenu.booleanValue());
 		}
 	}
 

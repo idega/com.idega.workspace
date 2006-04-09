@@ -18,10 +18,10 @@ import com.idega.workspace.WorkspacePage;
  * <p>
  * TODO tryggvil Describe Type WorkspaceClassViewNode
  * </p>
- *  Last modified: $Date: 2006/02/23 16:31:42 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2006/04/09 11:45:30 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class WorkspaceClassViewNode extends ComponentClassViewNode {
 
@@ -87,7 +87,7 @@ public class WorkspaceClassViewNode extends ComponentClassViewNode {
 	 * @return Returns the maximizeBlockVertically.
 	 */
 	public boolean isMaximizeBlockVertically() {
-		return maximizeBlockVertically;
+		return this.maximizeBlockVertically;
 	}
 
 	

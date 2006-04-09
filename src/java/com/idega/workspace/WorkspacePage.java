@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.14 2006/02/22 20:54:43 laddi Exp $
+ *  $Id: WorkspacePage.java,v 1.15 2006/04/09 11:45:30 laddi Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -32,10 +32,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2006/02/22 20:54:43 $ by $Author: laddi $
+ * Last modified: $Date: 2006/04/09 11:45:30 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  */
 public class WorkspacePage extends Page {
 
@@ -71,7 +71,7 @@ public class WorkspacePage extends Page {
 		//}
 		//setDoctype(Page.DOCTYPE_HTML_4_0_1_STRICT);
 		//setDoctype(DOCTYPE_XHTML_1_0_TRANSITIONAL);
-		this.setStyleClass(WF_PAGE_CLASS);
+		this.setStyleClass(this.WF_PAGE_CLASS);
 	}
 	public String getBundleIdentifier() {
 		return IW_BUNDLE_IDENTIFIER;
@@ -155,7 +155,7 @@ public class WorkspacePage extends Page {
 	}
 	
 	public List getChildren(){
-		if(embedForm){
+		if(this.embedForm){
 			return getForm().getChildren();
 		}
 		else{
@@ -166,8 +166,8 @@ public class WorkspacePage extends Page {
 	
 	
 	protected boolean displayFunctionMenu(ViewNode node){
-		if(showFunctionMenu!=null){
-			return showFunctionMenu.booleanValue();
+		if(this.showFunctionMenu!=null){
+			return this.showFunctionMenu.booleanValue();
 		}
 		else{
 			if(getLayout().equals(LAYOUT_COMPACT)){
@@ -285,7 +285,7 @@ public class WorkspacePage extends Page {
 	private UIForm getForm(){
 		//String formId = this.getId()+"-form";
 		//return (UIForm)getFacets().get(formId);
-		if(form==null){
+		if(this.form==null){
 			UIForm myForm  = findSubForm();
 			if(myForm==null){
 				throw new RuntimeException("WorkspacePage: No form found in page, it must be explicitly added inside page");
@@ -307,9 +307,9 @@ public class WorkspacePage extends Page {
 	}
 	
 	public void encodeBegin(FacesContext context) throws IOException{
-		if(!isInitalized){
+		if(!this.isInitalized){
 			this.initializeContent(context);
-			isInitalized=true;
+			this.isInitalized=true;
 		}
 		super.encodeBegin(context);
 	}
@@ -386,7 +386,7 @@ public class WorkspacePage extends Page {
 		Object values[] = new Object[4];
 		values[0] = super.saveState(ctx);
 		values[1] = Boolean.valueOf(this.isInitalized);
-		values[2] = layout;
+		values[2] = this.layout;
 		values[3] = Boolean.valueOf(this.embedForm);
 		return values;
 	}
@@ -407,10 +407,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2006/02/22 20:54:43 $ by $Author: laddi $
+	 *  Last modified: $Date: 2006/04/09 11:45:30 $ by $Author: laddi $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.14 $
+	 * @version $Revision: 1.15 $
 	 */
 	public class SpecialChildList implements List{
 		
@@ -430,11 +430,11 @@ public class WorkspacePage extends Page {
 		 * @param arg1
 		 */
 		public void add(int arg0, Object arg1) {
-			if(arg1.equals(child)){
-				list.add(arg0, arg1);
+			if(arg1.equals(this.child)){
+				this.list.add(arg0, arg1);
 			}
 			else{
-				child.getChildren().add(arg0,arg1);
+				this.child.getChildren().add(arg0,arg1);
 			}
 		}
 		/**
@@ -442,11 +442,11 @@ public class WorkspacePage extends Page {
 		 * @return
 		 */
 		public boolean add(Object arg0) {
-			if(arg0.equals(child)){
-				return list.add(arg0);
+			if(arg0.equals(this.child)){
+				return this.list.add(arg0);
 			}
 			else{
-				return child.getChildren().add(arg0);
+				return this.child.getChildren().add(arg0);
 			}
 		}
 		/**
@@ -455,120 +455,120 @@ public class WorkspacePage extends Page {
 		 * @return
 		 */
 		public boolean addAll(int arg0, Collection arg1) {
-			return list.addAll(arg0, arg1);
+			return this.list.addAll(arg0, arg1);
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public boolean addAll(Collection arg0) {
-			return list.addAll(arg0);
+			return this.list.addAll(arg0);
 		}
 		/**
 		 * 
 		 */
 		public void clear() {
-			list.clear();
+			this.list.clear();
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public boolean contains(Object arg0) {
-			return list.contains(arg0);
+			return this.list.contains(arg0);
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public boolean containsAll(Collection arg0) {
-			return list.containsAll(arg0);
+			return this.list.containsAll(arg0);
 		}
 		/* (non-Javadoc)
 		 * @see java.lang.Object#equals(java.lang.Object)
 		 */
 		public boolean equals(Object arg0) {
-			return list.equals(arg0);
+			return this.list.equals(arg0);
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public Object get(int arg0) {
-			return list.get(arg0);
+			return this.list.get(arg0);
 		}
 		/* (non-Javadoc)
 		 * @see java.lang.Object#hashCode()
 		 */
 		public int hashCode() {
-			return list.hashCode();
+			return this.list.hashCode();
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public int indexOf(Object arg0) {
-			return list.indexOf(arg0);
+			return this.list.indexOf(arg0);
 		}
 		/**
 		 * @return
 		 */
 		public boolean isEmpty() {
-			return list.isEmpty();
+			return this.list.isEmpty();
 		}
 		/**
 		 * @return
 		 */
 		public Iterator iterator() {
-			return list.iterator();
+			return this.list.iterator();
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public int lastIndexOf(Object arg0) {
-			return list.lastIndexOf(arg0);
+			return this.list.lastIndexOf(arg0);
 		}
 		/**
 		 * @return
 		 */
 		public ListIterator listIterator() {
-			return list.listIterator();
+			return this.list.listIterator();
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public ListIterator listIterator(int arg0) {
-			return list.listIterator(arg0);
+			return this.list.listIterator(arg0);
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public Object remove(int arg0) {
-			return list.remove(arg0);
+			return this.list.remove(arg0);
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public boolean remove(Object arg0) {
-			return list.remove(arg0);
+			return this.list.remove(arg0);
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public boolean removeAll(Collection arg0) {
-			return list.removeAll(arg0);
+			return this.list.removeAll(arg0);
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public boolean retainAll(Collection arg0) {
-			return list.retainAll(arg0);
+			return this.list.retainAll(arg0);
 		}
 		/**
 		 * @param arg0
@@ -576,13 +576,13 @@ public class WorkspacePage extends Page {
 		 * @return
 		 */
 		public Object set(int arg0, Object arg1) {
-			return list.set(arg0, arg1);
+			return this.list.set(arg0, arg1);
 		}
 		/**
 		 * @return
 		 */
 		public int size() {
-			return list.size();
+			return this.list.size();
 		}
 		/**
 		 * @param arg0
@@ -590,26 +590,26 @@ public class WorkspacePage extends Page {
 		 * @return
 		 */
 		public List subList(int arg0, int arg1) {
-			return list.subList(arg0, arg1);
+			return this.list.subList(arg0, arg1);
 		}
 		/**
 		 * @return
 		 */
 		public Object[] toArray() {
-			return list.toArray();
+			return this.list.toArray();
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
 		public Object[] toArray(Object[] arg0) {
-			return list.toArray(arg0);
+			return this.list.toArray(arg0);
 		}
 		/* (non-Javadoc)
 		 * @see java.lang.Object#toString()
 		 */
 		public String toString() {
-			return list.toString();
+			return this.list.toString();
 		}
 	}
 	
@@ -628,11 +628,11 @@ public class WorkspacePage extends Page {
 	 * @return
 	 */
 	public String getLayout(){
-		return layout;
+		return this.layout;
 	}
 	
 	public void setShowFunctionMenu(boolean showMenu){
-		showFunctionMenu=new Boolean(showMenu);
+		this.showFunctionMenu=new Boolean(showMenu);
 	}
 	
 
