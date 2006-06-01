@@ -84,6 +84,7 @@ div.ws_head div.ws_appinfo{
 	font-size: 1.0em;
 	z-index: 0;
 }
+
 .ws_body .ws_mainnavigation ul.wf_tabbar li a:hover{
 	background: url(images/tabbar/bg_item_main_hover.gif) no-repeat;
 	text-decoration: none;
@@ -131,34 +132,40 @@ div.ws_functionmenu{
 	);
 }
 
-html>body div.ws_functionmenu{
+html>body div.ws_functionmenu {
 	height: auto;
 }
-div.ws_helpdesk div.wf_tabbarmainarea{
+
+div.ws_helpdesk div.wf_tabbarmainarea {
 	margin: 0;
 	padding: 0;
 	display: none;
 }
-div.ws_helpdesk div.wf_container{
+
+div.ws_helpdesk div.wf_container {
 	margin: 0;
 	padding: 20px 12px;
 	color: #797979;
 }
-div.ws_helpdesk div.wf_container h3{
+
+div.ws_helpdesk div.wf_container h3 {
 	margin: 0 0 5px;
 	padding: 0;
 	color: #797979;
 	font-size: 1.1em;
 }
-div.ws_helpdesk div.wf_block{
+
+div.ws_helpdesk div.wf_block {
 	border-bottom: none;
 }
-div.ws_functionmenu div.ws_divider{
+
+div.ws_functionmenu div.ws_divider {
 	height: 4px;
 	background: #F2F2F2;
 	font-size: 0;
 }
-div.ws_functionmenu div.ws_bottom{
+
+div.ws_functionmenu div.ws_bottom {
 	position: absolute;
 	bottom: -1px;
 	margin: 0 4px;
@@ -168,7 +175,8 @@ div.ws_functionmenu div.ws_bottom{
 	font-size: 0;
 	line-height: 0;
 }
-html>body div.ws_functionmenu div.ws_bottom{
+
+html>body div.ws_functionmenu div.ws_bottom {
 	bottom: 0;
 }
 
@@ -282,8 +290,7 @@ html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 	right: 0;
 	width: auto;
 	bottom: 0;
-	overflow: scroll;
-	overflow:-moz-scrollbars-vertical;
+	overflow: auto;
 }
 
 .wf_login{
@@ -460,6 +467,7 @@ div.wf_block ul.wf_toolbar li a:hover {
 	height: 22px;
 	background: url(images/bg_titlebar.gif) repeat-x;
 	width: 100%;
+//display: none;
 }
 
 /*** Begin WS Function (Left) Menu ***/
