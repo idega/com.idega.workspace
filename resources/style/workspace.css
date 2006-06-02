@@ -305,7 +305,7 @@ html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 	padding: 0px;
 	/***background-image: url(images/background9.jpg);***/
 	background-color: #F2F2F2;
-	background-image: url(images/logingradient.psvg);
+	background-image: url(images/logingradient.png);
 }
 
 .ws_mainloginbox{
@@ -316,12 +316,12 @@ html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 	background-position: center center;
 	background-repeat: no-repeat;
 	border:none;
-	background: url(images/idegalogin.psvg);
+	background: url(images/idegalogin.png);
 	
 	
 	/***IE TRANSPARENCY HACKS***/
 	_background-image: none;
-	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../idegaweb/bundles/com.idega.workspace.bundle/resources/style/images/idegalogin.psvg',sizingMethod='scale');
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../idegaweb/bundles/com.idega.workspace.bundle/resources/style/images/idegalogin.png',sizingMethod='scale');
 }
 
 .ws_mainloginbox * {
