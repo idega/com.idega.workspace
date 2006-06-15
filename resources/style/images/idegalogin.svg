@@ -37,11 +37,11 @@
 </rect>
 
  <text id="copyrighttext" x="75" y="460" class="smalltext">
-    Copyright (c) 2000-2005 idega software All rights reserved
+    Copyright (c) 2000-2006 idega software All rights reserved
   </text>
   
  <text id="versiontext" x="150" y="-30" transform="rotate(90)" class="smalltext" style="letter-spacing: 5px;">
-    ePlatform version 3.0
+    ePlatform version 3.1
  </text>
  
  <image x="160" y="350" style="background:url(idega_new_allwhite.svg)" xlink:href="idega_new_allwhite.svg" width="170" height="61"/>
