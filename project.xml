@@ -5,7 +5,6 @@
   <name>idegaWeb Workspace</name>
   <artifactId>com.idega.workspace</artifactId>
   <currentVersion>3.1.0</currentVersion>
-
   <inceptionYear>2004</inceptionYear>
   <shortDescription>idegaWeb ePlatform Workspace</shortDescription>
   <description>idegaWeb ePlatform Workspace is the new working environment or "shell" in idegaWeb Applications</description>
@@ -34,6 +33,11 @@
       <id>1.0</id>
       <name>1.0</name>
       <tag>WORKSPACE_1_0</tag>
+    </version>
+    <version>
+      <id>3.1.0</id>
+      <name>3.1.0</name>
+      <tag>WORKSPACE_3_1_0</tag>
     </version>
   </versions>
   <developers>
