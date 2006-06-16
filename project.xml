@@ -4,8 +4,7 @@
   <extend>${base.project.dir}/base-dependencies.xml</extend>
   <name>idegaWeb Workspace</name>
   <artifactId>com.idega.workspace</artifactId>
-  <!--currentVersion>1.0</currentVersion-->
-  <currentVersion>1.0.1-SNAPSHOT</currentVersion>
+  <currentVersion>3.1.0</currentVersion>
 
   <inceptionYear>2004</inceptionYear>
   <shortDescription>idegaWeb ePlatform Workspace</shortDescription>
@@ -50,9 +49,7 @@
     <dependency>
       <groupId>bundles</groupId>
       <artifactId>com.idega.core</artifactId>
-      <!--version>3.0.6</version-->
-      <version>SNAPSHOT</version>
-
+      <version>3.1.0</version>
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
@@ -62,9 +59,7 @@
     <dependency>
       <groupId>bundles</groupId>
       <artifactId>com.idega.faces</artifactId>
-      <!--version>1.0.3</version-->
-      <version>SNAPSHOT</version>
-
+      <version>3.1.0</version>
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
@@ -74,9 +69,7 @@
     <dependency>
       <groupId>bundles</groupId>
       <artifactId>com.idega.webface</artifactId>
-      <!--version>1.0</version-->
-      <version>SNAPSHOT</version>
-
+      <version>3.1.0</version>
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
@@ -86,9 +79,7 @@
     <dependency>
       <groupId>bundles</groupId>
       <artifactId>com.idega.block.login</artifactId>
-      <!--version>1.1.5</version-->
-      <version>SNAPSHOT</version>
-
+      <version>3.1.0</version>
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
