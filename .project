@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <projectDescription>
-  <name>com.idega.workspace</name>
-  <comment>idegaWeb ePlatform Workspace is the new working environment or "shell" in idegaWeb Applications</comment>
-  <projects>
-    <project>com.idega.core</project>
-    <project>com.idega.faces</project>
-    <project>com.idega.webface</project>
-    <project>com.idega.block.login</project>
-    <project>com.idega.block.web2.0</project>
-  </projects>
-  <buildSpec>
-    <buildCommand>
-      <name>org.eclipse.jdt.core.javabuilder</name>
-      <arguments>
-      </arguments>
-    </buildCommand>
-  </buildSpec>
-  <natures>
-    <nature>org.eclipse.jdt.core.javanature</nature>
-  </natures>
+	<name>com.idega.workspace</name>
+	<comment>idegaWeb ePlatform Workspace is the new working environment or &quot;shell&quot; in idegaWeb Applications</comment>
+	<projects>
+		<project>com.idega.core</project>
+		<project>com.idega.faces</project>
+		<project>com.idega.webface</project>
+		<project>com.idega.block.login</project>
+		<project>com.idega.block.web2.0</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.maven.ide.eclipse.maven2Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.maven.ide.eclipse.maven2Nature</nature>
+	</natures>
 </projectDescription>
