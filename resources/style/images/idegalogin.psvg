@@ -41,7 +41,7 @@
   </text>
   
  <text id="versiontext" x="150" y="-30" transform="rotate(90)" class="smalltext" style="letter-spacing: 5px;">
-    ePlatform version 3.1
+    ePlatform version 3.5
  </text>
  
  <image x="160" y="350" xlink:href="idega_new_allwhite.svg" width="170" height="61"/>
