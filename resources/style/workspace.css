@@ -465,9 +465,7 @@ div.wf_block ul.wf_toolbar li a:hover {
 /* Main */
 .wf_block div.wf_titlebar{
 	height: 22px;
-	background: url(images/bg_titlebar.gif) repeat-x;
 	width: 100%;
-//display: none;
 }
 
 /*** Begin WS Function (Left) Menu ***/
