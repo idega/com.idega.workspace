@@ -637,5 +637,62 @@ div.ws_functionmenu .wf_viewmenu .deselected a:hover {
 	width:60%;
 }
 
+/* Workspace changes (thinner top) TODO merge classes with those above*/ 
+.ws_mainnavigation{
+	margin-top: -37px;
+}
+
+.ws_head{
+	height: 60px !important;
+	background-image: url(images/bg_head.gif) !important;
+}
+
+div.ws_head div.ws_appdecor{
+	top: 2px !important;
+	width: 96px !important;
+	height: 26px !important;
+	background: url(images/eplatform.gif) no-repeat !important;
+}
+
+div.ws_smallloginbox{
+	padding: 1px 1px 0 15px !important;
+}
+
+.ws_appinfo{
+	margin-top: 22px !important;
+}
+
+.ws_body .ws_mainnavigation ul.wf_tabbar li{
+	background-image: url(images/tabbar/bg_item_left.gif) !important;
+	background-position: 0 4px !important;
+}
+
+.ws_body .ws_mainnavigation ul.wf_tabbar li.selected{
+	background: url(images/tabbar/bg_item_left_selected.gif) left top no-repeat !important;
+}
+
+.ws_body .ws_mainnavigation ul.wf_tabbar li.selected a,
+.ws_body .ws_mainnavigation ul.wf_tabbar li.selected a:hover
+{
+	background-image: url(images/tabbar//bg_item_right_selected.gif) !important;
+}
+
+.ws_body .ws_mainnavigation ul.wf_tabbar li a:hover{
+	background-image: url(images/tabbar/bg_item_main_hover.gif) !important;
+	background-position: 0 4px;
+}
+
+div.ws_functionmenu{
+	top: 51px !important;
+}
+
+html>body div.ws_main .wf_block.maximizedvertically{
+	top: 51px !important;
+}
+
+.ws_main{
+	margin-top: -9px !important;
+}
+/* Workspace changes end*/ 
 
 /***Workspace End***/
