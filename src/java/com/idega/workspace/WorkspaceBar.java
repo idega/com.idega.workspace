@@ -51,6 +51,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	public static String LOGIN_STYLE_CLASS="ws_smallloginbox";
 	public static String APP_DECORATION_STYLE_CLASS="ws_appdecor";
 	public static String APP_INFO_STYLE_CLASS="ws_appinfo";
+	private static final String APP_INFO_ID = "main_domain_name_value";
 	
 	/**
 	 * 
@@ -116,6 +117,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	
 	private UIComponent addApplicationInstallationInfo() {
 		WFContainer div = new WFContainer();
+		div.setId(APP_INFO_ID);
 		div.setStyleClass(APP_INFO_STYLE_CLASS);
 		
 		HtmlOutputText text = new HtmlOutputText();
