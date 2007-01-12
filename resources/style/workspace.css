@@ -27,7 +27,7 @@ form{
 /* Main Layout Definition Begin */
 div.ws_head{
 	position: relative;
-	height: 89px;
+	height: 56px;
 	background: #F2F2F2 url(images/bg_head.gif) repeat-x;
 	padding: 0;
 	margin: 0;
@@ -36,17 +36,17 @@ div.ws_head{
 /* App Logo */
 div.ws_head div.ws_appdecor{
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 2px;
+	left: 23px;
 	width: 96px;
-	height: 31px;
-	background: url(images/eplatform.gif) no-repeat;
+	height: 26px;
+	background: url(images/eplatform_platform.gif) no-repeat;
 }
 div.ws_head div.ws_appinfo{
 	float: left;
-	margin: 32px 0 0 0;
-	padding: 8px 0 0 16px;
-	font-size: 1.4em;
+	margin: 23px 0 0 0;
+	padding: 8px 0 0 8px;
+	font-size: 1.2em;
 	font-weight: bold;
 	color:  #38485C;
 }
@@ -66,13 +66,14 @@ div.ws_head div.ws_appinfo{
 	padding: 0;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar{
-	margin-top: 60px;
+	margin-top: 23px;
 	float: right;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li{
 	float: left;
 	background: url(images/tabbar/bg_item_left.gif) left top no-repeat;
 	z-index: 0;
+background-position: 0 4px;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li a{
 	padding: 10px 12px 0 12px;
@@ -90,6 +91,7 @@ div.ws_head div.ws_appinfo{
 	text-decoration: none;
 	color:  #38485C;
 	z-index: 0;
+background-position: 0 4px;
 }
 
 .ws_body .ws_mainnavigation ul.wf_tabbar li.selected{
@@ -114,10 +116,43 @@ div.ws_layout_twocolumn{
 	background: #F2F2F2;
 }
 
+/* Faux coulumn definitions sans-background */
+
+.maximizedvertically .wf_titlebar{
+display: none !important;
+}
+
+.maximizedvertically .wf_blockmainarea{
+top: 0 !important;
+}
+
+.maximizedvertically{
+border-bottom: 0 !important;
+}
+
+.ws_functionmenu .wf_block .wf_blockmainarea .wf_viewmenucontainer .wf_viewmenu li.selected{
+overflow: hidden !important;
+}
+
+form#workspaceform1 .wf_block.wf_frame .wf_titlebar{
+display: none;
+}
+
+
+form#workspaceform1 .wf_block.wf_frame{
+margin-top: 0;
+}
+
+#workspacepage1.ws_body{
+background-image: none;
+}
+
+
+
 /* Left menu */
 div.ws_functionmenu{
 	position: absolute;
-	top: 89px;
+	top: 51px;
 	bottom: 4px;
 	left: 0;
 	width: 202px;
@@ -180,11 +215,15 @@ html>body div.ws_functionmenu div.ws_bottom {
 	bottom: 0;
 }
 
+.ws_functionmenu .wf_block{
+border-bottom: 0 !important;
+}
+
 /*Small login box*/
 div.ws_smallloginbox{
 	position: absolute;
 	right: 0;
-	padding: 7px 4px 0 25px;
+	padding: 1px 1px 0 15px;
 	width: 271px;
 	height: 19px;
 	color: #fff;
@@ -199,6 +238,13 @@ div.ws_smallloginbox .currentUser {
 	font-size: 1em;
 	width: 120px;
 }
+
+p.currentUser{
+	background: transparent;
+	color: inherit;
+}
+
+
 div.ws_smallloginbox p{
 	float: left;
 }
@@ -219,6 +265,7 @@ div.ws_smallloginbox input{
 /***Workspace Begin***/
 div.ws_layout_twocolumn div.ws_main{
 	margin: 0 0 0 202px;
+margin-top: -9px;
 }
 
 div.ws_layout_twocolumn div.ws_main .wf_block{
@@ -251,8 +298,8 @@ div.ws_main .wf_block.maximizedvertically{
 html>body div.ws_main .wf_block.maximizedvertically{
 	height: auto;
 	position: absolute;
-	top: 89px;
-	bottom: 4px;
+	top: 51px;
+	bottom: 10px;
 	left: 202px;
 	right: 0;
 	margin-bottom: 0;
@@ -305,7 +352,7 @@ html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 	padding: 0px;
 	/***background-image: url(images/background9.jpg);***/
 	background-color: #F2F2F2;
-	background-image: url(images/logingradient.png);
+	/***background-image: url(images/logingradient.png);***/
 }
 
 .ws_mainloginbox{
@@ -315,8 +362,8 @@ html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 	padding:50px;
 	background-position: center center;
 	background-repeat: no-repeat;
-	border:none;
-	background: url(images/idegalogin.png);
+	/*background: url(images/idegalogin.png);*/
+	border: 1px solid #D7D7D7;
 	
 	
 	/***IE TRANSPARENCY HACKS***/
@@ -355,7 +402,7 @@ html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 }
 
 .ws_mainloginbox,.ws_mainloginbox *{
-	color:white;
+	color: #515151;
 	font-family:Verdana,Sans-serif;
   	font-size: 0.99em;
   	/***
@@ -369,7 +416,7 @@ html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 
 .ws_mainloginbox .productinfo{
 	margin: 15px;
-	font-size:1.6em;
+	font-size:1.2em;
 }
 
 .ws_mainloginbox .buildid{
@@ -465,7 +512,9 @@ div.wf_block ul.wf_toolbar li a:hover {
 /* Main */
 .wf_block div.wf_titlebar{
 	height: 22px;
+	background: url(images/bg_titlebar.gif) repeat-x;
 	width: 100%;
+//display: none;
 }
 
 /*** Begin WS Function (Left) Menu ***/
@@ -519,6 +568,11 @@ div.ws_functionmenu ul.wf_viewmenu li{
 	overflow:auto;
 	#padding-bottom:3px;
 	#padding-right:3px;
+}
+
+div.ws_functionmenu ul.wf_viewmenu li.selected li.selected{
+padding-left: 12px;
+background: url(images/viewmenu_bullet.png) no-repeat 7px 5px;
 }
 
 div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu,
@@ -637,3 +691,102 @@ div.ws_functionmenu .wf_viewmenu .deselected a:hover {
 
 
 /***Workspace End***/
+
+
+/* Background definitions */
+
+.ws_head{
+background-image: url(images/bg_head.gif) !important;
+}
+
+div.ws_head div.ws_appdecor{
+background: url(images/eplatform_platform.gif) no-repeat !important;
+}
+
+.ws_body .ws_mainnavigation ul.wf_tabbar li{
+background-image: url(images/bg_item_left.gif) !important;
+background-position: 0 4px !important;
+}
+
+.ws_body .ws_mainnavigation ul.wf_tabbar li.selected{
+background: url(images/bg_item_left_selected.gif) left top no-repeat !important;
+}
+.ws_body .ws_mainnavigation ul.wf_tabbar li.selected a,
+.ws_body .ws_mainnavigation ul.wf_tabbar li.selected a:hover
+{
+background-image: url(images/bg_item_right_selected.gif) !important;
+}
+
+
+.ws_body .ws_mainnavigation ul.wf_tabbar li a:hover{
+background-image: url(images/bg_item_main_hover.gif) !important;
+background-position: 0 4px;
+}
+
+div.ws_functionmenu ul.wf_viewmenu li.selected li.selected{
+padding-left: 12px;
+background: url(images/viewmenu_bullet.png) no-repeat 7px 5px;
+}
+
+div.ws_functionmenu ul.wf_viewmenu li.selected li.selected a{
+font-weight: bold;
+}
+
+.ws_body{
+
+}
+
+body#workspacebuilderapp1{
+background-image: none;
+height: 120%;
+}
+
+/* Background definitions end */
+
+#workspacebuilderapp1.ws_body .ws_layout_onecolumn #workspacebuilderappform1 .ws_main .wf_titlebar{
+display: none;
+}
+
+/*** About window begin ***/	
+
+.ws_main .aboutcontainer{
+	padding: 10px 10px 10px 10px;
+	margin: 10px 10px 10px 10px;
+}
+
+.ws_body .aboutcontainer .line .label{
+	font-weight: bold;
+	display: inline;
+	margin-left: 15px;
+}
+
+.ws_body .aboutcontainer .line .text{
+	display: inline;
+	margin-left: 80px;
+}
+
+.aboutsystem {
+}
+
+
+.aboutsystem .aboutlink{
+    
+    margin: 1px 1px 1px 1px;
+    
+    position: absolute;
+    
+    padding: 20px 0 0 0;
+    overflow: hidden;
+    background-image: url("images/eplatform_smalllogo.png");
+    background-repeat: no-repeat;
+    
+    height: 0px !important;
+    height /**/:20px; /* for IE5.5's bad box model */
+    
+}
+
+.aboutsystem .aboutlink .text{
+	display:none;
+}
+
+/*** About window end ***/
