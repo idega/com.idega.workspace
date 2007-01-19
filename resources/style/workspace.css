@@ -1,262 +1,191 @@
 /*** General HTML definitions ***/
 html, body{
-	width: 100%;
-	height: 100%;
+   width: 100%;
+   height: 100%;
 }
 .ws_body {
-	font-family: Arial, Helvetica, Sans-serif;
-	font-size: 11px;
-	background-color: #F2F2F2;
-	margin: 0px;
-	padding: 0px;
-	overflow: hidden;
+   font-family: Arial, Helvetica, Sans-serif;
+   font-size: 11px;
+   background-color: #F2F2F2;
+   margin: 0px;
+   padding: 0px;
+   overflow: hidden;
 }
 .ws_body a {
-	text-decoration: none;
-  	font-weight: normal;
+   text-decoration: none;
+     font-weight: normal;
 }
 .ws_body a:hover {
-	/*font-weight: bold;*/
-	text-decoration:underline;
+   /*font-weight: bold;*/
+   text-decoration:underline;
 }
 form{
-	margin: 0;
-	padding: 0;
+   margin: 0;
+   padding: 0;
 }
 
 /* Main Layout Definition Begin */
 div.ws_head{
-	position: relative;
-	height: 56px;
-	background: #F2F2F2 url(images/bg_head.gif) repeat-x;
-	padding: 0;
-	margin: 0;
+   position: relative;
+   height: 56px;
+   background: #F2F2F2 url(images/bg_head.gif) repeat-x;
+   padding: 0;
+   margin: 0;
 }
 
 /* App Logo */
 div.ws_head div.ws_appdecor{
-	position: absolute;
-	top: 2px;
-	left: 23px;
-	width: 96px;
-	height: 26px;
-	background: url(images/eplatform_platform.gif) no-repeat;
+   position: absolute;
+   top: 2px;
+   left: 23px;
+   width: 96px;
+   height: 26px;
+   background: url(images/eplatform_platform.gif) no-repeat;
 }
 div.ws_head div.ws_appinfo{
-	float: left;
-	margin: 23px 0 0 0;
-	padding: 8px 0 0 8px;
-	font-size: 1.2em;
-	font-weight: bold;
-	color:  #38485C;
+   float: left;
+   margin: 23px 0 0 0;
+   padding: 8px 0 0 8px;
+   font-size: 1.2em;
+   font-weight: bold;
+   color:  #38485C;
 }
 
 /* Tabbar Inside ws_head */
 
 .ws_body .ws_mainnavigation{
-	position:absolute;
-	right:0px;
-	top: 0px;
+   position:absolute;
+   right:0px;
+   top: 0px;
 }
 
-.ws_body .ws_mainnavigation ul.wf_tabbar, 
+.ws_body .ws_mainnavigation ul.wf_tabbar,
 .ws_body .ws_mainnavigation ul.wf_tabbar li{
-	list-style: none;
-	margin: 0;
-	padding: 0;
+   list-style: none;
+   margin: 0;
+   padding: 0;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar{
-	margin-top: 23px;
-	float: right;
+   margin-top: 23px;
+   float: right;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li{
-	float: left;
-	background: url(images/tabbar/bg_item_left.gif) left top no-repeat;
-	z-index: 0;
+   float: left;
+   background: url(images/tabbar/bg_item_left.gif) left top no-repeat;
+   z-index: 0;
 background-position: 0 4px;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li a{
-	padding: 10px 12px 0 12px;
-	margin: 0;
-	float: left;
-	height: 21px;
-	font-weight: bold;
-	color: #575757;
-	font-size: 1.0em;
-	z-index: 0;
+   padding: 10px 12px 0 12px;
+   margin: 0;
+   float: left;
+   height: 21px;
+   font-weight: bold;
+   color: #575757;
+   font-size: 1.0em;
+   z-index: 0;
 }
 
 .ws_body .ws_mainnavigation ul.wf_tabbar li a:hover{
-	background: url(images/tabbar/bg_item_main_hover.gif) no-repeat;
-	text-decoration: none;
-	color:  #38485C;
-	z-index: 0;
+   background: url(images/tabbar/bg_item_main_hover.gif) no-repeat;
+   text-decoration: none;
+   color:  #38485C;
+   z-index: 0;
 background-position: 0 4px;
 }
 
 .ws_body .ws_mainnavigation ul.wf_tabbar li.selected{
-	background: url(images/tabbar/bg_item_left_selected.gif) left top no-repeat;
-	z-index: 1;
+   background: url(images/tabbar/bg_item_left_selected.gif) left top no-repeat;
+   z-index: 1;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li.selected a,
 .ws_body .ws_mainnavigation ul.wf_tabbar li.selected a:hover
 {
-	color: #38485C;
-	font-weight: bold;
-	background: url(images/tabbar/bg_item_right_selected.gif) right top no-repeat;
-	text-decoration: none;
-	margin-right: -3px;
-	padding-right: 16px;
-	padding-top: 7px;
-	height: 24px;
-	z-index: 1;
+   color: #38485C;
+   font-weight: bold;
+   background: url(images/tabbar/bg_item_right_selected.gif) right top no-repeat;
+   text-decoration: none;
+   margin-right: -3px;
+   padding-right: 16px;
+   padding-top: 7px;
+   height: 24px;
+   z-index: 1;
 }
 
 div.ws_layout_twocolumn{
-	background: #F2F2F2;
+   background: #F2F2F2;
 }
 
 /* Faux coulumn definitions sans-background */
-
-.maximizedvertically .wf_titlebar{
-display: none !important;
-}
-
-.maximizedvertically .wf_blockmainarea{
-top: 0 !important;
-}
-
-.maximizedvertically{
-border-bottom: 0 !important;
-}
-
-.ws_functionmenu .wf_block .wf_blockmainarea .wf_viewmenucontainer .wf_viewmenu li.selected{
-overflow: hidden !important;
-}
-
-form#workspaceform1 .wf_block.wf_frame .wf_titlebar{
-display: none;
-}
-
-
-form#workspaceform1 .wf_block.wf_frame{
-margin-top: 0;
-}
-
-#workspacepage1.ws_body{
-background-image: none;
-}
 
 
 
 /* Left menu */
 div.ws_functionmenu{
-	position: absolute;
-	top: 51px;
-	bottom: 4px;
-	left: 0;
-	width: 202px;
+   position: absolute;
+   top: 51px;
+   bottom: 4px;
+   left: 0;
+   width: 202px;
 
 /* IE fix for non support for bottom:0  */
-	height: expression(
-	(
-	document.body.clientHeight) ?
-	document.body.clientHeight - 97 + 'px'
-	:
-	document.documentElement.clientHeight - 97 + 'px'
-	);
+   height: expression(
+   (
+   document.body.clientHeight) ?
+   document.body.clientHeight - 97 + 'px'
+   :
+   document.documentElement.clientHeight - 97 + 'px'
+   );
 }
 
 html>body div.ws_functionmenu {
-	height: auto;
+   height: auto;
 }
 
-div.ws_helpdesk div.wf_tabbarmainarea {
-	margin: 0;
-	padding: 0;
-	display: none;
-}
-
-div.ws_helpdesk div.wf_container {
-	margin: 0;
-	padding: 20px 12px;
-	color: #797979;
-}
-
-div.ws_helpdesk div.wf_container h3 {
-	margin: 0 0 5px;
-	padding: 0;
-	color: #797979;
-	font-size: 1.1em;
-}
 
 div.ws_helpdesk div.wf_block {
-	border-bottom: none;
-}
-
-div.ws_functionmenu div.ws_divider {
-	height: 4px;
-	background: #F2F2F2;
-	font-size: 0;
-}
-
-div.ws_functionmenu div.ws_bottom {
-	position: absolute;
-	bottom: -1px;
-	margin: 0 4px;
-	width: 194px;
-	background: #D7D7D7;
-	height: 1px;
-	font-size: 0;
-	line-height: 0;
+   border-bottom: none;
 }
 
 html>body div.ws_functionmenu div.ws_bottom {
-	bottom: 0;
-}
-
-.ws_functionmenu .wf_block{
-border-bottom: 0 !important;
+   bottom: 0;
 }
 
 /*Small login box*/
 div.ws_smallloginbox{
-	position: absolute;
-	right: 0;
-	padding: 1px 1px 0 15px;
-	width: 271px;
-	height: 19px;
-	color: #fff;
-	background: #4C627D url(images/smallloginbox/bg_left.gif) left bottom no-repeat;
+   position: absolute;
+   right: 0;
+   padding: 1px 1px 0 15px;
+   width: 271px;
+   height: 19px;
+   color: #fff;
+   background: #4C627D url(images/smallloginbox/bg_left.gif) left bottom no-repeat;
 }
-div.ws_smallloginbox .login {
-	width: 271px;
-	max-width: 271px;
-}
+
 div.ws_smallloginbox .currentUser {
-	font-weight: normal;
-	font-size: 1em;
-	width: 120px;
+   font-weight: normal;
+   font-size: 1em;
+   width: 120px;
 }
 
 p.currentUser{
-	background: transparent;
-	color: inherit;
+   background: transparent;
+   color: inherit;
 }
 
 
 div.ws_smallloginbox p{
-	float: left;
+   float: left;
 }
 div.ws_smallloginbox input{
-	float: right;
-	margin: 0;
-	padding: 0 6px 0 6px;
-	background: #38485C;
-	color: #fff;
-	font-size: 0.8em;
-	border: 1px solid #6F89A8;
-	text-transform: uppercase;
+   float: right;
+   margin: 0;
+   padding: 0 6px 0 6px;
+   background: #38485C;
+   color: #fff;
+   font-size: 0.8em;
+   border: 1px solid #6F89A8;
+   text-transform: uppercase;
 }
 
 /* Main Layout Definition Begin */
@@ -264,224 +193,219 @@ div.ws_smallloginbox input{
 
 /***Workspace Begin***/
 div.ws_layout_twocolumn div.ws_main{
-	margin: 0 0 0 202px;
+   margin: 0 0 0 202px;
 margin-top: -9px;
 }
 
 div.ws_layout_twocolumn div.ws_main .wf_block{
-	margin: 4px 4px 4px 0px;
+   margin: 4px 4px 4px 0px;
 }
 
 div.ws_layout_onecolumn div.ws_main{
-	/*margin: 0 0 0 4px;*/
-	margin: 0 0 0 0;
+   /*margin: 0 0 0 4px;*/
+   margin: 0 0 0 0;
 }
 div.ws_main .wf_block.maximizedvertically{
-	position: relative;
-	height: expression(
-	(
-	document.body.clientHeight) ?
-	document.body.clientHeight - 97 + 'px'
-	:
-	document.documentElement.clientHeight - 96 + 'px'
-	);
+   position: relative;
+   height: expression(
+   (
+   document.body.clientHeight) ?
+   document.body.clientHeight - 97 + 'px'
+   :
+   document.documentElement.clientHeight - 96 + 'px'
+   );
 
-	width: expression(
-	(
-	document.body.clientWidth) ?
-	document.body.clientWidth - 205 + 'px'
-	:
-	document.documentElement.clientWidth - 205 + 'px'
-	);
+   width: expression(
+   (
+   document.body.clientWidth) ?
+   document.body.clientWidth - 205 + 'px'
+   :
+   document.documentElement.clientWidth - 205 + 'px'
+   );
 }
 
 html>body div.ws_main .wf_block.maximizedvertically{
-	height: auto;
-	position: absolute;
-	top: 51px;
-	bottom: 10px;
-	left: 202px;
-	right: 0;
-	margin-bottom: 0;
-	overflow: hidden;
+   height: auto;
+   position: absolute;
+   top: 51px;
+   bottom: 10px;
+   left: 202px;
+   right: 0;
+   margin-bottom: 0;
+   overflow: hidden;
 }
 
 div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
-	position: absolute;
-	top: 45px;
-	left: 0;
-	height: expression(
-	(
-	document.body.clientHeight) ?
-	document.body.clientHeight - 144 + 'px'
-	:
-	document.documentElement.clientHeight - 144 + 'px'
-	);
+   position: absolute;
+   top: 45px;
+   left: 0;
+   height: expression(
+   (
+   document.body.clientHeight) ?
+   document.body.clientHeight - 144 + 'px'
+   :
+   document.documentElement.clientHeight - 144 + 'px'
+   );
 
-	width: expression(
-	(
-	document.body.clientWidth) ?
-	document.body.clientWidth - 208 + 'px'
-	:
-	document.documentElement.clientWidth - 208 + 'px'
-	);
-	overflow-y: scroll;
-	width: 100%;
-	/*background: #fff;*/
-	
-}
+   width: expression(
+   (
+   document.body.clientWidth) ?
+   document.body.clientWidth - 208 + 'px'
+   :
+   document.documentElement.clientWidth - 208 + 'px'
+   );
+   overflow-y: scroll;
+   width: 100%;
+   /*background: #fff;*/
+  }
 
 html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
-	position: absolute;
-	left: 0;
-	right: 0;
-	width: auto;
-	bottom: 0;
-	overflow: auto;
+   position: absolute;
+   left: 0;
+   right: 0;
+   width: auto;
+   bottom: 0;
+   overflow: auto;
 }
 
 .wf_login{
-	margin: 100px;
-	color: white;
-	display:inline;
+   margin: 100px;
+   color: white;
+   display:inline;
 }
 
 
 .ws_loginpage{
-	margin: 0px;
-	padding: 0px;
-	/***background-image: url(images/background9.jpg);***/
-	background-color: #F2F2F2;
-	/***background-image: url(images/logingradient.png);***/
+   margin: 0px;
+   padding: 0px;
+   /***background-image: url(images/background9.jpg);***/
+   background-color: #F2F2F2;
+   /***background-image: url(images/logingradient.png);***/
 }
 
 .ws_mainloginbox{
-	width:400px;
-	height:400px;
-	margin: 0px;
-	padding:50px;
-	background-position: center center;
-	background-repeat: no-repeat;
-	/*background: url(images/idegalogin.png);*/
-	border: 1px solid #D7D7D7;
-	
-	
-	/***IE TRANSPARENCY HACKS***/
-	_background-image: none;
-	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../idegaweb/bundles/com.idega.workspace.bundle/resources/style/images/idegalogin.png',sizingMethod='scale');
+   width:400px;
+   height:400px;
+   margin: 0px;
+   padding:50px;
+   background-position: center center;
+   background-repeat: no-repeat;
+   /*background: url(images/idegalogin.png);*/
+   border: 1px solid #D7D7D7;
+       /***IE TRANSPARENCY HACKS***/
+   _background-image: none;
+   _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../idegaweb/bundles/com.idega.workspace.bundle/resources/style/images/idegalogin.png',sizingMethod='scale');
 }
 
 .ws_mainloginbox * {
-	/***IE TRANSPARENCY HACKS - This is to make the form/link elements response over the div ***/
-	position:relative;
+   /***IE TRANSPARENCY HACKS - This is to make the form/link elements response over the div ***/
+   position:relative;
 }
 
 .ws_mainloginbox2{
-	width: 500px;
-	height: 500px;
-	margin: 0px;
-	padding: 50px;
-	
-	background: url(images/idegalogin.png);
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/idegalogin.png', sizingMethod='scale');
+   width: 500px;
+   height: 500px;
+   margin: 0px;
+   padding: 50px;
+     background: url(images/idegalogin.png);
+   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/idegalogin.png', sizingMethod='scale');
 
-	background-position: center center;
-	background-repeat: no-repeat;
-	
-	/***background-color: rgba(255,255,255,0.55);***/
-	/***
-		background-color: white;
-        filter:alpha(opacity=60);
-        -moz-opacity:0.6;
-        opacity: 0.6;
-    ***/
+   background-position: center center;
+   background-repeat: no-repeat;
+     /***background-color: rgba(255,255,255,0.55);***/
+   /***
+       background-color: white;
+       filter:alpha(opacity=60);
+       -moz-opacity:0.6;
+       opacity: 0.6;
+   ***/
 }
 
 .ws_mainloginbox input {
-	color:black;
+   color:black;
 }
 
 .ws_mainloginbox,.ws_mainloginbox *{
-	color: #515151;
-	font-family:Verdana,Sans-serif;
-  	font-size: 0.99em;
-  	/***
-  	text-shadow: 4px 4px 10px #DDDDDD;
-  	***/
+   color: #515151;
+   font-family:Verdana,Sans-serif;
+     font-size: 0.99em;
+     /***
+     text-shadow: 4px 4px 10px #DDDDDD;
+     ***/
 }
 
 .ws_mainloginbox,.ws_mainloginbox div{
-	margin: 5px;
+   margin: 5px;
 }
 
 .ws_mainloginbox .productinfo{
-	margin: 15px;
-	font-size:1.2em;
+   margin: 15px;
+   font-size:1.2em;
 }
 
 .ws_mainloginbox .buildid{
-	font-size:0.7em;
+   font-size:0.7em;
 }
 
 .ws_mainloginbox .copyrighttext{
-	display: none;
+   display: none;
 }
 
 .ws_mainloginbox .domaininfo{
-	margin-top: -10px;
-	margin-bottom:20px;
-	font-size:0.9em;
+   margin-top: -10px;
+   margin-bottom:20px;
+   font-size:0.9em;
 }
 
 
 div.wf_block div.wf_tabbarcontainer {
-	position: absolute;
-	top: 23px;
-	left: 0;
-	width: 100%;
-	height: 22px;
-	background: #FAFAFA url(images/tabbar/bg_item.gif) repeat-x;
-	border-bottom: 1px solid #D7D7D7;
-/*	border-right: 1px solid #d7d7d7;*/
+   position: absolute;
+   top: 23px;
+   left: 0;
+   width: 100%;
+   height: 22px;
+   background: #FAFAFA url(images/tabbar/bg_item.gif) repeat-x;
+   border-bottom: 1px solid #D7D7D7;
+/*    border-right: 1px solid #d7d7d7;*/
 }
 
 div.wf_block div.wf_toolbarcontainer {
-	width: 100%;
-	height: 22px;
-	background: #FAFAFA url(images/toolbar/bg_item.gif) repeat-x;
-	border-bottom: 1px solid #D7D7D7;
+   width: 100%;
+   height: 22px;
+   background: #FAFAFA url(images/toolbar/bg_item.gif) repeat-x;
+   border-bottom: 1px solid #D7D7D7;
 }
 
-div.wf_block ul.wf_tabbar, 
+div.wf_block ul.wf_tabbar,
 div.wf_block ul.wf_tabbar li,
-div.wf_block ul.wf_toolbar, 
+div.wf_block ul.wf_toolbar,
 div.wf_block ul.wf_toolbar li{
-	list-style: none;
-	margin: 0;
-	padding: 0;
+   list-style: none;
+   margin: 0;
+   padding: 0;
 }
 div.wf_block ul.wf_tabbar li,
 div.wf_block ul.wf_toolbar li{
-	float: left;
-	height: 22px;
-	border: 1px solid #D7D7D7;
-	border-width: 0 1px 0 0;
+   float: left;
+   height: 22px;
+   border: 1px solid #D7D7D7;
+   border-width: 0 1px 0 0;
 }
 div.wf_block ul.wf_tabbar li a,
 div.wf_block ul.wf_toolbar li a,
 div.wf_block ul.wf_tabbar li span,
 div.wf_block ul.wf_toolbar li span
 {
-	float: left;
-	padding: 4px 10px 0 35px;
-	height: 18px;
-	font-weight: normal;
-	color: #464646;
+   float: left;
+   padding: 4px 10px 0 35px;
+   height: 18px;
+   font-weight: normal;
+   color: #464646;
 }
 div.wf_block ul.wf_tabbar li.selected,
 div.wf_block ul.wf_toolbar li.wf_toolbarbuttonselected
 {
-	background: #E7E7E7 url(images/tabbar/bg_item_selected.gif) repeat-x;
+   background: #E7E7E7 url(images/tabbar/bg_item_selected.gif) repeat-x;
 }
 div.wf_block ul.wf_tabbar li a,
 div.wf_block ul.wf_tabbar li a:hover,
@@ -490,84 +414,74 @@ div.wf_block ul.wf_toolbar li a:hover,
 div.wf_block ul.wf_tabbar li span,
 div.wf_block ul.wf_toolbar li span
 {
-	background-position: 10px 50%;
-	background-repeat: no-repeat;
+   background-position: 10px 50%;
+   background-repeat: no-repeat;
 }
 div.wf_block ul.wf_tabbar li a:hover,
 div.wf_block ul.wf_toolbar li a:hover {
-	background-color: #e7e7e7;
+   background-color: #e7e7e7;
 }
 
-.wf_block div.wf_titlebar div.wf_titlebar_text{
-	color: #404040;
-	font-weight: bold;
-	padding: 1px 20px 0;
-	margin: 0 0 0 5px;
-}
-.wf_block div.wf_titlebar div.wf_titlebar_icon{
-	padding: 4px 5px 0;
-	margin: 0;
-}
 
 /* Main */
 .wf_block div.wf_titlebar{
-	height: 22px;
-	background: url(images/bg_titlebar.gif) repeat-x;
-	width: 100%;
+   height: 22px;
+   background: url(images/bg_titlebar.gif) repeat-x;
+   width: 100%;
 //display: none;
 }
 
 /*** Begin WS Function (Left) Menu ***/
 
 div.ws_functionmenu .wf_block{
-	margin-left: 4px;
-	margin-bottom: 0;
+   margin-left: 4px;
+   margin-bottom: 0;
 }
 div.ws_functionmenu div.wf_titlebar_icon{
-	display: none;
+   display: none;
 }
 div.ws_functionmenu div.wf_titlebar{
-	border-top: 1px #fff solid;
-	height: 35px;
-	background: url(images/wf_background.gif) repeat-x;
-	padding: 6px 0 0 0px;
-	color: #515151;
-	font-weight: bold;
-	font-size: 1.2em;
-	font-variant: small-caps;
+   border-top: 1px #fff solid;
+   height: 35px;
+   background: url(images/wf_background.gif) repeat-x;
+   padding: 6px 0 0 0px;
+   color: #515151;
+   font-weight: bold;
+   font-size: 1.2em;
+   font-variant: small-caps;
 }
 div.ws_functionmenu div.wf_titlebar a{
-	text-decoration: none;
-	color: #00AEFF;
-	font-size: 0.7em;
-	font-weight: bold;
-	font-variant: normal;
+   text-decoration: none;
+   color: #00AEFF;
+   font-size: 0.7em;
+   font-weight: bold;
+   font-variant: normal;
 }
 div.ws_functionmenu div.wf_titlebar a:hover{
-	text-decoration: underline;
+   text-decoration: underline;
 }
 
-div.ws_functionmenu ul.wf_viewmenu, 
+div.ws_functionmenu ul.wf_viewmenu,
 div.ws_functionmenu ul.wf_viewmenu li
 {
-	margin: 0;
-	padding: 0;
+   margin: 0;
+   padding: 0;
 }
 div.ws_functionmenu ul.wf_viewmenu{
-	list-style: none;
-	border: none;
-	background: #fff;
+   list-style: none;
+   border: none;
+   background: #fff;
 }
 
 div.ws_functionmenu ul.wf_viewmenu li{
-	border: none;
-	border-top: 1px solid #F4F4F4;
-	clear: both;
-	display: block;
-	#min-height:31px;
-	overflow:auto;
-	#padding-bottom:3px;
-	#padding-right:3px;
+   border: none;
+   border-top: 1px solid #F4F4F4;
+   clear: both;
+   display: block;
+   #min-height:31px;
+   overflow:auto;
+   #padding-bottom:3px;
+   #padding-right:3px;
 }
 
 div.ws_functionmenu ul.wf_viewmenu li.selected li.selected{
@@ -577,116 +491,116 @@ background: url(images/viewmenu_bullet.png) no-repeat 7px 5px;
 
 div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu,
 div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu li{
-	background:none;
+   background:none;
 }
 
 div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu li{
-	min-height:0px;
+   min-height:0px;
 }
 
 div.ws_functionmenu ul.wf_viewmenu li a{
-	color: #303030;
-	font-weight: bold;
-	padding: 6px 0 6px 24px;
-	display: block;
-	background: url(images/viewmenu_mainbullet2.png) 11px 7px no-repeat;
-	font-size: 11px;
+   color: #303030;
+   font-weight: bold;
+   padding: 6px 0 6px 24px;
+   display: block;
+   background: url(images/viewmenu_mainbullet2.png) 11px 7px no-repeat;
+   font-size: 11px;
 
-	/***IE TRANSPARENCY HACKS***/
-  /* Mozilla ignores crazy MS image filters, so it will skip the following */
+   /***IE TRANSPARENCY HACKS***/
+ /* Mozilla ignores crazy MS image filters, so it will skip the following */
 /*
-    _background-image:none;
-	 _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src='/ePlatform/content/idegaweb/bundles/com.idega.webface.bundle/resources/style/images/viewmenu_mainbullet2.png');
+   _background-image:none;
+   _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src='/ePlatform/content/idegaweb/bundles/com.idega.webface.bundle/resources/style/images/viewmenu_mainbullet2.png');
 */
 }
 div.ws_functionmenu ul.wf_viewmenu li a:hover{
-	text-decoration: underline;
+   text-decoration: underline;
 }
 div.ws_functionmenu ul.wf_viewmenu li:hover{
-	/*background: #FAFAFA;*/
+   /*background: #FAFAFA;*/
 }
 
 div.ws_functionmenu ul.wf_viewmenu li.selected{
-	background: #025FD0 url(images/functionmenu/bg_item_selected.gif) repeat-x;
+   background: #025FD0 url(images/functionmenu/bg_item_selected.gif) repeat-x;
 }
 div.ws_functionmenu ul.wf_viewmenu li.selected a{
-	color: #fff;
+   color: #fff;
 }
 div.ws_functionmenu ul.wf_viewmenu li ul{
-	clear: both;
-	margin-left: 19px;
+   clear: both;
+   margin-left: 19px;
 }
 div.ws_functionmenu ul.wf_viewmenu li ul li{
-	border: none;
-	/** TL: This float is causing problems in IE so it is commented out for now: */
-	/*float: left;*/
-	clear: none;
-	height: auto;
-	padding-bottom: 4px;
+   border: none;
+   /** TL: This float is causing problems in IE so it is commented out for now: */
+   /*float: left;*/
+   clear: none;
+   height: auto;
+   padding-bottom: 4px;
 }
 div.ws_functionmenu ul.wf_viewmenu li ul li a{
-	display: inline;
-	font-weight: normal;
-	padding: 0 0 0 5px;
-	background: none;
-	font-size: 10px;
-	color: #777777;
-	/*_filter: none;*/
+   display: inline;
+   font-weight: normal;
+   padding: 0 0 0 5px;
+   background: none;
+   font-size: 10px;
+   color: #777777;
+   /*_filter: none;*/
 }
 div.ws_functionmenu ul.wf_viewmenu li ul li:hover{
-	background: none;
+   background: none;
 }
 
 /***By default not display more than two levels of the menu:***/
 div.ws_functionmenu .wf_viewmenu * .wf_viewmenu * .wf_viewmenu{
-	display:none;
+   display:none;
 }
 
 div.ws_functionmenu .wf_viewmenu .deselected a:hover {
-	color: black;
+   color: black;
 }
 
 /*** End WS Function (Left) Menu ***/
 
 .ws_body .ws_layout_compact .ws_head .ws_mainnavigation{
-	display:none;
+   display:none;
 }
 
 .ws_body table, .ws_body table tr, .ws_body table tr td{
-	/*This is done because of IE, doesn't inherit font style from page:*/
-	font-size: 11px;
-	font-family:inherit;
+   /*This is done because of IE, doesn't inherit font style from page:*/
+   font-size: 11px;
+   font-family:inherit;
 }
 
 .ws_body input,.ws_loginpage input,.ws_body textarea{
-	font-size: 1.1em;
-	color: #000000;
-	text-align: justify;
-	border: 1px solid #ABABAB;
-	margin: 3px;
-	font-family:inherit;
+   font-size: 1.1em;
+   color: #000000;
+   text-align: justify;
+   border: 1px solid #ABABAB;
+   margin: 3px;
+   font-family:inherit;
 }
 
 .ws_body select{
-	font-size:  1.1em;
-	color: #000000;
-	text-align: justify;
-	border: 1px solid #ABABAB;
-	margin: 3px;
+   font-size:  1.1em;
+   color: #000000;
+   text-align: justify;
+   border: 1px solid #ABABAB;
+   margin: 3px;
 }
 
 .ws_body iframe{
-	border: 0px solid black;
+   border: 0px solid black;
 }
 
 
 .ws_body.centered{
-	padding: 0px;
-	margin: 20%;
+   padding: 0px;
+   margin: 20%;
 }
 
 .ws_body.centered .wf_block{
-	width:60%;
+   width:60%;
 }
 
 
@@ -747,22 +661,21 @@ height: 120%;
 display: none;
 }
 
-/*** About window begin ***/	
-
+/*** About window begin ***/   
 .ws_main .aboutcontainer{
-	padding: 10px 10px 10px 10px;
-	margin: 10px 10px 10px 10px;
+   padding: 10px 10px 10px 10px;
+   margin: 10px 10px 10px 10px;
 }
 
 .ws_body .aboutcontainer .line .label{
-	font-weight: bold;
-	display: inline;
-	margin-left: 15px;
+   font-weight: bold;
+   display: inline;
+   margin-left: 15px;
 }
 
 .ws_body .aboutcontainer .line .text{
-	display: inline;
-	margin-left: 80px;
+   display: inline;
+   margin-left: 80px;
 }
 
 .aboutsystem {
@@ -770,23 +683,166 @@ display: none;
 
 
 .aboutsystem .aboutlink{
-    
-    margin: 1px 1px 1px 1px;
-    
-    position: absolute;
-    
-    padding: 20px 0 0 0;
-    overflow: hidden;
-    background-image: url("images/eplatform_smalllogo.png");
-    background-repeat: no-repeat;
-    
-    height: 0px !important;
-    height /**/:20px; /* for IE5.5's bad box model */
-    
-}
+     margin: 1px 1px 1px 1px;
+     position: absolute;
+     padding: 20px 0 0 0;
+   overflow: hidden;
+   background-image: url("images/eplatform_smalllogo.png");
+   background-repeat: no-repeat;
+     height: 0px !important;
+   height /**/:20px; /* for IE5.5's bad box model */
+  }
 
 .aboutsystem .aboutlink .text{
-	display:none;
+   display:none;
 }
 
 /*** About window end ***/
+
+body#createpage.ws_body div.ws_layout_twocolumn form#createpageform div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#pagesTypesContainer div.pagesTypesContainer div.wf_blockmainarea{
+width: 400px;
+position: relative;
+top: auto;
+}
+
+.wf_block.maximizedvertically{
+top: 0;
+
+}
+
+#pages.ws_body .wf_titlebar{
+display: none;
+}
+
+.maximizedvertically .wf_blockmainarea{
+top: 0 !important;
+}
+
+.maximizedvertically .wf_blockmainarea .wf_blockmainarea{
+top: auto !important;
+}
+
+body#createpage.ws_body .wf_titlebar{
+display: none;
+}
+
+body#createpage.ws_body div.ws_layout_twocolumn form#createpageform div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#site_tree_container div.site_tree_container_site div.wf_blockmainarea{
+top: 25px !important;
+}
+
+div.pagesTypesContainer{
+border-bottom-width: 0px;
+left: 8px;
+right: 281px;
+top: 4px !important;
+width: auto !important;
+}
+
+div#siteTemplatesContainer div.siteTemplatesContainer .wf_blockmainarea #site_templates,
+.siteTemplatesContainer .wf_blockmainarea #site_templates .accordionTabContentBox{
+border: 1px solid #d7d7d7 !important;
+}
+
+div.siteTemplatesContainer{
+top: 8px;
+height: auto !important;
+left: 8px;
+right: 281px !important;
+width: auto !important;
+
+}
+
+div.siteTemplatesContainer .wf_blockmainarea{
+bottom: 0 !important;
+padding: 0 !important;
+}
+
+div.siteTemplatesContainer .wf_titlebar{
+display: block !important;
+background: #fff !important;
+position: absolute;
+bottom: 304px !important;
+border: 1px solid #d7d7d7;
+border-width: 1px 0;
+}
+
+div.siteTemplatesContainer .wf_titlebar_icon,
+div.pagesTypesContainer .wf_titlebar_icon,
+#site_tree_container .wf_titlebar_icon,
+#siteInfoContainer .wf_titlebar_icon{
+display: none;
+}
+
+
+div.siteTemplatesContainer .wf_titlebar_text,
+div.pagesTypesContainer .wf_titlebar_text,
+#site_tree_container .wf_titlebar_text,
+#siteInfoContainer .wf_titlebar_text{
+padding: 3px 0 0 10px;
+}
+
+div.pagesTypesContainer .wf_titlebar{
+display: block !important;
+background: #fff !important;
+position: absolute;
+z-index: 1;
+}
+
+div.pagesTypesContainer .wf_blockmainarea{
+margin-top: 25px;
+width: auto !important;
+}
+
+#site_tree_container .wf_titlebar{
+display: block !important;
+background: #fff;
+}
+
+.site_tree_container_site{
+bottom: 328px !important;
+top: 4px;
+height: auto !important;
+
+
+}
+
+#site_tree_container .wf_blockmainarea{
+margin-top: 25px !important;
+padding: 0 !important;
+}
+
+
+
+#site_tree_container .wf_blockmainarea ul{
+margin-top: 0 !important;
+margin-bottom: 0;
+}
+
+#siteInfoContainer .wf_blockmainarea span{
+font-size: 9px !important;
+}
+
+#site_tree_container .wf_menuheader{
+border-bottom: 1px solid #d7d7d7;
+}
+
+#siteInfoContainer .siteInfoStyle{
+bottom: 0 !important;
+height: 327px !important;
+}
+
+#siteInfoContainer .wf_blockmainarea input{
+margin: 0 !important;
+}
+
+#siteInfoContainer .wf_blockmainarea input{
+margin: 0 !important;
+}
+
+#siteInfoContainer .wf_titlebar{
+display: block !important;
+background: #fff;
+}
+
+#siteInfoContainer .wf_blockmainarea{
+}
