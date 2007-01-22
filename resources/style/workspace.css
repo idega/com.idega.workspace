@@ -491,7 +491,7 @@ div.ws_functionmenu ul.wf_viewmenu li{
 
 div.ws_functionmenu ul.wf_viewmenu li.selected li.selected{
 padding-left: 12px;
-background: url(images/viewmenu_bullet.png) no-repeat 7px 5px;
+background: url(../images/viewmenu_bullet.png) no-repeat 7px 5px;
 }
 
 div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu,
@@ -644,7 +644,7 @@ background-position: 0 4px;
 
 div.ws_functionmenu ul.wf_viewmenu li.selected li.selected{
 padding-left: 12px;
-background: url(images/viewmenu_bullet.png) no-repeat 7px 5px;
+background: url(../images/viewmenu_bullet.png) no-repeat 7px 5px;
 }
 
 div.ws_functionmenu ul.wf_viewmenu li.selected li.selected a{
