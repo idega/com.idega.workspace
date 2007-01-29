@@ -735,6 +735,14 @@ body#createpage.ws_body div.ws_layout_twocolumn form#createpageform div.ws_main 
 top: 25px !important;
 }
 
+body#pages.ws_body div.ws_layout_twocolumn form#pagesForm div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#site_tree_container div.site_tree_container_pages div.wf_blockmainarea{
+	top: 25px !important;
+}
+
+body#pages.ws_body div.ws_layout_twocolumn form#pagesForm div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#pageInfoContainer div.pageInfoStyle div.wf_blockmainarea{
+	top: 25px !important;
+}
+
 div.pagesTypesContainer{
 border-bottom-width: 0px;
 left: 8px;
@@ -773,6 +781,7 @@ border-width: 1px 0;
 
 div.siteTemplatesContainer .wf_titlebar_icon,
 div.pagesTypesContainer .wf_titlebar_icon,
+#pageInfoContainer .wf_titlebar_icon,
 #site_tree_container .wf_titlebar_icon,
 #siteInfoContainer .wf_titlebar_icon{
 display: none;
@@ -781,6 +790,7 @@ display: none;
 
 div.siteTemplatesContainer .wf_titlebar_text,
 div.pagesTypesContainer .wf_titlebar_text,
+#pageInfoContainer .wf_titlebar_text,
 #site_tree_container .wf_titlebar_text,
 #siteInfoContainer .wf_titlebar_text{
 padding: 3px 0 0 10px;
@@ -803,6 +813,11 @@ display: block !important;
 background: #fff;
 }
 
+#pageInfoContainer .wf_titlebar{
+	display: block !important;
+	background: #fff;
+}
+
 .site_tree_container_site{
 bottom: 328px !important;
 top: 4px;
@@ -816,7 +831,10 @@ margin-top: 25px !important;
 padding: 0 !important;
 }
 
-
+#pageInfoContainer .wf_blockmainarea{
+	margin-top: 25px !important;
+	padding: 0 !important;
+}
 
 #site_tree_container .wf_blockmainarea ul{
 margin-top: 0 !important;
@@ -829,6 +847,10 @@ font-size: 9px !important;
 
 #site_tree_container .wf_menuheader{
 border-bottom: 1px solid #d7d7d7;
+}
+
+#pageInfoContainer .wf_menuheader{
+	border-bottom: 1px solid #d7d7d7;
 }
 
 #siteInfoContainer .siteInfoStyle{
