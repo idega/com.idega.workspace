@@ -44,7 +44,6 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	private static final long serialVersionUID = 3257572806178189623L;
 
 	private final static String P = "cms_page_"; // Parameter prefix
-	
 	private final static String MAIN_TASKBAR_ID = P + "main_taskbar";
 	public static String MAIN_STYLE_CLASS="ws_mainbar";
 	public static String MAIN_NAVIGATION_STYLE_CLASS="ws_mainnavigation";
@@ -52,6 +51,8 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	public static String APP_DECORATION_STYLE_CLASS="ws_appdecor";
 	public static String APP_INFO_STYLE_CLASS="ws_appinfo";
 	private static final String APP_INFO_ID = "main_domain_name_value";
+	
+	private boolean showLoginLogout=true;
 	
 	/**
 	 * 
@@ -62,9 +63,12 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	
 	public void initializeComponent(FacesContext context){
 		setStyleClass(MAIN_STYLE_CLASS);
+		addPlatformInfo();
 		addApplicationDecoration();
-		UIComponent login = getLogin();
-		add(login);
+		if(isShowLoginLogout()){
+			UIComponent login = getLogin();
+			add(login);
+		}
 		addApplicationInstallationInfo();
 		addTabbar();
 	}
@@ -100,6 +104,21 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		add(bar);
 		return bar;
 	}
+	
+	
+	/**
+	 * 
+	 */
+	private UIComponent addPlatformInfo() {
+		
+		AboutSystemButton aboutbutton = new AboutSystemButton();
+		add(aboutbutton);
+		return aboutbutton;
+		
+//		WFPlainOutputText text = new WFPlainOutputText();
+//		text.setValue("<i>e</i>Platform");
+//		div.add(text);
+	}
 
 	/**
 	 * 
@@ -107,6 +126,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	private UIComponent addApplicationDecoration() {
 		WFContainer div = new WFContainer();
 		div.setStyleClass(APP_DECORATION_STYLE_CLASS);
+		
 		add(div);
 		return div;
 //		WFPlainOutputText text = new WFPlainOutputText();
@@ -246,6 +266,35 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		WFUtil.invoke(ARTICLE_ITEM_BEAN_ID, "setMainCategoryId", new Integer(3));
 
 		ab.updateEditButtons();*/
+	}
+
+	
+	/* (non-Javadoc)
+	 * @see javax.faces.component.StateHolder#restoreState(javax.faces.context.FacesContext, java.lang.Object)
+	 */
+	public void restoreState(FacesContext ctx, Object state) {
+		Object values[] = (Object[])state;
+		super.restoreState(ctx, values[0]);
+		Boolean bShowLL = (Boolean) values[1];
+		this.showLoginLogout=bShowLL.booleanValue();
+	}
+	/* (non-Javadoc)
+	 * @see javax.faces.component.StateHolder#saveState(javax.faces.context.FacesContext)
+	 */
+	public Object saveState(FacesContext ctx) {
+		Object values[] = new Object[2];
+		values[0] = super.saveState(ctx);
+		values[1] = Boolean.valueOf(this.showLoginLogout);
+		return values;
+	}
+	
+	public boolean isShowLoginLogout() {
+		return showLoginLogout;
+	}
+
+	
+	public void setShowLoginLogout(boolean showLoginLogout) {
+		this.showLoginLogout = showLoginLogout;
 	}
 		
 

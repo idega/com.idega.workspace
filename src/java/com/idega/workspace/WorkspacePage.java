@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.16 2007/01/12 15:42:27 tryggvil Exp $
+ *  $Id: WorkspacePage.java,v 1.17 2007/02/05 06:53:42 tryggvil Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -32,10 +32,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2007/01/12 15:42:27 $ by $Author: tryggvil $
+ * Last modified: $Date: 2007/02/05 06:53:42 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.16 $
+ * @version $Revision: 1.17 $
  */
 public class WorkspacePage extends Page {
 
@@ -48,9 +48,9 @@ public class WorkspacePage extends Page {
 	private transient UIForm form;
 	private String WF_PAGE_CLASS="ws_body";
 	
-	private static String LAYOUT_ONECOLUMN="ws_layout_onecolumn";
-	private static String LAYOUT_TWOCOLUMN="ws_layout_twocolumn";
-	private static String LAYOUT_COMPACT="ws_layout_compact";
+	public static String LAYOUT_ONECOLUMN="ws_layout_onecolumn";
+	public static String LAYOUT_TWOCOLUMN="ws_layout_twocolumn";
+	public static String LAYOUT_COMPACT="ws_layout_compact";
 	
 	private String layout=LAYOUT_ONECOLUMN;
 
@@ -122,11 +122,9 @@ public class WorkspacePage extends Page {
 		//UISaveState savestate = new UISaveState();
 		//form.getChildren().add(savestate);
 		
-		WorkspaceBar bar = new WorkspaceBar();
-		bar.setStyleClass("ws_mainnavigation");
-		bar.setId(getId()+"WorkspaceBar");
-		//form.getChildren().add(bar);
-		add(FACET_HEAD,bar);
+		
+		//Initialize the WorkspaceBar:
+		WorkspaceBar bar = getWorkspaceBar();
 		
 		boolean isLoggedOn = false;
 		try {
@@ -143,6 +141,19 @@ public class WorkspacePage extends Page {
 		}
 	}
 	
+	public WorkspaceBar getWorkspaceBar(){
+		String componentId = this.getId()+"WorkspaceBar";
+		UIComponent region = getPageFacet(FACET_HEAD);
+		WorkspaceBar bar = (WorkspaceBar) region.findComponent(componentId);
+		if(bar==null){
+			bar = new WorkspaceBar();
+			bar.setStyleClass("ws_mainnavigation");
+			bar.setId(getId()+"WorkspaceBar");
+			//form.getChildren().add(bar);
+			add(FACET_HEAD,bar);
+		}
+		return bar;
+	}
 	
 	private ViewManager getViewManager(){
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -407,10 +418,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2007/01/12 15:42:27 $ by $Author: tryggvil $
+	 *  Last modified: $Date: 2007/02/05 06:53:42 $ by $Author: tryggvil $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.16 $
+	 * @version $Revision: 1.17 $
 	 */
 	public class SpecialChildList implements List{
 		

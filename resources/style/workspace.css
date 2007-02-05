@@ -276,12 +276,13 @@ html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 }
 
 
-.ws_loginpage{
-	margin: 0px;
-	padding: 0px;
+.ws_body.loginpage{
+	/*margin: 0px;*/
+	/*padding: 0px;*/
 	/***background-image: url(images/background9.jpg);***/
-	background-color: #F2F2F2;
+	/*background-color: #F2F2F2;*/
 	/***background-image: url(images/logingradient.png);***/
+	font-size:1.2em;
 }
 
 .ws_mainloginbox{
@@ -332,11 +333,9 @@ html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 
 .ws_mainloginbox,.ws_mainloginbox *{
 	color: #515151;
-	font-family:Verdana,Sans-serif;
+	/*font-family:Verdana,Sans-serif;*/
   	font-size: 0.99em;
-  	/***
-  	text-shadow: 4px 4px 10px #DDDDDD;
-  	***/
+  	/***text-shadow: 4px 4px 10px #DDDDDD;***/
 }
 
 .ws_mainloginbox,.ws_mainloginbox div{
@@ -683,6 +682,12 @@ display: none;
 	display: inline;
 	margin-left: 80px;
 }
+
+.ws_body .aboutcontainer .logocontainer .logoimage{
+	width: 100px;
+	padding: 15px;
+}
+
 
 .aboutsystem {
 }

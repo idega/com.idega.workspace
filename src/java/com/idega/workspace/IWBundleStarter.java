@@ -1,5 +1,5 @@
 /*
- * $Id: IWBundleStarter.java,v 1.2 2005/03/06 13:17:44 tryggvil Exp $
+ * $Id: IWBundleStarter.java,v 1.3 2007/02/05 06:53:42 tryggvil Exp $
  * Created on 27.1.2005
  *
  * Copyright (C) 2005 Idega Software hf. All Rights Reserved.
@@ -9,6 +9,10 @@
  */
 package com.idega.workspace;
 
+import com.idega.core.view.ComponentClassViewNode;
+import com.idega.core.view.ViewManager;
+import com.idega.core.view.ViewNode;
+import com.idega.faces.WindowViewManager;
 import com.idega.idegaweb.IWBundle;
 import com.idega.idegaweb.IWBundleStartable;
 import com.idega.idegaweb.include.GlobalIncludeManager;
@@ -16,10 +20,10 @@ import com.idega.idegaweb.include.GlobalIncludeManager;
 
 /**
  * 
- *  Last modified: $Date: 2005/03/06 13:17:44 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2007/02/05 06:53:42 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class IWBundleStarter implements IWBundleStartable {
 
@@ -31,6 +35,16 @@ public class IWBundleStarter implements IWBundleStartable {
 		//Register the style sheet:
 		GlobalIncludeManager gbi = GlobalIncludeManager.getInstance();
 		gbi.addBundleStyleSheet(starterBundle.getBundleIdentifier(),"/style/workspace.css");
+		
+		
+		WindowViewManager wViewManager = WindowViewManager.getInstance(starterBundle.getApplication());
+		
+		ViewNode baseWindow = wViewManager.getWindowNode();
+		if(baseWindow!=null){
+			ComponentClassViewNode node = new ComponentClassViewNode("about",baseWindow);
+			node.setComponentBased(true);
+			node.setComponentClass(AboutWindow.class);
+		}
 		
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspaceLoginPage.java,v 1.10 2006/03/28 10:03:36 tryggvil Exp $ Created on 13.7.2004
+ * $Id: WorkspaceLoginPage.java,v 1.11 2007/02/05 06:53:42 tryggvil Exp $ Created on 13.7.2004
  * in project com.idega.core
  * 
  * Copyright (C) 2004-2005 Idega Software hf. All Rights Reserved.
@@ -13,11 +13,11 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.context.FacesContext;
-import com.idega.block.login.presentation.Login;
+import com.idega.block.login.presentation.Login2;
 import com.idega.idegaweb.IWMainApplication;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.Page;
-import com.idega.presentation.Table;
+import com.idega.presentation.ui.Form;
 import com.idega.servlet.filter.IWAuthenticator;
 import com.idega.webface.WFBezel;
 import com.idega.webface.WFContainer;
@@ -27,10 +27,10 @@ import com.idega.webface.WFUtil;
  * <p>
  * This is the component for the default login page in the idegaWeb Workspace.
  * </p>
- * Last modified: $Date: 2006/03/28 10:03:36 $ by $Author: tryggvil $
+ * Last modified: $Date: 2007/02/05 06:53:42 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.10 $
+ * @version $Revision: 1.11 $
  */
 public class WorkspaceLoginPage extends Page {
 	private final static String IW_BUNDLE_IDENTIFIER = "com.idega.webface";
@@ -39,6 +39,7 @@ public class WorkspaceLoginPage extends Page {
 
 	public WorkspaceLoginPage() {
 		setTransient(false);
+		setOnLoad("");
 	}
 	public String getBundleIdentifier() {
 		return IW_BUNDLE_IDENTIFIER;
@@ -51,9 +52,11 @@ public class WorkspaceLoginPage extends Page {
 		Page thePage = this;
 		String productName = iwma.getProductInfo().getFullProductName();
 		thePage.setTitle(productName);
-		thePage.setStyleClass("ws_loginpage");
+		//thePage.setStyleClass("ws_loginpage");
 
-		Table pageTable = new Table(1, 1);	
+		thePage.setStyleClass("ws_body loginpage");
+		
+		/*Table pageTable = new Table(1, 1);	
 		pageTable.setWidth("100%");
 		pageTable.setHeight("100%");
 		pageTable.setCellpadding(0);
@@ -61,6 +64,7 @@ public class WorkspaceLoginPage extends Page {
 		pageTable.setAlignment(1, 1, "center");
 		pageTable.setVerticalAlignment(1, 1, "middle");
 		add(pageTable);
+		*/
 		
 		WFBezel loginBox = new WFBezel();
 		loginBox.setStyleClass("ws_mainloginbox");
@@ -72,7 +76,13 @@ public class WorkspaceLoginPage extends Page {
 		ieHack.setStyleAttribute("margin","0");
 		ieHack.setStyleAttribute("padding","0");
 		loginBox.add(ieHack);
-		pageTable.add(loginBox);
+		//pageTable.add(loginBox);
+		
+		Form form = new Form();
+		add(form);
+		
+		
+		form.add(loginBox);
 		
 
 		boolean isLoggedOn = false;
@@ -89,12 +99,14 @@ public class WorkspaceLoginPage extends Page {
 			//loginBox.add(iwcc);
 		}	
 			//WFLogin login = new WFLogin();
-			Login login = new Login();
-			login.setAllowCookieLogin(true);
+			Login2 login = new Login2();
+			/*login.setAllowCookieLogin(true);
 			login.setUseRegularButton();
 			login.setNoStyles();
 			login.setHeight("60");
-			login.setWidth("70");
+			login.setWidth("70");*/
+			
+			login.setEnterSubmits(true);
 			
 			String redirectUri = iwc.getParameter(IWAuthenticator.PARAMETER_REDIRECT_URI_ONLOGON);
 			String loginUri=null;
@@ -106,8 +118,10 @@ public class WorkspaceLoginPage extends Page {
 				loginUri=iwma.getWorkspaceURI();
 			}
 			
-			//login.setAllowCookieLogin(true);
-			login.setUrlToForwardToOnLogin(loginUri);
+			login.setAllowCookieLogin(true);
+			login.setFocusOnLoad(true);
+			login.setURLToRedirectToOnLogon(loginUri);
+			//login.setUrlToForwardToOnLogin(loginUri);
 			
 			loginBox.add(login);
 
@@ -125,6 +139,8 @@ public class WorkspaceLoginPage extends Page {
 		loginBox.add(getVersionInfo());
 		loginBox.add(getBuildId());
 		
+		AboutSystemButton aboutbutton = new AboutSystemButton();
+		loginBox.add(aboutbutton);
 		
 		loginBox.add(getCopyrightText());
 		
