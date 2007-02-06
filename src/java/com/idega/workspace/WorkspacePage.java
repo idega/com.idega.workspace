@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.17 2007/02/05 06:53:42 tryggvil Exp $
+ *  $Id: WorkspacePage.java,v 1.18 2007/02/06 00:45:07 laddi Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -32,10 +32,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2007/02/05 06:53:42 $ by $Author: tryggvil $
+ * Last modified: $Date: 2007/02/06 00:45:07 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.17 $
+ * @version $Revision: 1.18 $
  */
 public class WorkspacePage extends Page {
 
@@ -124,7 +124,7 @@ public class WorkspacePage extends Page {
 		
 		
 		//Initialize the WorkspaceBar:
-		WorkspaceBar bar = getWorkspaceBar();
+		/*WorkspaceBar bar =*/ getWorkspaceBar();
 		
 		boolean isLoggedOn = false;
 		try {
@@ -418,10 +418,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2007/02/05 06:53:42 $ by $Author: tryggvil $
+	 *  Last modified: $Date: 2007/02/06 00:45:07 $ by $Author: laddi $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.17 $
+	 * @version $Revision: 1.18 $
 	 */
 	public class SpecialChildList implements List{
 		
