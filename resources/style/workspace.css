@@ -27,7 +27,7 @@ form{
 /* Main Layout Definition Begin */
 div.ws_head{
 	position: relative;
-	height: 60px;
+	height: 89px;
 	background: #F2F2F2 url(images/bg_head.gif) repeat-x;
 	padding: 0;
 	margin: 0;
@@ -36,16 +36,16 @@ div.ws_head{
 /* App Logo */
 div.ws_head div.ws_appdecor{
 	position: absolute;
-	top: 2px;
+	top: 0;
 	left: 0;
 	width: 96px;
-	height: 26px;
+	height: 31px;
 	background: url(images/eplatform.gif) no-repeat;
 }
 
 div.ws_head div.ws_appinfo{
 	float: left;
-	margin: 22px 0 0 0;
+	margin: 32px 0 0 0;
 	padding: 8px 0 0 16px;
 	font-size: 1.4em;
 	font-weight: bold;
@@ -57,7 +57,7 @@ div.ws_head div.ws_appinfo{
 .ws_body .ws_mainnavigation{
 	position:absolute;
 	right:0px;
-	top: 0px;
+	top: 60px;
 }
 
 .ws_body .ws_mainnavigation ul.wf_tabbar, 
@@ -67,14 +67,11 @@ div.ws_head div.ws_appinfo{
 	padding: 0;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar{
-	margin-top: 60px;
 	float: right;
 }
-
 .ws_body .ws_mainnavigation ul.wf_tabbar li{
 	float: left;
 	background: url(images/tabbar/bg_item_left.gif) left top no-repeat;
-	background-position: 0 4px;
 	z-index: 0;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li a{
@@ -90,7 +87,6 @@ div.ws_head div.ws_appinfo{
 
 .ws_body .ws_mainnavigation ul.wf_tabbar li a:hover{
 	background: url(images/tabbar/bg_item_main_hover.gif) no-repeat;
-	background-position: 0 4px;
 	text-decoration: none;
 	color:  #38485C;
 	z-index: 0;
@@ -121,7 +117,7 @@ div.ws_layout_twocolumn{
 /* Left menu */
 div.ws_functionmenu{
 	position: absolute;
-	top: 51px;
+	top: 89px;
 	bottom: 4px;
 	left: 0;
 	width: 202px;
@@ -130,9 +126,9 @@ div.ws_functionmenu{
 	height: expression(
 	(
 	document.body.clientHeight) ?
-	document.body.clientHeight - 59 + 'px'
+	document.body.clientHeight - 97 + 'px'
 	:
-	document.documentElement.clientHeight - 59 + 'px'
+	document.documentElement.clientHeight - 97 + 'px'
 	);
 }
 
@@ -188,7 +184,7 @@ html>body div.ws_functionmenu div.ws_bottom {
 div.ws_smallloginbox{
 	position: absolute;
 	right: 0;
-	padding: 1px 1px 0 15px;
+	padding: 7px 4px 0 25px;
 	width: 271px;
 	height: 19px;
 	color: #fff;
@@ -238,9 +234,9 @@ div.ws_main .wf_block.maximizedvertically{
 	height: expression(
 	(
 	document.body.clientHeight) ?
-	document.body.clientHeight - 59 + 'px'
+	document.body.clientHeight - 97 + 'px'
 	:
-	document.documentElement.clientHeight - 59 + 'px'
+	document.documentElement.clientHeight - 96 + 'px'
 	);
 
 	width: expression(
@@ -255,7 +251,7 @@ div.ws_main .wf_block.maximizedvertically{
 html>body div.ws_main .wf_block.maximizedvertically{
 	height: auto;
 	position: absolute;
-	top: 51px;
+	top: 89px;
 	bottom: 4px;
 	left: 202px;
 	right: 0;
@@ -265,14 +261,14 @@ html>body div.ws_main .wf_block.maximizedvertically{
 
 div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 	position: absolute;
-	top: 23px;
+	top: 45px;
 	left: 0;
 	height: expression(
 	(
 	document.body.clientHeight) ?
-	document.body.clientHeight - 84 + 'px'
+	document.body.clientHeight - 144 + 'px'
 	:
-	document.documentElement.clientHeight - 84 + 'px'
+	document.documentElement.clientHeight - 144 + 'px'
 	);
 
 	width: expression(
@@ -471,6 +467,7 @@ div.wf_block ul.wf_toolbar li a:hover {
 	height: 22px;
 	background: url(images/bg_titlebar.gif) repeat-x;
 	width: 100%;
+//display: none;
 }
 
 /*** Begin WS Function (Left) Menu ***/
@@ -520,7 +517,10 @@ div.ws_functionmenu ul.wf_viewmenu li{
 	border-top: 1px solid #F4F4F4;
 	clear: both;
 	display: block;
+	#min-height:31px;
 	overflow:auto;
+	#padding-bottom:3px;
+	#padding-right:3px;
 }
 
 div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu,
@@ -637,14 +637,5 @@ div.ws_functionmenu .wf_viewmenu .deselected a:hover {
 	width:60%;
 }
 
-/* Workspace changes (thinner top) TODO merge classes with those above*/ 
-.ws_mainnavigation{
-	margin-top: -37px;
-}
-
-.ws_main{
-	margin-top: -9px !important;
-}
-/* Workspace changes end*/ 
 
 /***Workspace End***/
