@@ -56,7 +56,7 @@ div.ws_head div.ws_appinfo{
 .ws_body .ws_mainnavigation{
 	position:absolute;
 	right:0px;
-	top: 0px;
+	top: 23px;
 }
 
 .ws_body .ws_mainnavigation ul.wf_tabbar, 
@@ -66,7 +66,6 @@ div.ws_head div.ws_appinfo{
 	padding: 0;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar{
-	margin-top: 23px;
 	float: right;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li{
@@ -155,9 +154,9 @@ html>body div.ws_functionmenu div.ws_bottom {
 div.ws_smallloginbox{
 	position: absolute;
 	right: 0;
-	padding: 1px 1px 0 15px;
+	padding-left: 15px;
 	width: 271px;
-	height: 19px;
+	height: 21px;
 	color: #fff;
 	background: #4C627D url(images/smallloginbox/bg_left.gif) left bottom no-repeat;
 }
@@ -165,7 +164,8 @@ div.ws_smallloginbox{
 div.ws_smallloginbox .currentUser {
 	font-weight: normal;
 	font-size: 1em;
-	width: 120px;
+	width: auto;
+	line-height: 21px;
 }
 
 p.currentUser{
@@ -173,12 +173,14 @@ p.currentUser{
 	color: inherit;
 }
 
-
 div.ws_smallloginbox p{
 	float: left;
 }
+
 div.ws_smallloginbox input{
-	float: right;
+	position: absolute;
+	right: 4px;
+	top: 4px;
 	margin: 0;
 	padding: 0 6px 0 6px;
 	background: #38485C;
@@ -194,7 +196,7 @@ div.ws_smallloginbox input{
 /***Workspace Begin***/
 div.ws_layout_twocolumn div.ws_main{
 	margin: 0 0 0 202px;
-margin-top: -9px;
+margin-top: -5px;
 }
 
 div.ws_layout_twocolumn div.ws_main .wf_block{
