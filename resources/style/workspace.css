@@ -723,21 +723,6 @@ position: relative;
 top: auto;
 }
 
-.wf_block.maximizedvertically{
-top: 0;
-
-}
-
-
-.maximizedvertically .wf_blockmainarea{
-top: 0 !important;
-}
-
-.maximizedvertically .wf_blockmainarea .wf_blockmainarea{
-top: auto !important;
-}
-
-
 body#createpage.ws_body div.ws_layout_twocolumn form#createpageform div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#site_tree_container div.site_tree_container_site div.wf_blockmainarea{
 top: 25px !important;
 }
