@@ -723,6 +723,21 @@ position: relative;
 top: auto;
 }
 
+.wf_block.maximizedvertically{
+top: 0;
+
+}
+
+
+.maximizedvertically .wf_blockmainarea{
+top: 0 !important;
+}
+
+.maximizedvertically .wf_blockmainarea .wf_blockmainarea{
+top: auto !important;
+}
+
+
 body#createpage.ws_body div.ws_layout_twocolumn form#createpageform div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#site_tree_container div.site_tree_container_site div.wf_blockmainarea{
 top: 25px !important;
 }
@@ -733,137 +748,6 @@ body#pages.ws_body div.ws_layout_twocolumn form#pagesForm div.ws_main div.wf_blo
 
 body#pages.ws_body div.ws_layout_twocolumn form#pagesForm div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#pageInfoContainer div.pageInfoStyle div.wf_blockmainarea{
 	top: 25px !important;
-}
-
-div.pagesTypesContainer{
-border-bottom-width: 0px;
-left: 8px;
-right: 281px;
-top: 4px !important;
-width: auto !important;
-}
-
-div#siteTemplatesContainer div.siteTemplatesContainer .wf_blockmainarea #site_templates .accordionTabContentBox{
-border: 1px solid #d7d7d7 !important;
-}
-
-div.siteTemplatesContainer{
-top: 8px; 
-height: auto !important;
-left: 8px;
-right: 281px !important;
-width: auto !important;
-
-}
-
-div.siteTemplatesContainer .wf_blockmainarea{
-bottom: 0 !important;
-padding: 0 !important;
-}
-
-
-div.siteTemplatesContainer .wf_titlebar{
-display: block !important;
-background: #fff !important;
-position: absolute;
-bottom: 304px !important;
-border: 1px solid #d7d7d7;
-border-width: 1px 0;
-}
-
-div.siteTemplatesContainer .wf_titlebar_icon,
-div.pagesTypesContainer .wf_titlebar_icon,
-#pageInfoContainer .wf_titlebar_icon,
-#site_tree_container .wf_titlebar_icon,
-#siteInfoContainer .wf_titlebar_icon{
-display: none;
-}
-
-
-div.siteTemplatesContainer .wf_titlebar_text,
-div.pagesTypesContainer .wf_titlebar_text,
-#pageInfoContainer .wf_titlebar_text,
-#site_tree_container .wf_titlebar_text,
-#siteInfoContainer .wf_titlebar_text{
-padding: 3px 0 0 10px;
-}
-
-div.pagesTypesContainer .wf_titlebar{
-display: block !important;
-background: #fff !important;
-position: absolute;
-z-index: 1;
-}
-
-div.pagesTypesContainer .wf_blockmainarea{
-margin-top: 25px;
-width: auto !important;
-}
-
-#site_tree_container .wf_titlebar{
-display: block !important;
-background: #fff;
-}
-
-#pageInfoContainer .wf_titlebar{
-	display: block !important;
-	background: #fff;
-}
-
-.site_tree_container_site{
-bottom: 328px !important;
-top: 4px;
-height: auto !important;
-
-
-}
-
-#site_tree_container .wf_blockmainarea{
-margin-top: 25px !important;
-padding: 0 !important;
-}
-
-#pageInfoContainer .wf_blockmainarea{
-	margin-top: 25px !important;
-	padding: 0 !important;
-}
-
-#site_tree_container .wf_blockmainarea ul{
-margin-top: 0 !important;
-margin-bottom: 0;
-}
-
-#siteInfoContainer .wf_blockmainarea span{
-font-size: 9px !important;
-}
-
-#site_tree_container .wf_menuheader{
-border-bottom: 1px solid #d7d7d7;
-}
-
-#pageInfoContainer .wf_menuheader{
-	border-bottom: 1px solid #d7d7d7;
-}
-
-#siteInfoContainer .siteInfoStyle{
-bottom: 0 !important;
-height: 327px !important;
-}
-
-#siteInfoContainer .wf_blockmainarea input{
-margin: 0 !important;
-}
-
-#siteInfoContainer .wf_blockmainarea input{
-margin: 0 !important;
-}
-
-#siteInfoContainer .wf_titlebar{
-display: block !important;
-background: #fff;
-}
-
-#siteInfoContainer .wf_blockmainarea{
 }
 
 .ws_functionmenu .wf_titlebar{
