@@ -638,5 +638,18 @@ div.ws_functionmenu .wf_viewmenu .deselected a:hover {
 	width:60%;
 }
 
+.wf_blockmainarea input.InterfaceButton{ 
+	display: block;
+	text-align: center;
+	padding-top: 2px;
+}
+
+form .wf_block{
+	overflow: hidden;
+}
+
+form .wf_blockmainarea{
+	overflow: hidden;
+}
 
 /***Workspace End***/
