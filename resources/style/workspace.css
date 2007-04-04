@@ -285,18 +285,21 @@ html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 	/*background-color: #F2F2F2;*/
 	/***background-image: url(images/logingradient.png);***/
 	font-size:1.2em;
+	
 }
 
 .ws_mainloginbox{
 	width:400px;
 	height:400px;
-	margin: 0px;
+	/*margin: 0px;*/
 	padding:50px;
 	background-position: center center;
 	background-repeat: no-repeat;
 	/*background: url(images/idegalogin.png);*/
 	border: 1px solid #D7D7D7;
 	
+	margin: auto !important;
+	margin-top: 10% !important;
 	
 	/***IE TRANSPARENCY HACKS***/
 	_background-image: none;
@@ -347,20 +350,28 @@ html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
 .ws_mainloginbox .productinfo{
 	margin: 15px;
 	font-size:1.2em;
+	text-align: center;
 }
 
 .ws_mainloginbox .buildid{
 	font-size:0.7em;
+	text-align: center;
+}
+
+.ws_mainloginbox .versioninfo{
+	text-align: center;
 }
 
 .ws_mainloginbox .copyrighttext{
 	display: none;
+	text-align: center;
 }
 
 .ws_mainloginbox .domaininfo{
 	margin-top: -10px;
 	margin-bottom:20px;
 	font-size:0.9em;
+	text-align: center;
 }
 
 
