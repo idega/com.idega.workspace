@@ -141,7 +141,8 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		div.setStyleClass(APP_INFO_STYLE_CLASS);
 		
 		HtmlOutputText text = new HtmlOutputText();
-		String infoString = IWMainApplication.getDefaultIWApplicationContext().getDomain().getName();
+		
+		String infoString = IWContext.getInstance().getDomain().getName();
 		text.setValue(infoString);
 		div.getChildren().add(text);
 				
