@@ -71,15 +71,17 @@ div.ws_head div.ws_appinfo{
 	float: right;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li{
+        margin-top: -4px;
 	float: left;
 	background: url(/idegaweb/bundles/com.idega.workspace.bundle/resources/style/images/tabbar/bg_item_left.gif) left top no-repeat;
 	z-index: 0;
+        background-position: 0 4px;
 }
 .ws_body .ws_mainnavigation ul.wf_tabbar li a{
-	padding: 0 12px;
+	padding: 10px 12px 0 12px;
 	margin: 0;
 	float: left;
-	line-height: 24px;
+	height: 21px;
 	font-weight: bold;
 	color: #575757;
 	font-size: 1.0em;
@@ -91,6 +93,7 @@ div.ws_head div.ws_appinfo{
 	text-decoration: none;
 	color:  #38485C;
 	z-index: 0;
+        background-position: 0 4px;
 }
 
 .ws_body .ws_mainnavigation ul.wf_tabbar li.selected{
@@ -187,7 +190,7 @@ div.ws_smallloginbox{
 	right: 0;
 	padding: 7px 4px 0 25px;
 	width: 271px;
-	height: 19px;
+	height: 15px;
 	color: #fff;
 	background: #4C627D url(/idegaweb/bundles/com.idega.workspace.bundle/resources/style/images/smallloginbox/bg_left.gif) left bottom no-repeat;
 }
