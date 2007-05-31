@@ -655,4 +655,21 @@ form .wf_blockmainarea{
 	overflow: hidden;
 }
 
+/* Hide titlebars for user and builder app */
+body#workspacepage1.ws_body #workspaceform1 .wf_titlebar{ 
+	display: none; 
+} 
+
+body#workspacepage1.ws_body #workspaceform1 .ws_functionmenu .wf_titlebar, 
+body#workspacepage1.ws_body #workspaceform1 .wf_block .wf_block .wf_titlebar{
+	display: block;
+}
+
+#workspacebuilderapp1.ws_body .ws_layout_onecolumn #workspacebuilderappform1 .ws_main .wf_titlebar{
+display: none;
+}
+
+
+
+
 /***Workspace End***/

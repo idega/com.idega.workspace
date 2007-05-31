@@ -170,7 +170,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		boolean isRendered = node.isVisibleInMenus();
 		if(isRendered){
 			IWContext iwc = IWContext.getIWContext(context);
-			return ViewManager.getInstance(context).hasUserAcess(node,iwc);
+			return ViewManager.getInstance(context).hasUserAccess(node,iwc);
 		}
 		else{
 			return false;
