@@ -669,7 +669,13 @@ body#workspacepage1.ws_body #workspaceform1 .wf_block .wf_block .wf_titlebar{
 display: none;
 }
 
-
+body.ws_body .ws_layout_twocolumn form#_id0 .ws_main .wf_block{
+position: absolute;
+top: 51px;
+bottom: 0;
+height: auto;
+overflow-y: auto;
+}
 
 
 /***Workspace End***/
