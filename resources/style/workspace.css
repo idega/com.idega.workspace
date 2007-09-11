@@ -188,21 +188,25 @@ html>body div.ws_functionmenu div.ws_bottom {
 div.ws_smallloginbox{
 	position: absolute;
 	right: 0;
-	padding: 7px 4px 0 25px;
-	width: 271px;
-	height: 15px;
+	width: 450px;
+	height: 20px;
 	color: #fff;
 	background: #4C627D url(/idegaweb/bundles/com.idega.workspace.bundle/resources/style/images/smallloginbox/bg_left.gif) left bottom no-repeat;
 }
+
 div.ws_smallloginbox .login {
-	width: 271px;
-	max-width: 271px;
+	width: 450px;
+	max-width: 450px;
 }
+
 div.ws_smallloginbox .currentUser {
 	font-weight: normal;
 	font-size: 1em;
-	width: 120px;
+	width: 350px;
+	line-height: 20px;
+	padding: 0 10px;
 }
+
 div.ws_smallloginbox p{
 	float: left;
 }
@@ -215,6 +219,8 @@ div.ws_smallloginbox input{
 	font-size: 0.8em;
 	border: 1px solid #6F89A8;
 	text-transform: uppercase;
+	margin-top: 4px;
+	margin-right: 5px;
 }
 
 /* Main Layout Definition Begin */
