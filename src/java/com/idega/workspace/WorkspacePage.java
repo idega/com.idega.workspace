@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.21 2007/05/09 18:12:28 valdas Exp $
+ *  $Id: WorkspacePage.java,v 1.22 2007/09/18 08:01:40 valdas Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -32,10 +32,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2007/05/09 18:12:28 $ by $Author: valdas $
+ * Last modified: $Date: 2007/09/18 08:01:40 $ by $Author: valdas $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.21 $
+ * @version $Revision: 1.22 $
  */
 public class WorkspacePage extends Page {
 
@@ -55,6 +55,8 @@ public class WorkspacePage extends Page {
 	private String layout=LAYOUT_ONECOLUMN;
 
 	private Boolean showFunctionMenu;
+	
+	private Boolean useHtmlTag = Boolean.TRUE;
 	
 	public static String FACET_HEAD="ws_head";
 	public static String FACET_FUNCTIONMENU="ws_functionmenu";
@@ -418,10 +420,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2007/05/09 18:12:28 $ by $Author: valdas $
+	 *  Last modified: $Date: 2007/09/18 08:01:40 $ by $Author: valdas $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.21 $
+	 * @version $Revision: 1.22 $
 	 */
 	public class SpecialChildList implements List{
 		
@@ -646,5 +648,18 @@ public class WorkspacePage extends Page {
 		this.showFunctionMenu=new Boolean(showMenu);
 	}
 	
+	
+	public void setJavascripturls(String scriptUrls) {
+		super.setJavascriptURLs(scriptUrls);
+	}
+	
+	public void setStylesheeturls(String styleSheetUrls) {
+		super.setStyleSheetURL(styleSheetUrls);
+	}
 
+	public void setUseHtmlTag(Boolean useHtmlTag) {
+		this.useHtmlTag = useHtmlTag;
+		super.setUseHtmlTag(this.useHtmlTag);
+	}
+	
 }
