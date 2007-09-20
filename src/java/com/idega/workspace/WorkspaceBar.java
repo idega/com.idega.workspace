@@ -10,16 +10,17 @@ package com.idega.workspace;
 
 import java.io.Serializable;
 import java.util.Iterator;
+
 import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlOutputLink;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
 import com.idega.block.login.presentation.Login2;
 import com.idega.core.view.KeyboardShortcut;
 import com.idega.core.view.ViewManager;
 import com.idega.core.view.ViewNode;
-import com.idega.idegaweb.IWMainApplication;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.text.Text;
 import com.idega.webface.WFContainer;
@@ -193,7 +194,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		boolean isRendered = node.isVisibleInMenus();
 		if(isRendered){
 			IWContext iwc = IWContext.getIWContext(context);
-			return ViewManager.getInstance(context).hasUserAcess(node,iwc);
+			return ViewManager.getInstance(context).hasUserAccess(node,iwc);
 		}
 		else{
 			return false;
