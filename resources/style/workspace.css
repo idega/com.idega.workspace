@@ -81,6 +81,16 @@ div.ws_head div.ws_appdecor {
 	z-index: 1;
 }
 
+.ws_layout_onecolumn .ws_main {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: auto;
+	width: auto;	
+}
+
 .ws_body .ws_mainnavigation ul.wf_tabbar,.ws_body .ws_mainnavigation ul.wf_tabbar li {
 	list-style: none;
 	margin: 0;
@@ -256,6 +266,10 @@ p.currentUser {
 
 div.ws_smallloginbox p {
 	float: left;
+}
+
+div.ws_smallloginbox div.submit {
+	float: left;	
 }
 
 div.ws_smallloginbox input {
@@ -876,4 +890,7 @@ body#pages.ws_body div.ws_layout_twocolumn form#pagesForm div.ws_main div.wf_blo
 .ws_functionmenu .wf_titlebar_text {
 	margin-left: 10px;
 	padding: 0;
+}
+
+.wf_blockmainarea iframe {
 }
