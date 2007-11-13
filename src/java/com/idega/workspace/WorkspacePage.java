@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.22 2007/09/18 08:01:40 valdas Exp $
+ *  $Id: WorkspacePage.java,v 1.23 2007/11/13 09:32:13 laddi Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -16,9 +16,11 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIForm;
 import javax.faces.context.FacesContext;
+
 import com.idega.core.view.FramedApplicationViewNode;
 import com.idega.core.view.ViewManager;
 import com.idega.core.view.ViewNode;
@@ -32,10 +34,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2007/09/18 08:01:40 $ by $Author: valdas $
+ * Last modified: $Date: 2007/11/13 09:32:13 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.22 $
+ * @version $Revision: 1.23 $
  */
 public class WorkspacePage extends Page {
 
@@ -73,8 +75,9 @@ public class WorkspacePage extends Page {
 		//}
 		//setDoctype(Page.DOCTYPE_HTML_4_0_1_STRICT);
 		//setDoctype(DOCTYPE_XHTML_1_0_TRANSITIONAL);
-		this.setStyleClass(this.WF_PAGE_CLASS);
 	}
+	
+	@Override
 	public String getBundleIdentifier() {
 		return IW_BUNDLE_IDENTIFIER;
 	}
@@ -83,10 +86,18 @@ public class WorkspacePage extends Page {
 //		IWBundle iwb = this.getBundle(iwc);
 //		IWResourceBundle iwrb = this.getResourceBundle(iwc);
 		
+		//TODO: Change this, this is a hack for the function menu:
+		ViewManager viewManager = getViewManager(iwc);
+		ViewNode node = viewManager.getViewNodeForContext(iwc);
+		
+		ViewNode parentNode = node.getParent();
+
+		this.setStyleClass(this.WF_PAGE_CLASS + " " + node.getViewId() + (parentNode != null && !parentNode.getViewId().equals("workspace") ? " " + parentNode.getViewId() : ""));
+
 		//Initialize the areas:
 		this.getMainArea();
 		this.getHead();
-		this.getFunctionMenu();
+		this.getFunctionMenu(node);
 
 		Page thePage = this;
 		//thePage.setBackgroundColor(backgroundColor);
@@ -94,9 +105,6 @@ public class WorkspacePage extends Page {
 
 		thePage.setTitle("idegaWeb Applications");
 
-		//TODO: Change this, this is a hack for the function menu:
-		ViewManager viewManager = getViewManager(iwc);
-		ViewNode node = viewManager.getViewNodeForContext(iwc);
 		//if(requestUri.indexOf("content")!=-1){
 		
 		if(displayFunctionMenu(node)){
@@ -167,6 +175,7 @@ public class WorkspacePage extends Page {
 		return ViewManager.getInstance(iwc.getIWMainApplication());
 	}
 	
+	@Override
 	public List getChildren(){
 		if(this.embedForm){
 			return getForm().getChildren();
@@ -212,6 +221,7 @@ public class WorkspacePage extends Page {
 		return appNode.getViewId();
 	}
 	
+	@Override
 	public void add(UIComponent comp){
 		this.getForm().getChildren().add(comp);
 	}
@@ -274,12 +284,12 @@ public class WorkspacePage extends Page {
 		return head;
 	}
 	
-	public UIComponent getFunctionMenu(){
+	public UIComponent getFunctionMenu(ViewNode node){
 		UIComponent menu = getPageFacet(FACET_FUNCTIONMENU);
-		if(FACET_HEAD==null){
+		if(menu==null){
 			WFContainer container = new WFContainer();
 			container.setId(FACET_FUNCTIONMENU);
-			container.setStyleClass(FACET_FUNCTIONMENU);
+			container.setStyleClass(FACET_FUNCTIONMENU + " " + node.getViewId());
 			setPageFacet(FACET_FUNCTIONMENU,container);
 			menu=container;
 		}
@@ -319,6 +329,7 @@ public class WorkspacePage extends Page {
 		return null;
 	}
 	
+	@Override
 	public void encodeBegin(FacesContext context) throws IOException{
 		if(!this.isInitalized){
 			this.initializeContent(context);
@@ -327,8 +338,12 @@ public class WorkspacePage extends Page {
 		super.encodeBegin(context);
 	}
 	
+	@Override
 	public void encodeChildren(FacesContext context) throws IOException{
-		
+		IWContext iwc = IWContext.getIWContext(context);	
+		ViewManager viewManager = getViewManager(iwc);
+		ViewNode node = viewManager.getViewNodeForContext(iwc);
+
 		UIComponent layoutContainer = getLayoutContainer();
 		layoutContainer.encodeBegin(context);
 		
@@ -344,7 +359,7 @@ public class WorkspacePage extends Page {
 			
 		UIComponent bar = getHead();
 		this.renderChild(context,bar);
-		UIComponent fMenu = getFunctionMenu();
+		UIComponent fMenu = getFunctionMenu(node);
 		this.renderChild(context,fMenu);
 		UIComponent mainArea = getMainArea();
 		if(mainArea==null){
@@ -376,6 +391,7 @@ public class WorkspacePage extends Page {
 		layoutContainer.encodeEnd(context);
 	}
 	
+	@Override
 	public void encodeEnd(FacesContext context) throws IOException{
 		super.encodeEnd(context);
 	}
@@ -384,6 +400,7 @@ public class WorkspacePage extends Page {
 	/* (non-Javadoc)
 	 * @see javax.faces.component.StateHolder#restoreState(javax.faces.context.FacesContext, java.lang.Object)
 	 */
+	@Override
 	public void restoreState(FacesContext ctx, Object state) {
 		Object values[] = (Object[])state;
 		super.restoreState(ctx, values[0]);
@@ -395,6 +412,7 @@ public class WorkspacePage extends Page {
 	/* (non-Javadoc)
 	 * @see javax.faces.component.StateHolder#saveState(javax.faces.context.FacesContext)
 	 */
+	@Override
 	public Object saveState(FacesContext ctx) {
 		Object values[] = new Object[4];
 		values[0] = super.saveState(ctx);
@@ -409,21 +427,23 @@ public class WorkspacePage extends Page {
 	/* (non-Javadoc)
 	 * @see javax.faces.component.UIComponent#processRestoreState(javax.faces.context.FacesContext, java.lang.Object)
 	 */
+	@Override
 	public void processRestoreState(FacesContext fc, Object arg1) {
 		super.processRestoreState(fc, arg1);
 	}
 	/* (non-Javadoc)
 	 * @see javax.faces.component.UIComponent#processSaveState(javax.faces.context.FacesContext)
 	 */
+	@Override
 	public Object processSaveState(FacesContext arg0) {
 		return super.processSaveState(arg0);
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2007/09/18 08:01:40 $ by $Author: valdas $
+	 *  Last modified: $Date: 2007/11/13 09:32:13 $ by $Author: laddi $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.22 $
+	 * @version $Revision: 1.23 $
 	 */
 	public class SpecialChildList implements List{
 		
@@ -500,6 +520,7 @@ public class WorkspacePage extends Page {
 		/* (non-Javadoc)
 		 * @see java.lang.Object#equals(java.lang.Object)
 		 */
+		@Override
 		public boolean equals(Object arg0) {
 			return this.list.equals(arg0);
 		}
@@ -513,6 +534,7 @@ public class WorkspacePage extends Page {
 		/* (non-Javadoc)
 		 * @see java.lang.Object#hashCode()
 		 */
+		@Override
 		public int hashCode() {
 			return this.list.hashCode();
 		}
@@ -621,6 +643,7 @@ public class WorkspacePage extends Page {
 		/* (non-Javadoc)
 		 * @see java.lang.Object#toString()
 		 */
+		@Override
 		public String toString() {
 			return this.list.toString();
 		}

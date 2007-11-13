@@ -1,5 +1,5 @@
 /*** General HTML definitions ***/
-html, body{
+html,body {
 	width: 100%;
 	height: 100%;
 }
@@ -11,143 +11,215 @@ html, body{
 	margin: 0px;
 	padding: 0px;
 	overflow: hidden;
+	height: 100%;
 }
+
+.workspace div.ws_functionmenu {
+	display: none;
+}
+
+.ws_layout_twocolumn {
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
 .ws_body a {
 	text-decoration: none;
-  	font-weight: normal;
+	font-weight: normal;
 }
-.ws_body a:hover {
-	/*font-weight: bold;*/
-	text-decoration:underline;
+
+.ws_body a:hover { /*font-weight: bold;*/
+	text-decoration: underline;
 }
-form{
+
+form {
 	margin: 0;
 	padding: 0;
 }
 
 html>body {
 	bottom: 0;
-		width: auto;
-	height: auto;	
+	width: auto;
+	height: auto;
 }
 
 /* Main Layout Definition Begin */
-div.ws_head{
+div.ws_head {
 	position: relative;
-	height: 56px;
-	background: #F2F2F2 url(images/bg_head.gif) repeat-x;
+	height: 79px;
+	background: url(images/top_background.gif) repeat-x #04262d;
 	padding: 0;
 	margin: 0;
 }
 
 /* App Logo */
-div.ws_head div.ws_appdecor{
+div.ws_head div.ws_appinfo {
 	position: absolute;
-	top: 2px;
-	left: 23px;
-	width: 96px;
-	height: 26px;
-	background: url(images/eplatform_platform.gif) no-repeat;
+	top: 30px;
+	left: 34px;
+	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #fff;
+	letter-spacing: 2px;
 }
-div.ws_head div.ws_appinfo{
-	float: left;
-	margin: 23px 0 0 0;
-	padding: 8px 0 0 8px;
-	font-size: 1.2em;
-	font-weight: bold;
-	color:  #38485C;
+
+div.ws_head div.ws_appdecor {
+	position: absolute;
+	top: 13px;
+	left: 14px;
+	width: 117px;
+	height: 16px;
+	background: url(images/eplatform_logo.gif) no-repeat;
 }
 
 /* Tabbar Inside ws_head */
-
-.ws_body .ws_mainnavigation{
-	position:absolute;
-	right:0px;
-	top: 23px;
+.ws_body .ws_mainnavigation {
+	position: absolute;
+	right: 16px;
+	top: 32px;
+	z-index: 1;
 }
 
-.ws_body .ws_mainnavigation ul.wf_tabbar, 
-.ws_body .ws_mainnavigation ul.wf_tabbar li{
+.ws_body .ws_mainnavigation ul.wf_tabbar,.ws_body .ws_mainnavigation ul.wf_tabbar li {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-.ws_body .ws_mainnavigation ul.wf_tabbar{
+
+.ws_body .ws_mainnavigation ul.wf_tabbar {
 	float: right;
 }
-.ws_body .ws_mainnavigation ul.wf_tabbar li{
+
+.ws_body .ws_mainnavigation ul.wf_tabbar li {
 	float: left;
-	background: url(images/tabbar/bg_item_left.gif) left top no-repeat;
-	z-index: 0;
-background-position: 0 4px;
+	background: url(images/tabbar/left.gif) left top no-repeat;
+	padding-left: 7px;
+	margin-right: 6px;
 }
-.ws_body .ws_mainnavigation ul.wf_tabbar li a{
-	padding: 10px 12px 0 12px;
+
+.ws_body .ws_mainnavigation ul.wf_tabbar li a {
 	margin: 0;
 	float: left;
+	display: block;
+	height: 19px;
+	font-weight: bold;
+	color: #fff;
+	font-size: 11px;
+	line-height: 19px;
+	padding: 0 16px 0 9px;
+	background: url(images/tabbar/right.gif) right top no-repeat;
+	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+}
+
+.ws_body .ws_mainnavigation ul.wf_tabbar li.selected {
+	background: url(images/tabbar/left_selected.gif) left top no-repeat;
+}
+
+.ws_body .ws_mainnavigation ul.wf_tabbar li.selected a, .ws_body .ws_mainnavigation ul.wf_tabbar li.selected a:hover {
+	color: #04272e;
+	font-weight: bold;
+	background: url(images/tabbar/right_selected.gif) right top no-repeat;
+	text-decoration: none;
 	height: 21px;
-	font-weight: bold;
-	color: #575757;
-	font-size: 1.0em;
+	line-height: 21px;
+}
+
+.ws_body .ws_subnavigation {
+	border-top: 1px #042025 solid;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50px;
+	height: 28px;
+	background: url(images/sub_navigation_background.gif) repeat-x #c6cbc8;
+	border-bottom: 1px #b9c0c0 solid;
 	z-index: 0;
 }
 
-.ws_body .ws_mainnavigation ul.wf_tabbar li a:hover{
-	background: url(images/tabbar/bg_item_main_hover.gif) no-repeat;
-	text-decoration: none;
-	color:  #38485C;
-	z-index: 0;
-background-position: 0 4px;
-}
-
-.ws_body .ws_mainnavigation ul.wf_tabbar li.selected{
-	background: url(images/tabbar/bg_item_left_selected.gif) left top no-repeat;
-	z-index: 1;
-}
-.ws_body .ws_mainnavigation ul.wf_tabbar li.selected a,
-.ws_body .ws_mainnavigation ul.wf_tabbar li.selected a:hover
-{
-	color: #38485C;
-	font-weight: bold;
-	background: url(images/tabbar/bg_item_right_selected.gif) right top no-repeat;
-	text-decoration: none;
-	margin-right: -3px;
-	padding-right: 16px;
-	padding-top: 7px;
-	height: 24px;
-	z-index: 1;
-}
-
-div.ws_layout_twocolumn{
+div.ws_layout_twocolumn {
 	background: #F2F2F2;
 }
 
-/* Faux coulumn definitions sans-background */
-
-
-
-/* Left menu */
-div.ws_functionmenu{
+div.ws_functionmenu {
 	position: absolute;
 	top: 51px;
-	bottom: 4px;
+	height: 29px;
+}
+
+div.ws_functionmenu .wf_titlebar {
+	display: none;
+}
+
+div.ws_functionmenu .wf_block {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+div.ws_functionmenu .wf_block ul {
+	margin: 0;
+	list-style: none;
+	padding: 0;
+	background: none;
+	margin-left: 20px;
+}
+
+div.ws_functionmenu .wf_block ul li {
+	display: block;
+	float: left;
+	line-height: 29px;
+}
+
+div.ws_functionmenu .wf_block ul li a {
+	font-size: 11px;
+	color: #1f1f1f;
+	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	border-left: 1px #3f3f3f solid;
+	border-right: 1px #3f3f3f solid;
+	padding: 0 5px;
+	display: block;
+	margin-top: 8px;
+	margin-right: 10px;
+	line-height: 14px;
+}
+
+div.ws_functionmenu .wf_block ul li a:hover {
+	color: #ff4000;
+	border-color: #ff4000;
+	text-decoration: none;
+}
+
+div.ws_functionmenu .wf_block ul li.selected a {
+	font-weight: bold;
+}
+
+/* Faux coulumn definitions sans-background */ /* Left menu */
+.developer div.ws_functionmenu ul.wf_viewmenu li.selected li.selected {
+	padding-left: 12px;
+	background: url(../images/viewmenu_bullet.png) no-repeat 7px 5px;
+}
+
+.developer div.ws_functionmenu ul.wf_viewmenu li.selected li.selected a {
+	font-weight: bold;
+}
+
+.developer div.ws_functionmenu {
+	position: absolute;
+	top: 80px;
 	left: 0;
 	width: 202px;
-
-/* IE fix for non support for bottom:0  */
-	height: expression(
-	(
-	document.body.clientHeight) ?
-	document.body.clientHeight - 97 + 'px'
-	:
-	document.documentElement.clientHeight - 97 + 'px'
-	);
+	background-color: #fff;
+	border-right: 1px #cdcdcd solid;
+	
+	/* IE fix for non support for bottom:0  */
+	height: expression(document.body.clientHeight ? document.body.clientHeight - 80 + 'px' : document.documentElement.clientHeight - 80 + 'px');
 }
 
-html>body div.ws_functionmenu {
+ html>body.developer div.ws_functionmenu {
+	bottom: 0;
 	height: auto;
 }
-
 
 div.ws_helpdesk div.wf_block {
 	border-bottom: none;
@@ -158,138 +230,88 @@ html>body div.ws_functionmenu div.ws_bottom {
 }
 
 /*Small login box*/
-div.ws_smallloginbox{
+div.ws_smallloginbox {
 	position: absolute;
-	right: 0;
-	padding-left: 15px;
-	width: 271px;
-	height: 21px;
-	color: #fff;
-	background: #4C627D url(images/smallloginbox/bg_left.gif) left bottom no-repeat;
+	right: 16px;
+	padding: 0 !important;
+	height: 26px;
 }
 
 div.ws_smallloginbox .currentUser {
-	font-weight: normal;
-	font-size: 1em;
+	color: #fff;
+	font-weight: bold;
+	font-size: 11px;
 	width: auto;
-	line-height: 21px;
+	margin-right: 24px;
+	line-height: 26px;
+	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	background: url(images/current_user_logo.gif) left no-repeat;
+	padding-left: 22px;
 }
 
-p.currentUser{
+p.currentUser {
 	background: transparent;
 	color: inherit;
 }
 
-div.ws_smallloginbox p{
+div.ws_smallloginbox p {
 	float: left;
 }
 
-div.ws_smallloginbox input{
+div.ws_smallloginbox input {
+	background: transparent;
+	color: #ff4000;
+	font-size: 11px;
+	line-height: 25px;
+	border: 0 !important;
+	font-weight: bold;
+	margin: 0 !important;
+	padding: 0 !important;
+	height: 24px;
+	text-transform: lowercase;
+	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+}
+
+/* Main Layout Definition Begin */ /***Workspace Begin***/
+div.ws_layout_twocolumn div.ws_main {
 	position: absolute;
-	right: 4px;
-	top: 4px;
-	margin: 0;
-	padding: 0 6px 0 6px;
-	background: #38485C;
-	color: #fff;
-	font-size: 0.8em;
-	border: 1px solid #6F89A8;
-	text-transform: uppercase;
+	top: 80px;
+	bottom: 0;
+	left: 0px;
+	right: 0;
+	width: auto;
+	height: auto;
 }
 
-/* Main Layout Definition Begin */
-
-
-/***Workspace Begin***/
-div.ws_layout_twocolumn div.ws_main{
-	margin: 0 0 0 202px;
-margin-top: -5px;
+.developer div.ws_layout_twocolumn div.ws_main {
+	position: absolute;
+	top: 80px;
+	bottom: 0;
+	left: 203px;
+	right: 0;
+	width: auto;
+	height: auto;
 }
 
-div.ws_layout_twocolumn div.ws_main .wf_block{
+div.ws_layout_twocolumn div.ws_main .wf_block {
 	margin: 4px 4px 4px 0px;
 }
 
-div.ws_layout_onecolumn div.ws_main{
-	/*margin: 0 0 0 4px;*/
+div.ws_layout_onecolumn div.ws_main { /*margin: 0 0 0 4px;*/
 	margin: 0 0 0 0;
 }
-div.ws_main .wf_block.maximizedvertically{
-	position: relative;
-	height: expression(
-	(
-	document.body.clientHeight) ?
-	document.body.clientHeight - 97 + 'px'
-	:
-	document.documentElement.clientHeight - 96 + 'px'
-	);
 
-	width: expression(
-	(
-	document.body.clientWidth) ?
-	document.body.clientWidth - 205 + 'px'
-	:
-	document.documentElement.clientWidth - 205 + 'px'
-	);
-}
-
-html>body div.ws_main .wf_block.maximizedvertically{
-	height: auto;
-	position: absolute;
-	top: 51px;
-	bottom: 10px;
-	left: 202px;
-	right: 0;
-	margin-bottom: 0;
-	overflow: hidden;
-}
-
-div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
-	position: absolute;
-	top: 45px;
-	left: 0;
-	height: expression(
-	(
-	document.body.clientHeight) ?
-	document.body.clientHeight - 144 + 'px'
-	:
-	document.documentElement.clientHeight - 144 + 'px'
-	);
-
-	width: expression(
-	(
-	document.body.clientWidth) ?
-	document.body.clientWidth - 208 + 'px'
-	:
-	document.documentElement.clientWidth - 208 + 'px'
-	);
-	overflow-y: scroll;
-	width: 100%;
-	/*background: #fff;*/
-	
-}
-
-html>body div.ws_main .wf_block.maximizedvertically .wf_blockmainarea{
-	position: absolute;
-	left: 0;
-	right: 0;
-	width: auto;
-	bottom: 0;
-	overflow: auto;
-}
-
-.wf_login{
+.wf_login {
 	margin: 100px;
 	color: white;
-	display:inline;
+	display: inline;
 }
 
-
-.ws_body.loginpage{
+.ws_body.loginpage {
 	background: url(images/login_background.gif) top left repeat-x #042025;
-	font-size:1.2em;
+	font-size: 1.2em;
 	height: 100%;
-	width: 100%;	
+	width: 100%;
 }
 
 .ws_mainlogin_outer {
@@ -304,7 +326,7 @@ html>body .ws_mainlogin_outer {
 }
 
 .ws_mainlogin_middle {
-	position: absolute; 
+	position: absolute;
 	top: 50%;
 	left: 50%;
 }
@@ -319,7 +341,6 @@ html>body .ws_mainlogin_middle {
 	position: relative;
 	top: -50%;
 	left: -50%;
-
 	width: 340px;
 	height: 476px;
 }
@@ -364,15 +385,13 @@ html>body .ws_mainloginbox form {
 	margin-bottom: 68px;
 }
 
-.ws_mainloginbox2{
+.ws_mainloginbox2 {
 	width: 500px;
 	height: 500px;
 	margin: 0px;
 	padding: 50px;
-	
 	background: url(images/idegalogin.png);
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/idegalogin.png', sizingMethod='scale');
-
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/idegalogin.png',sizingMethod='scale');
 	background-position: center center;
 	background-repeat: no-repeat;
 }
@@ -396,12 +415,12 @@ html>body .ws_mainloginbox form {
 	font-size: 11px !important;
 }
 
-.ws_mainloginbox .username, .ws_mainloginbox .password {
+.ws_mainloginbox .username,.ws_mainloginbox .password {
 	margin: 0;
 	margin-bottom: 14px;
 }
 
-.ws_mainloginbox .username input, .ws_mainloginbox .password input {
+.ws_mainloginbox .username input,.ws_mainloginbox .password input {
 	width: 212px;
 	margin: 0;
 	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
@@ -431,7 +450,7 @@ html>body .ws_mainloginbox form {
 	padding: 0 !important;
 }
 
-.ws_mainloginbox .loggedIn p, .ws_mainloginbox .loginFailed p {
+.ws_mainloginbox .loggedIn p,.ws_mainloginbox .loginFailed p {
 	line-height: 100px;
 	text-align: center;
 }
@@ -455,21 +474,21 @@ html>body .ws_mainloginbox form {
 	width: auto !important;
 }
 
-.ws_mainloginbox,.ws_mainloginbox *{
+.ws_mainloginbox,.ws_mainloginbox * {
 	color: #515151;
-  	font-size: 0.99em;
+	font-size: 0.99em;
 }
 
-.ws_mainloginbox,.ws_mainloginbox div{
+.ws_mainloginbox,.ws_mainloginbox div {
 	margin: 5px;
 }
 
-.ws_mainloginbox .buildid{
-	font-size:0.7em;
+.ws_mainloginbox .buildid {
+	font-size: 0.7em;
 	text-align: center;
 }
 
-.ws_mainloginbox .versioninfo{
+.ws_mainloginbox .versioninfo {
 	text-align: right;
 	font-size: 8px;
 	position: absolute;
@@ -478,10 +497,10 @@ html>body .ws_mainloginbox form {
 	margin: 10px;
 }
 
-.ws_mainloginbox .domaininfo{
+.ws_mainloginbox .domaininfo {
 	margin-top: -10px;
-	margin-bottom:20px;
-	font-size:0.9em;
+	margin-bottom: 20px;
+	font-size: 0.9em;
 	text-align: center;
 }
 
@@ -494,7 +513,7 @@ html>body .ws_mainloginbox form {
 }
 
 html>body .ws_maincopyrightbox {
-	height: 25px;	
+	height: 25px;
 }
 
 .ws_maincopyrightbox ul {
@@ -526,7 +545,7 @@ div.wf_block div.wf_tabbarcontainer {
 	height: 22px;
 	background: #FAFAFA url(images/tabbar/bg_item.gif) repeat-x;
 	border-bottom: 1px solid #D7D7D7;
-/*	border-right: 1px solid #d7d7d7;*/
+	/*	border-right: 1px solid #d7d7d7;*/
 }
 
 div.wf_block div.wf_toolbarcontainer {
@@ -536,71 +555,65 @@ div.wf_block div.wf_toolbarcontainer {
 	border-bottom: 1px solid #D7D7D7;
 }
 
-div.wf_block ul.wf_tabbar, 
-div.wf_block ul.wf_tabbar li,
-div.wf_block ul.wf_toolbar, 
-div.wf_block ul.wf_toolbar li{
+div.wf_block ul.wf_tabbar,div.wf_block ul.wf_tabbar li,div.wf_block ul.wf_toolbar,div.wf_block ul.wf_toolbar li {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-div.wf_block ul.wf_tabbar li,
-div.wf_block ul.wf_toolbar li{
+
+div.wf_block ul.wf_tabbar li,div.wf_block ul.wf_toolbar li {
 	float: left;
 	height: 22px;
 	border: 1px solid #D7D7D7;
 	border-width: 0 1px 0 0;
 }
-div.wf_block ul.wf_tabbar li a,
-div.wf_block ul.wf_toolbar li a,
-div.wf_block ul.wf_tabbar li span,
-div.wf_block ul.wf_toolbar li span
-{
+
+div.wf_block ul.wf_tabbar li a,div.wf_block ul.wf_toolbar li a,div.wf_block ul.wf_tabbar li span,div.wf_block ul.wf_toolbar li span {
 	float: left;
 	padding: 4px 10px 0 35px;
 	height: 18px;
 	font-weight: normal;
 	color: #464646;
 }
-div.wf_block ul.wf_tabbar li.selected,
-div.wf_block ul.wf_toolbar li.wf_toolbarbuttonselected
-{
+
+div.wf_block ul.wf_tabbar li.selected,div.wf_block ul.wf_toolbar li.wf_toolbarbuttonselected {
 	background: #E7E7E7 url(images/tabbar/bg_item_selected.gif) repeat-x;
 }
-div.wf_block ul.wf_tabbar li a,
-div.wf_block ul.wf_tabbar li a:hover,
-div.wf_block ul.wf_toolbar li a,
-div.wf_block ul.wf_toolbar li a:hover,
-div.wf_block ul.wf_tabbar li span,
-div.wf_block ul.wf_toolbar li span
-{
+
+div.wf_block ul.wf_tabbar li a,div.wf_block ul.wf_tabbar li a:hover,div.wf_block ul.wf_toolbar li a,div.wf_block ul.wf_toolbar li a:hover,div.wf_block ul.wf_tabbar li span,div.wf_block ul.wf_toolbar li span {
 	background-position: 10px 50%;
 	background-repeat: no-repeat;
 }
-div.wf_block ul.wf_tabbar li a:hover,
-div.wf_block ul.wf_toolbar li a:hover {
+
+div.wf_block ul.wf_tabbar li a:hover,div.wf_block ul.wf_toolbar li a:hover {
 	background-color: #e7e7e7;
 }
 
-
 /* Main */
-.wf_block div.wf_titlebar{
+.wf_block div.wf_titlebar {
 	height: 22px;
 	background: url(images/bg_titlebar.gif) repeat-x;
-	width: 100%;
-//display: none;
+	width: 100%; //
+	display: none;
 }
 
 /*** Begin WS Function (Left) Menu ***/
-
-div.ws_functionmenu .wf_block{
+.developer div.ws_functionmenu .wf_block {
 	margin-left: 4px;
 	margin-bottom: 0;
+	margin: 0;
+	border: 0;
 }
-div.ws_functionmenu div.wf_titlebar_icon{
+
+.developer div.ws_functionmenu div.wf_titlebar {
+	display: none !important;
+}
+
+.developer div.ws_functionmenu div.wf_titlebar_icon {
 	display: none;
 }
-div.ws_functionmenu div.wf_titlebar{
+
+.developer div.ws_functionmenu div.wf_titlebar {
 	border-top: 1px #fff solid;
 	height: 35px;
 	background: url(images/wf_background.gif) repeat-x;
@@ -610,306 +623,257 @@ div.ws_functionmenu div.wf_titlebar{
 	font-size: 1.2em;
 	font-variant: small-caps;
 }
-div.ws_functionmenu div.wf_titlebar a{
+
+.developer div.ws_functionmenu div.wf_titlebar a {
 	text-decoration: none;
 	color: #00AEFF;
 	font-size: 0.7em;
 	font-weight: bold;
 	font-variant: normal;
 }
-div.ws_functionmenu div.wf_titlebar a:hover{
+
+.developer div.ws_functionmenu div.wf_titlebar a:hover {
 	text-decoration: underline;
 }
 
-div.ws_functionmenu ul.wf_viewmenu, 
-div.ws_functionmenu ul.wf_viewmenu li
-{
+.developer div.ws_functionmenu ul.wf_viewmenu,div.ws_functionmenu ul.wf_viewmenu li {
 	margin: 0;
 	padding: 0;
 }
-div.ws_functionmenu ul.wf_viewmenu{
+
+.developer div.ws_functionmenu ul.wf_viewmenu {
 	list-style: none;
 	border: none;
 	background: #fff;
+	height: auto;
 }
 
-div.ws_functionmenu ul.wf_viewmenu li{
-	border: none;
-	border-top: 1px solid #F4F4F4;
-	clear: both;
-	display: block;
-	#min-height:31px;
-	overflow:auto;
-	#padding-bottom:3px;
-	#padding-right:3px;
+.developer div.ws_functionmenu ul.wf_viewmenu li {
+	border-bottom: 1px solid #cdcdcd;
+	float: none;
+	line-height: 24px;
+	height: auto;
 }
 
-div.ws_functionmenu ul.wf_viewmenu li.selected li.selected{
-padding-left: 12px;
-background: url(../images/viewmenu_bullet.png) no-repeat 7px 5px;
+.developer div.ws_functionmenu ul.wf_viewmenu li.selected li.selected {
+	padding-left: 12px;
+	background: url(../images/viewmenu_bullet.png) no-repeat 7px 5px;
 }
 
-div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu,
-div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu li{
-	background:none;
+.developer div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu,div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu li {
+	background: none;
 }
 
-div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu li{
-	min-height:0px;
+.developer div.ws_functionmenu ul.wf_viewmenu li ul.wf_viewmenu li {
+	min-height: 0px;
 }
 
-div.ws_functionmenu ul.wf_viewmenu li a{
+.developer div.ws_functionmenu ul.wf_viewmenu li a {
 	color: #303030;
 	font-weight: bold;
-	padding: 6px 0 6px 24px;
+	line-height: 24px;
+	padding-left: 24px;
+margin: 0;
 	display: block;
+	border: 0;
 	background: url(images/viewmenu_mainbullet2.png) 11px 7px no-repeat;
 	font-size: 11px;
-
-	/***IE TRANSPARENCY HACKS***/
-  /* Mozilla ignores crazy MS image filters, so it will skip the following */
-/*
-    _background-image:none;
-	 _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src='/ePlatform/content/idegaweb/bundles/com.idega.webface.bundle/resources/style/images/viewmenu_mainbullet2.png');
-*/
-}
-div.ws_functionmenu ul.wf_viewmenu li a:hover{
-	text-decoration: underline;
-}
-div.ws_functionmenu ul.wf_viewmenu li:hover{
-	/*background: #FAFAFA;*/
 }
 
-div.ws_functionmenu ul.wf_viewmenu li.selected{
+.developer div.ws_functionmenu ul.wf_viewmenu li a:hover {
+	background-color: #f4f4f4;
+}
+
+.developer div.ws_functionmenu ul.wf_viewmenu li:hover { /*background: #FAFAFA;*/
+	
+}
+
+.developer div.ws_functionmenu ul.wf_viewmenu li.selected {
 	background: #025FD0 url(images/functionmenu/bg_item_selected.gif) repeat-x;
 }
-div.ws_functionmenu ul.wf_viewmenu li.selected a{
+
+.developer div.ws_functionmenu ul.wf_viewmenu li.selected a {
 	color: #fff;
 }
-div.ws_functionmenu ul.wf_viewmenu li ul{
+
+.developer div.ws_functionmenu ul.wf_viewmenu li ul {
 	clear: both;
-	margin-left: 19px;
 }
-div.ws_functionmenu ul.wf_viewmenu li ul li{
+
+.developer div.ws_functionmenu ul.wf_viewmenu li ul li {
 	border: none;
-	/** TL: This float is causing problems in IE so it is commented out for now: */
-	/*float: left;*/
+	/** TL: This float is causing problems in IE so it is commented out for now: */ /*float: left;*/
 	clear: none;
 	height: auto;
-	padding-bottom: 4px;
 }
-div.ws_functionmenu ul.wf_viewmenu li ul li a{
-	display: inline;
+
+.developer div.ws_functionmenu ul.wf_viewmenu li ul li a {
+	display: block;
 	font-weight: normal;
-	padding: 0 0 0 5px;
+	padding: 0 0 0 24px;
 	background: none;
 	font-size: 10px;
 	color: #777777;
-	/*_filter: none;*/
+	line-height: 16px;
 }
-div.ws_functionmenu ul.wf_viewmenu li ul li:hover{
+
+.developer div.ws_functionmenu ul.wf_viewmenu li ul li:hover {
 	background: none;
 }
 
-/***By default not display more than two levels of the menu:***/
-div.ws_functionmenu .wf_viewmenu * .wf_viewmenu * .wf_viewmenu{
-	display:none;
+.developer div.ws_functionmenu ul.wf_viewmenu li ul li a:hover {
 }
 
-div.ws_functionmenu .wf_viewmenu .deselected a:hover {
+/***By default not display more than two levels of the menu:***/
+.developer div.ws_functionmenu .wf_viewmenu * .wf_viewmenu * .wf_viewmenu {
+	display: none;
+}
+
+.developer div.ws_functionmenu .wf_viewmenu .deselected a:hover {
 	color: black;
 }
 
 /*** End WS Function (Left) Menu ***/
-
-.ws_body .ws_layout_compact .ws_head .ws_mainnavigation{
-	display:none;
+.ws_body .ws_layout_compact .ws_head .ws_mainnavigation {
+	display: none;
 }
 
-.ws_body table, .ws_body table tr, .ws_body table tr td{
-	/*This is done because of IE, doesn't inherit font style from page:*/
+.ws_body table,.ws_body table tr,.ws_body table tr td { /*This is done because of IE, doesn't inherit font style from page:*/
 	font-size: 11px;
-	font-family:inherit;
+	font-family: inherit;
 }
 
-.ws_body input,.ws_loginpage input,.ws_body textarea{
+.ws_body input,.ws_loginpage input,.ws_body textarea {
 	font-size: 1.1em;
 	color: #000000;
 	text-align: justify;
 	border: 1px solid #ABABAB;
 	margin: 3px;
-	font-family:inherit;
+	font-family: inherit;
 }
 
-.ws_body select{
-	font-size:  1.1em;
+.ws_body select {
+	font-size: 1.1em;
 	color: #000000;
 	text-align: justify;
 	border: 1px solid #ABABAB;
 	margin: 3px;
 }
 
-.ws_body iframe{
+.ws_body iframe {
 	border: 0px solid black;
 }
 
-
-.ws_body.centered{
+.ws_body.centered {
 	padding: 0px;
 	margin: 20%;
 }
 
-.ws_body.centered .wf_block{
-	width:60%;
+.ws_body.centered .wf_block {
+	width: 60%;
 }
 
-
-/***Workspace End***/
-
-
-/* Background definitions */
-
-.ws_head{
-background-image: url(images/bg_head.gif) !important;
+/***Workspace End***/ /* Background definitions */
+.ws_body {
+	
 }
 
-div.ws_head div.ws_appdecor{
-background: url(images/eplatform_platform.gif) no-repeat !important;
-}
-
-.ws_body .ws_mainnavigation ul.wf_tabbar li{
-background-image: url(images/bg_item_left.gif) !important;
-background-position: 0 4px !important;
-}
-
-.ws_body .ws_mainnavigation ul.wf_tabbar li.selected{
-background: url(images/bg_item_left_selected.gif) left top no-repeat !important;
-}
-.ws_body .ws_mainnavigation ul.wf_tabbar li.selected a,
-.ws_body .ws_mainnavigation ul.wf_tabbar li.selected a:hover
-{
-background-image: url(images/bg_item_right_selected.gif) !important;
-}
-
-
-.ws_body .ws_mainnavigation ul.wf_tabbar li a:hover{
-background-image: url(images/bg_item_main_hover.gif) !important;
-background-position: 0 4px;
-}
-
-div.ws_functionmenu ul.wf_viewmenu li.selected li.selected{
-padding-left: 12px;
-background: url(../images/viewmenu_bullet.png) no-repeat 7px 5px;
-}
-
-div.ws_functionmenu ul.wf_viewmenu li.selected li.selected a{
-font-weight: bold;
-}
-
-.ws_body{
-
-}
-
-body#workspacebuilderapp1{
-background-image: none;
-height: 120%;
+body#workspacebuilderapp1 {
+	background-image: none;
+	height: 120%;
 }
 
 /* Background definitions end */
-
-#workspacebuilderapp1.ws_body .ws_layout_onecolumn #workspacebuilderappform1 .ws_main .wf_titlebar{
-display: none;
+#workspacebuilderapp1.ws_body .ws_layout_onecolumn #workspacebuilderappform1 .ws_main .wf_titlebar {
+	display: none;
 }
 
-/*** About window begin ***/	
-
-.ws_main .aboutcontainer{
+/*** About window begin ***/
+.ws_main .aboutcontainer {
 	padding: 10px 10px 10px 10px;
 	margin: 10px 10px 10px 10px;
 }
 
-.ws_body .aboutcontainer .line .label{
+.ws_body .aboutcontainer .line .label {
 	font-weight: bold;
 	display: inline;
 	margin-left: 15px;
 }
 
-.ws_body .aboutcontainer .line .text{
+.ws_body .aboutcontainer .line .text {
 	display: inline;
 	margin-left: 80px;
 }
 
-.ws_body .aboutcontainer .logocontainer .logoimage{
+.ws_body .aboutcontainer .logocontainer .logoimage {
 	width: 100px;
 	padding: 15px;
 }
-
 
 .aboutsystem {
 	padding: 2px 0px 0px 2px;
 }
 
-
-.aboutsystem .aboutlink{
-    
-    margin: 1px 1px 1px 1px;
-    
-    position: absolute;
-    
-    padding: 20px 0 0 0;
-    overflow: hidden;
-    background-image: url("images/eplatform_smalllogo.png");
-    background-repeat: no-repeat;
-    
-    height: 0px !important;
-    height /**/:20px; /* for IE5.5's bad box model */
-    
+.aboutsystem .aboutlink {
+	margin: 1px 1px 1px 1px;
+	position: absolute;
+	padding: 20px 0 0 0;
+	overflow: hidden;
+	background-image: url("images/eplatform_smalllogo.png");
+	background-repeat: no-repeat;
+	height: 0px !important;
+	height /**/: 20px; /* for IE5.5's bad box model */
 }
 
-.aboutsystem .aboutlink .text{
-	display:none;
+.aboutsystem .aboutlink .text {
+	display: none;
 }
 
 /*** About window end ***/
-
-body#createpage.ws_body div.ws_layout_twocolumn form#createpageform div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#pagesTypesContainer div.pagesTypesContainer div.wf_blockmainarea{
-width: 400px;
-position: relative;
-top: auto;
+body#createpage.ws_body div.ws_layout_twocolumn form#createpageform div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#pagesTypesContainer div.pagesTypesContainer div.wf_blockmainarea {
+	width: 400px;
+	position: relative;
+	top: auto;
 }
 
-.wf_block.maximizedvertically{
-top: 0;
-
+.wf_block.maximizedvertically {
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	right: 0;
+	left: 4px;
 }
 
-
-.maximizedvertically .wf_blockmainarea{
-top: 0 !important;
+.maximizedvertically .wf_blockmainarea {
+	top: 23px !important;
+	bottom: 0;
+	position: absolute;
+	overflow: auto;
+	left: 0;
+	right: 0;
 }
 
-.maximizedvertically .wf_blockmainarea .wf_blockmainarea{
-top: auto !important;
+.maximizedvertically .wf_blockmainarea .wf_blockmainarea {
+	top: auto !important;
 }
 
-
-body#createpage.ws_body div.ws_layout_twocolumn form#createpageform div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#site_tree_container div.site_tree_container_site div.wf_blockmainarea{
-top: 25px !important;
-}
-
-body#pages.ws_body div.ws_layout_twocolumn form#pagesForm div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#site_tree_container div.site_tree_container_pages div.wf_blockmainarea{
+body#createpage.ws_body div.ws_layout_twocolumn form#createpageform div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#site_tree_container div.site_tree_container_site div.wf_blockmainarea {
 	top: 25px !important;
 }
 
-body#pages.ws_body div.ws_layout_twocolumn form#pagesForm div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#pageInfoContainer div.pageInfoStyle div.wf_blockmainarea{
+body#pages.ws_body div.ws_layout_twocolumn form#pagesForm div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#site_tree_container div.site_tree_container_pages div.wf_blockmainarea {
 	top: 25px !important;
 }
 
-.ws_functionmenu .wf_titlebar{
-height: 2em !important;
+body#pages.ws_body div.ws_layout_twocolumn form#pagesForm div.ws_main div.wf_block.maximizedvertically div.wf_blockmainarea div#pageInfoContainer div.pageInfoStyle div.wf_blockmainarea {
+	top: 25px !important;
 }
 
-.ws_functionmenu .wf_titlebar_text{
-margin-left: 10px; 
-padding: 0;
+.ws_functionmenu .wf_titlebar {
+	height: 2em !important;
+}
+
+.ws_functionmenu .wf_titlebar_text {
+	margin-left: 10px;
+	padding: 0;
 }

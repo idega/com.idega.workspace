@@ -64,7 +64,6 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	
 	public void initializeComponent(FacesContext context){
 		setStyleClass(MAIN_STYLE_CLASS);
-		addPlatformInfo();
 		addApplicationDecoration();
 		if(isShowLoginLogout()){
 			UIComponent login = getLogin();
@@ -72,6 +71,10 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		}
 		addApplicationInstallationInfo();
 		addTabbar();
+		
+		WFContainer div = new WFContainer();
+		div.setStyleClass("ws_subnavigation");
+		add(div);
 	}
 
 	/**
