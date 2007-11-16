@@ -523,7 +523,7 @@ html>body .ws_mainloginbox form {
 	margin: 0 !important;
 	padding-top: 9px;
 	height: 34px;
-	background: url(/idegaweb/bundles/com.idega.workspace/resources/style/images/idega_logo.gif) 34px 9px no-repeat;
+	background: url(/idegaweb/bundles/com.idega.workspace.bundle/resources/style/images/idega_logo.gif) 34px 9px no-repeat;
 }
 
 html>body .ws_maincopyrightbox {
