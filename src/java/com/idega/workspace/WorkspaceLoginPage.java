@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspaceLoginPage.java,v 1.12 2007/11/01 17:43:14 laddi Exp $
+ * $Id: WorkspaceLoginPage.java,v 1.13 2007/11/22 17:53:20 laddi Exp $
  * Created on 13.7.2004 in project com.idega.core
  * 
  * Copyright (C) 2004-2005 Idega Software hf. All Rights Reserved.
@@ -33,10 +33,10 @@ import com.idega.webface.WFUtil;
  * <p>
  * This is the component for the default login page in the idegaWeb Workspace.
  * </p>
- * Last modified: $Date: 2007/11/01 17:43:14 $ by $Author: laddi $
+ * Last modified: $Date: 2007/11/22 17:53:20 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.12 $
+ * @version $Revision: 1.13 $
  */
 public class WorkspaceLoginPage extends Page {
 
@@ -49,6 +49,7 @@ public class WorkspaceLoginPage extends Page {
 		setOnLoad("");
 	}
 
+	@Override
 	public String getBundleIdentifier() {
 		return IW_BUNDLE_IDENTIFIER;
 	}
@@ -113,7 +114,7 @@ public class WorkspaceLoginPage extends Page {
 		//form.add(cText);
 
 		form.add(getVersionInfo());
-		//form.add(getBuildId());
+		form.add(getBuildId());
 
 		//AboutSystemButton aboutbutton = new AboutSystemButton();
 		//form.add(aboutbutton);
@@ -180,6 +181,7 @@ public class WorkspaceLoginPage extends Page {
 	 * 
 	 * @see javax.faces.component.UIComponent#encodeBegin(javax.faces.context.FacesContext)
 	 */
+	@Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		if (!isInitalized()) {
 			initializeContent(context);
@@ -220,6 +222,7 @@ public class WorkspaceLoginPage extends Page {
 	 * 
 	 * @see javax.faces.component.UIComponent#encodeChildren(javax.faces.context.FacesContext)
 	 */
+	@Override
 	public void encodeChildren(FacesContext context) throws IOException {
 		super.encodeChildren(context);
 	}
@@ -229,6 +232,7 @@ public class WorkspaceLoginPage extends Page {
 	 * 
 	 * @see javax.faces.component.UIComponent#encodeEnd(javax.faces.context.FacesContext)
 	 */
+	@Override
 	public void encodeEnd(FacesContext context) throws IOException {
 		super.encodeEnd(context);
 	}

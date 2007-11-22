@@ -506,6 +506,15 @@ html>body .ws_mainloginbox form {
 	text-align: right;
 	font-size: 8px;
 	position: absolute;
+	top: 404px;
+	right: 0;
+	margin: 10px;
+}
+
+.ws_mainloginbox .buildid {
+	text-align: right;
+	font-size: 8px;
+	position: absolute;
 	top: 414px;
 	right: 0;
 	margin: 10px;
