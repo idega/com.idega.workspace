@@ -183,25 +183,43 @@ div.ws_functionmenu .wf_block ul li {
 
 div.ws_functionmenu .wf_block ul li a {
 	font-size: 11px;
+	text-shadow: #efefef 2px 2px 1px;
 	color: #1f1f1f;
 	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
-	border-left: 1px #3f3f3f solid;
-	border-right: 1px #3f3f3f solid;
-	padding: 0 5px;
+	padding-left: 8px;
 	display: block;
-	margin-top: 8px;
+	float: left;
+	margin-top: 7px;
 	margin-right: 10px;
-	line-height: 14px;
+	line-height: 16px;
+}
+
+div.ws_functionmenu .wf_block ul li a span {
+	padding: 0 11px 0 3px;
+	line-height: 16px;
+	display: block;
+	float: left;
 }
 
 div.ws_functionmenu .wf_block ul li a:hover {
-	color: #ff4000;
-	border-color: #ff4000;
+	color: #fff;
+	background: url(images/sub_navigation_left.png) left no-repeat;
 	text-decoration: none;
+	text-shadow: #555 2px 2px 1px;
+}
+
+div.ws_functionmenu .wf_block ul li a:hover span {
+	background: url(images/sub_navigation_right.png) right no-repeat;
 }
 
 div.ws_functionmenu .wf_block ul li.selected a {
-	font-weight: bold;
+	color: #fff;
+	background: url(images/sub_navigation_left.png) left no-repeat;
+	text-shadow: #555 2px 2px 1px;
+}
+
+div.ws_functionmenu .wf_block ul li.selected a span {
+	background: url(images/sub_navigation_right.png) right no-repeat;
 }
 
 /* Faux coulumn definitions sans-background */ /* Left menu */
