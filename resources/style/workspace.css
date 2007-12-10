@@ -325,10 +325,6 @@ div.ws_layout_twocolumn div.ws_main {
 	height: auto;
 }
 
-div.ws_layout_twocolumn div.ws_main .wf_block {
-	margin: 4px 4px 4px 0px;
-}
-
 div.ws_layout_onecolumn div.ws_main { /*margin: 0 0 0 4px;*/
 	margin: 0 0 0 0;
 }
@@ -714,15 +710,28 @@ div.wf_block ul.wf_tabbar li a:hover,div.wf_block ul.wf_toolbar li a:hover {
 	font-weight: bold;
 	line-height: 24px;
 	padding-left: 24px;
-margin: 0;
+	margin: 0;
 	display: block;
 	border: 0;
 	background: url(images/viewmenu_mainbullet2.png) 11px 7px no-repeat;
 	font-size: 11px;
+	float: none;
+}
+
+.developer div.ws_functionmenu ul.wf_viewmenu li a span {
+	float: none;
+	background: none;
+	line-height: 24px;
+	text-shadow: none;
 }
 
 .developer div.ws_functionmenu ul.wf_viewmenu li a:hover {
 	background-color: #f4f4f4;
+}
+
+.developer div.ws_functionmenu ul.wf_viewmenu li a:hover span {
+	background: none;
+	text-shadow: none;
 }
 
 .developer div.ws_functionmenu ul.wf_viewmenu li:hover { /*background: #FAFAFA;*/
@@ -735,6 +744,10 @@ margin: 0;
 
 .developer div.ws_functionmenu ul.wf_viewmenu li.selected a {
 	color: #fff;
+}
+
+.developer div.ws_functionmenu ul.wf_viewmenu li.selected a:hover {
+	color: #303030;
 }
 
 .developer div.ws_functionmenu ul.wf_viewmenu li ul {
