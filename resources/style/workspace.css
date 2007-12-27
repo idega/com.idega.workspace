@@ -933,5 +933,64 @@ body#pages.ws_body div.ws_layout_twocolumn form#pagesForm div.ws_main div.wf_blo
 }
 
 body.workspace .ws_main {
-background: url(images/login_background.gif) top left repeat-x;
+	background: url(images/login_background.gif) top left repeat-x;
+}
+
+body.workspace .wf_block {
+	margin: 0 !important;
+	margin-top: 69px !important;
+	margin-left: 119px !important;
+	background-color: transparent !important;
+	border: 0;
+}
+
+body.workspace .wf_block .wf_blockmainarea {
+	padding: 0 !important;
+	margin: 0 !important;
+	background: transparent !important;
+}
+
+body.workspace .wf_block h1 {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	text-shadow: #000 2px 2px 1px;
+	line-height: 50px;
+}
+
+body.workspace div.welcomeBox {
+	width: 623px;
+	height: 354px;
+	background: url(images/welcome_background.gif) top left no-repeat;
+}
+
+body.workspace ul.welcomeList {
+	float: left;
+	width: 180px;
+	margin: 20px 28px;
+	padding: 0;
+	list-style: none;
+}
+
+body.workspace ul.welcomeList li a {
+	line-height: 26px;
+	font-size: 16px;
+	color: #fff;
+	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+}
+
+body.workspace ul.welcomeList li.selected a {
+	color: #6b8185;
+}
+
+body.workspace div.welcomeText {
+	float: left;
+	font-size: 11px;
+	line-height: 18px;
+	color: #fff;
+	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	margin: 26px 22px;
+	width: 340px;
 }
