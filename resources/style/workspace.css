@@ -158,7 +158,7 @@ div.ws_functionmenu {
 }
 
 div.ws_functionmenu .wf_titlebar {
-	display: none;
+	display: none							!important;
 }
 
 div.ws_functionmenu .wf_block {
