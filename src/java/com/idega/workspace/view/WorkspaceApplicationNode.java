@@ -8,16 +8,17 @@ import com.idega.core.view.ApplicationViewNode;
 import com.idega.core.view.ViewNode;
 import com.idega.idegaweb.IWBundle;
 import com.idega.idegaweb.IWMainApplication;
+import com.idega.util.CoreConstants;
 
 
 /**
  * <p>
  * TODO tryggvil Describe Type WorkspaceApplicationNode
  * </p>
- *  Last modified: $Date: 2006/02/21 16:17:40 $ by $Author: laddi $
+ *  Last modified: $Date: 2008/01/24 17:04:44 $ by $Author: valdas $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class WorkspaceApplicationNode extends ApplicationViewNode {
 
@@ -29,7 +30,7 @@ public class WorkspaceApplicationNode extends ApplicationViewNode {
 		super(viewId, parent);
 		
 		IWMainApplication iwma = getIWMainApplication();
-		IWBundle workspaceBundle = iwma.getBundle("com.idega.workspace");
+		IWBundle workspaceBundle = iwma.getBundle(CoreConstants.WORKSPACE_BUNDLE_IDENTIFIER);
 		setJspUri(workspaceBundle.getJSPURI("workspace.jsp"));
 		setAuthorizedRoles(roles);
 		
