@@ -1,5 +1,5 @@
 /*
- * $Id: IWBundleStarter.java,v 1.5 2007/05/09 18:12:28 valdas Exp $
+ * $Id: IWBundleStarter.java,v 1.6 2008/01/30 17:29:15 valdas Exp $
  * Created on 27.1.2005
  *
  * Copyright (C) 2005 Idega Software hf. All Rights Reserved.
@@ -19,10 +19,10 @@ import com.idega.idegaweb.include.GlobalIncludeManager;
 
 /**
  * 
- *  Last modified: $Date: 2007/05/09 18:12:28 $ by $Author: valdas $
+ *  Last modified: $Date: 2008/01/30 17:29:15 $ by $Author: valdas $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class IWBundleStarter implements IWBundleStartable {
 
@@ -33,7 +33,7 @@ public class IWBundleStarter implements IWBundleStartable {
 
 		//Register the style sheet:
 		GlobalIncludeManager gbi = GlobalIncludeManager.getInstance();
-		gbi.addBundleStyleSheet(starterBundle.getBundleIdentifier(),"/style/workspace.css");
+//		gbi.addBundleStyleSheet(starterBundle.getBundleIdentifier(),"/style/workspace.css");
 		gbi.addBundleStyleSheet(starterBundle.getBundleIdentifier(),"/style/iframe.css");
 		
 		
