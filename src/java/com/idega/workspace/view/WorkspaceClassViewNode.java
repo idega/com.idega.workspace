@@ -18,10 +18,10 @@ import com.idega.workspace.WorkspacePage;
  * <p>
  * TODO tryggvil Describe Type WorkspaceClassViewNode
  * </p>
- *  Last modified: $Date: 2006/04/09 11:45:30 $ by $Author: laddi $
+ *  Last modified: $Date: 2008/01/30 14:31:20 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class WorkspaceClassViewNode extends ComponentClassViewNode {
 
@@ -70,13 +70,20 @@ public class WorkspaceClassViewNode extends ComponentClassViewNode {
 		}
 		catch(Exception e){}
 		
-		WFBlock block = new WFBlock();
-		block.setTitle(getName());
-		block.setMaximizedVertically(isMaximizeBlockVertically());
-		//block.setMaximizedVertically(true);
-		if(componentInstance!=null){
-			block.getChildren().add(componentInstance);
+		WFBlock block=null;
+		if(componentInstance instanceof WFBlock){
+			block = (WFBlock)componentInstance;
 		}
+		else{
+			block = new WFBlock();
+			block.setTitle(getName());
+			//block.setMaximizedVertically(true);
+			if(componentInstance!=null){
+				block.getChildren().add(componentInstance);
+			}
+		}
+		
+		block.setMaximizedVertically(isMaximizeBlockVertically());
 		form.getChildren().add(block);
 		
 		return page;
