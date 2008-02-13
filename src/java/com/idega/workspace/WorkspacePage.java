@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.24 2007/11/13 16:23:33 laddi Exp $
+ *  $Id: WorkspacePage.java,v 1.25 2008/02/13 11:25:35 valdas Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -26,6 +26,7 @@ import com.idega.core.view.ViewManager;
 import com.idega.core.view.ViewNode;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.Page;
+import com.idega.util.CoreConstants;
 import com.idega.webface.WFContainer;
 import com.idega.webface.WFFrame;
 
@@ -34,10 +35,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2007/11/13 16:23:33 $ by $Author: laddi $
+ * Last modified: $Date: 2008/02/13 11:25:35 $ by $Author: valdas $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.24 $
+ * @version $Revision: 1.25 $
  */
 public class WorkspacePage extends Page {
 
@@ -92,7 +93,7 @@ public class WorkspacePage extends Page {
 		
 		ViewNode parentNode = node.getParent();
 
-		this.setStyleClass(this.WF_PAGE_CLASS + " " + node.getViewId() + (parentNode != null && !parentNode.getViewId().equals("workspace") ? " " + parentNode.getViewId() : ""));
+		this.setStyleClass(this.WF_PAGE_CLASS + " " + node.getViewId() + (parentNode != null && !parentNode.getViewId().equals(CoreConstants.WORKSPACE_VIEW_MANAGER_ID) ? " " + parentNode.getViewId() : ""));
 
 		//Initialize the areas:
 		this.getMainArea();
@@ -440,10 +441,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2007/11/13 16:23:33 $ by $Author: laddi $
+	 *  Last modified: $Date: 2008/02/13 11:25:35 $ by $Author: valdas $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.24 $
+	 * @version $Revision: 1.25 $
 	 */
 	public class SpecialChildList implements List{
 		
