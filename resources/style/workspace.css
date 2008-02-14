@@ -183,7 +183,7 @@ div.ws_functionmenu .wf_block ul li {
 
 div.ws_functionmenu .wf_block ul li a {
 	font-size: 11px;
-	text-shadow: #efefef 2px 2px 1px;
+	text-shadow: #efefef 1px 1px 1px;
 	color: #1f1f1f;
 	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
 	padding-left: 8px;
@@ -205,7 +205,7 @@ div.ws_functionmenu .wf_block ul li a:hover {
 	color: #fff;
 	background: url(images/sub_navigation_left.png) left no-repeat;
 	text-decoration: none;
-	text-shadow: #555 2px 2px 1px;
+	text-shadow: #555 1px 1px 1px;
 }
 
 div.ws_functionmenu .wf_block ul li a:hover span {
@@ -215,7 +215,7 @@ div.ws_functionmenu .wf_block ul li a:hover span {
 div.ws_functionmenu .wf_block ul li.selected a {
 	color: #fff;
 	background: url(images/sub_navigation_left.png) left no-repeat;
-	text-shadow: #555 2px 2px 1px;
+	text-shadow: #555 1px 1px 1px;
 }
 
 div.ws_functionmenu .wf_block ul li.selected a span {
@@ -956,7 +956,7 @@ body.workspace .wf_block h1 {
 	color: #fff;
 	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
 	font-size: 30px;
-	text-shadow: #000 2px 2px 1px;
+	text-shadow: #000 1px 1px 1px;
 	line-height: 50px;
 }
 
