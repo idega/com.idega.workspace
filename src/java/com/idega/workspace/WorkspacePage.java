@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.15.2.2 2007/05/31 11:40:48 eiki Exp $
+ *  $Id: WorkspacePage.java,v 1.15.2.3 2008/02/15 09:23:02 alexis Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -32,10 +32,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2007/05/31 11:40:48 $ by $Author: eiki $
+ * Last modified: $Date: 2008/02/15 09:23:02 $ by $Author: alexis $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.15.2.2 $
+ * @version $Revision: 1.15.2.3 $
  */
 public class WorkspacePage extends Page {
 
@@ -316,6 +316,8 @@ public class WorkspacePage extends Page {
 	
 	public void encodeChildren(FacesContext context) throws IOException{
 		
+		addSessionPollingDWRFiles(IWContext.getInstance());
+		
 		UIComponent layoutContainer = getLayoutContainer();
 		layoutContainer.encodeBegin(context);
 		
@@ -407,10 +409,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2007/05/31 11:40:48 $ by $Author: eiki $
+	 *  Last modified: $Date: 2008/02/15 09:23:02 $ by $Author: alexis $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.15.2.2 $
+	 * @version $Revision: 1.15.2.3 $
 	 */
 	public class SpecialChildList implements List{
 		

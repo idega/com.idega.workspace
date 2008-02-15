@@ -5,6 +5,12 @@
   </properties>
   <body>
 
+	<release version="3.1.5" date="2008-02-15">
+      <action dev="alexis" type="update">
+      	Add session polling logic to WorkspacePage
+      </action>            
+    </release>
+    
 	<release version="3.1.4" date="2007-05-31">
       <action dev="eiki" type="update">
       	Update of workspace stylesheet so that the framed apps have more space.

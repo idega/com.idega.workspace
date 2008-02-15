@@ -4,7 +4,7 @@
   <extend>${base.project.dir}/base-dependencies.xml</extend>
   <name>idegaWeb Workspace</name>
   <artifactId>com.idega.workspace</artifactId>
-  <currentVersion>3.1.4</currentVersion>
+  <currentVersion>3.1.5</currentVersion>
   <inceptionYear>2004</inceptionYear>
   <shortDescription>idegaWeb ePlatform Workspace</shortDescription>
   <description>idegaWeb ePlatform Workspace is the new working environment or "shell" in idegaWeb Applications</description>
@@ -73,7 +73,7 @@
     <dependency>
       <groupId>bundles</groupId>
       <artifactId>com.idega.core</artifactId>
-      <version>3.1.67</version>
+      <version>3.1.80</version>
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
