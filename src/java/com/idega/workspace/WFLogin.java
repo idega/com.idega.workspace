@@ -49,7 +49,7 @@ public class WFLogin extends WFContainer {
 	private UIComponent getEmbeddedLogin(){
 		UIComponent login =  null;
 		try{
-			login = (UIComponent)this.getChildren().get(0);
+			login = this.getChildren().get(0);
 		}
 		catch(IndexOutOfBoundsException aiob){
 		}
@@ -66,6 +66,7 @@ public class WFLogin extends WFContainer {
 		return login;
 	}
 	
+	@Override
 	public void setHeight(String height){
 		super.setHeight(height);
 		UIComponent login = this.getEmbeddedLogin();
@@ -77,6 +78,7 @@ public class WFLogin extends WFContainer {
 		}
 	}
 
+	@Override
 	public void setWidth(String width){
 		super.setWidth(width);
 		UIComponent login = this.getEmbeddedLogin();
@@ -171,18 +173,21 @@ public class WFLogin extends WFContainer {
 	/* (non-Javadoc)
 	 * @see javax.faces.component.UIComponent#encodeBegin(javax.faces.context.FacesContext)
 	 */
+	@Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		super.encodeBegin(context);
 	}
 	/* (non-Javadoc)
 	 * @see javax.faces.component.UIComponent#encodeChildren(javax.faces.context.FacesContext)
 	 */
+	@Override
 	public void encodeChildren(FacesContext context) throws IOException {
 		super.encodeChildren(context);
 	}
 	/* (non-Javadoc)
 	 * @see javax.faces.component.UIComponent#encodeEnd(javax.faces.context.FacesContext)
 	 */
+	@Override
 	public void encodeEnd(FacesContext arg0) throws IOException {
 		super.encodeEnd(arg0);
 	}

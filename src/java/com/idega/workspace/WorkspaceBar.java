@@ -62,6 +62,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		super();
 	}
 	
+	@Override
 	public void initializeComponent(FacesContext context){
 		setStyleClass(MAIN_STYLE_CLASS);
 		addApplicationDecoration();
@@ -113,7 +114,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	/**
 	 * 
 	 */
-	private UIComponent addPlatformInfo() {
+	/*private UIComponent addPlatformInfo() {
 		
 		AboutSystemButton aboutbutton = new AboutSystemButton();
 		add(aboutbutton);
@@ -122,7 +123,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 //		WFPlainOutputText text = new WFPlainOutputText();
 //		text.setValue("<i>e</i>Platform");
 //		div.add(text);
-	}
+	}*/
 
 	/**
 	 * 
@@ -277,6 +278,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	/* (non-Javadoc)
 	 * @see javax.faces.component.StateHolder#restoreState(javax.faces.context.FacesContext, java.lang.Object)
 	 */
+	@Override
 	public void restoreState(FacesContext ctx, Object state) {
 		Object values[] = (Object[])state;
 		super.restoreState(ctx, values[0]);
@@ -286,6 +288,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	/* (non-Javadoc)
 	 * @see javax.faces.component.StateHolder#saveState(javax.faces.context.FacesContext)
 	 */
+	@Override
 	public Object saveState(FacesContext ctx) {
 		Object values[] = new Object[2];
 		values[0] = super.saveState(ctx);
