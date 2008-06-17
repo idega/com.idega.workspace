@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.26 2008/02/22 10:27:23 alexis Exp $
+ *  $Id: WorkspacePage.java,v 1.27 2008/06/17 13:20:26 valdas Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -35,10 +35,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2008/02/22 10:27:23 $ by $Author: alexis $
+ * Last modified: $Date: 2008/06/17 13:20:26 $ by $Author: valdas $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.26 $
+ * @version $Revision: 1.27 $
  */
 public class WorkspacePage extends Page {
 
@@ -68,14 +68,7 @@ public class WorkspacePage extends Page {
 	
 	public WorkspacePage() {
 		setTransient(false);
-		//IWContext iwc = IWContext.getInstance();
-		//init(iwc);
-		//initalizeEmbeddedForm();
-		//if(embedForm){
-		//	initalizeEmbeddedForm();
-		//}
-		//setDoctype(Page.DOCTYPE_HTML_4_0_1_STRICT);
-		//setDoctype(DOCTYPE_XHTML_1_0_TRANSITIONAL);
+		setPrintScriptSourcesDirectly(false);
 	}
 	
 	@Override
@@ -84,8 +77,6 @@ public class WorkspacePage extends Page {
 	}
 	public void initializeContent(FacesContext context) {
 		IWContext iwc = IWContext.getIWContext(context);	
-//		IWBundle iwb = this.getBundle(iwc);
-//		IWResourceBundle iwrb = this.getResourceBundle(iwc);
 		
 		//TODO: Change this, this is a hack for the function menu:
 		ViewManager viewManager = getViewManager(iwc);
@@ -101,8 +92,6 @@ public class WorkspacePage extends Page {
 		this.getFunctionMenu(node);
 
 		Page thePage = this;
-		//thePage.setBackgroundColor(backgroundColor);
-		//thePage.setAllMargins(0);
 
 		thePage.setTitle("idegaWeb Applications");
 
@@ -443,10 +432,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2008/02/22 10:27:23 $ by $Author: alexis $
+	 *  Last modified: $Date: 2008/06/17 13:20:26 $ by $Author: valdas $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.26 $
+	 * @version $Revision: 1.27 $
 	 */
 	public class SpecialChildList implements List{
 		
