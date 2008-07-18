@@ -937,9 +937,16 @@ body.workspace .ws_main {
 }
 
 body.workspace .wf_block {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: auto;
+	width: auto;
 	margin: 0 !important;
-	margin-top: 69px !important;
-	margin-left: 119px !important;
+	padding-top: 69px !important;
+	padding-left: 119px !important;
 	background-color: transparent !important;
 	border: 0;
 }
@@ -961,15 +968,82 @@ body.workspace .wf_block h1 {
 }
 
 body.workspace div.welcomeBox {
-	width: 623px;
-	height: 354px;
-	background: url(images/welcome_background.gif) top left no-repeat;
+	position: absolute;
+	left: 119px;
+	right: 119px;
+	top: 119px;
+	bottom: 69px;
+	height: auto;
+	width: auto;
+	background-color: #102b2f;
+	min-height: 354px;
+	min-width: 800px;
+	z-index: 100;
+}
+
+div.welcomeBox .top {
+	position: absolute;
+	top: 0;
+	left: -3px;
+	right: -3px;
+	width: auto;
+	height: 178px;
+	background: url(images/welcome-box-top-left.gif) top left no-repeat #042025;
+	z-index: 1;
+}
+
+div.welcomeBox .top .right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 12px;
+	height: 178px;
+	background: url(images/welcome-box-top-right.gif) top left no-repeat;
+}
+
+div.welcomeBox .bottom {
+	position: absolute;
+	bottom: 0;
+	left: -3px;
+	right: -3px;
+	width: auto;
+	height: 176px;
+	background: url(images/welcome-box-bottom-left.gif) top left no-repeat #042025;
+	z-index: 0;
+}
+
+div.welcomeBox .bottom .right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 12px;
+	height: 176px;
+	background: url(images/welcome-box-bottom-right.gif) top left no-repeat;
+}
+
+div.welcomeBox .middle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	height: auto;
+	z-index: 0;
+	margin: 0 3px;
+	left: 0;
+	right: 0;
+	width: auto;
+	border-top: 0;
+	border-bottom: 0;
+	background: url(images/welcome-tiler.gif) 233px top repeat-y #1e373b;	
 }
 
 body.workspace ul.welcomeList {
+	display: block;
+	position: absolute;
+	top: 20px;
+	left: 28px;
+	z-index: 2;
 	float: left;
 	width: 180px;
-	margin: 20px 28px;
 	padding: 0;
 	list-style: none;
 }
@@ -986,13 +1060,19 @@ body.workspace ul.welcomeList li.ui-tabs-selected a {
 }
 
 body.workspace div.welcomeText {
-	float: left;
+	position: absolute;
+	right: 22px;
+	top: 26px;
+	left: 256px;
+	bottom: 26px;
+	width: auto;
+	height: auto;
+	z-index: 2;
 	font-size: 11px;
 	line-height: 18px;
 	color: #fff;
 	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
-	margin: 26px 22px;
-	width: 340px;
+	overflow: auto;
 }
 
 body.workspace div.welcomeText.ui-tabs-hide {
