@@ -981,7 +981,7 @@ body.workspace ul.welcomeList li a {
 	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
 }
 
-body.workspace ul.welcomeList li.selected a {
+body.workspace ul.welcomeList li.ui-tabs-selected a {
 	color: #6b8185;
 }
 
@@ -993,4 +993,8 @@ body.workspace div.welcomeText {
 	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
 	margin: 26px 22px;
 	width: 340px;
+}
+
+body.workspace div.welcomeText.ui-tabs-hide {
+	display: none;
 }
