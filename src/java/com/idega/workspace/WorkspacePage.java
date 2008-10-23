@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.27 2008/06/17 13:20:26 valdas Exp $
+ *  $Id: WorkspacePage.java,v 1.28 2008/10/23 06:02:49 laddi Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -27,6 +27,7 @@ import com.idega.core.view.ViewNode;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.Page;
 import com.idega.util.CoreConstants;
+import com.idega.util.PresentationUtil;
 import com.idega.webface.WFContainer;
 import com.idega.webface.WFFrame;
 
@@ -35,10 +36,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2008/06/17 13:20:26 $ by $Author: valdas $
+ * Last modified: $Date: 2008/10/23 06:02:49 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.27 $
+ * @version $Revision: 1.28 $
  */
 public class WorkspacePage extends Page {
 
@@ -76,7 +77,7 @@ public class WorkspacePage extends Page {
 		return IW_BUNDLE_IDENTIFIER;
 	}
 	public void initializeContent(FacesContext context) {
-		IWContext iwc = IWContext.getIWContext(context);	
+		IWContext iwc = IWContext.getIWContext(context);
 		
 		//TODO: Change this, this is a hack for the function menu:
 		ViewManager viewManager = getViewManager(iwc);
@@ -331,6 +332,8 @@ public class WorkspacePage extends Page {
 	@Override
 	public void encodeChildren(FacesContext context) throws IOException{
 		IWContext iwc = IWContext.getIWContext(context);	
+		PresentationUtil.addStyleSheetToHeader(iwc, "/idegaweb/bundles/com.idega.webface.bundle/resources/style/webfacestyle.css");
+
 		ViewManager viewManager = getViewManager(iwc);
 		ViewNode node = viewManager.getViewNodeForContext(iwc);
 		
@@ -432,10 +435,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2008/06/17 13:20:26 $ by $Author: valdas $
+	 *  Last modified: $Date: 2008/10/23 06:02:49 $ by $Author: laddi $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.27 $
+	 * @version $Revision: 1.28 $
 	 */
 	public class SpecialChildList implements List{
 		

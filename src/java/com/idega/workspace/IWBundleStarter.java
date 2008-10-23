@@ -1,5 +1,5 @@
 /*
- * $Id: IWBundleStarter.java,v 1.6 2008/01/30 17:29:15 valdas Exp $
+ * $Id: IWBundleStarter.java,v 1.7 2008/10/23 06:02:49 laddi Exp $
  * Created on 27.1.2005
  *
  * Copyright (C) 2005 Idega Software hf. All Rights Reserved.
@@ -14,15 +14,14 @@ import com.idega.core.view.ViewNode;
 import com.idega.faces.WindowViewManager;
 import com.idega.idegaweb.IWBundle;
 import com.idega.idegaweb.IWBundleStartable;
-import com.idega.idegaweb.include.GlobalIncludeManager;
 
 
 /**
  * 
- *  Last modified: $Date: 2008/01/30 17:29:15 $ by $Author: valdas $
+ *  Last modified: $Date: 2008/10/23 06:02:49 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class IWBundleStarter implements IWBundleStartable {
 
@@ -32,9 +31,9 @@ public class IWBundleStarter implements IWBundleStartable {
 	public void start(IWBundle starterBundle) {
 
 		//Register the style sheet:
-		GlobalIncludeManager gbi = GlobalIncludeManager.getInstance();
+//		GlobalIncludeManager gbi = GlobalIncludeManager.getInstance();
 //		gbi.addBundleStyleSheet(starterBundle.getBundleIdentifier(),"/style/workspace.css");
-		gbi.addBundleStyleSheet(starterBundle.getBundleIdentifier(),"/style/iframe.css");
+//		gbi.addBundleStyleSheet(starterBundle.getBundleIdentifier(),"/style/iframe.css");
 		
 		
 		WindowViewManager wViewManager = WindowViewManager.getInstance(starterBundle.getApplication());
