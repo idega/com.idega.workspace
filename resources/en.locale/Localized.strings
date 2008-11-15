@@ -13,5 +13,11 @@ welcome_list.getting_started=Getting started
 welcome_list.properties=Properties
 welcome_list.welcome=Welcome
 welcome_list.your_file_manager=Your file manager
-welcome_texts.welcome=Welcome to idegaweb ePlatform! Here you can start creating your own website. Nunc sapien felis, vestibulum in, elementum eu, tincidunt sit amet, massa. Pellentesque aliquet diam nec leo. Nulla facilisi. Quisque vel neque eu magna condimentum auctor. Proin vestibulum purus non dolor. Sed et nibh. In ut turpis in orci mattis semper. Mauris ligula. Sed lorem ipsum, dignissim ac, fermentum nec, congue eu, mauris.
+welcome_texts.add_users_and_groups=welcome_texts.add_users_and_groups
+welcome_texts.adding_pages=welcome_texts.adding_pages
+welcome_texts.creating_articles=welcome_texts.creating_articles
+welcome_texts.getting_started=welcome_texts.getting_started
+welcome_texts.properties=welcome_texts.properties
+welcome_texts.welcome=<p>Welcome to IdegaWeb ePlatform your one stop application for creating online content.</p><p>IdegaWeb ePlatform is a Web 2.0 modular server application that is infinitely expandable with new features and it strives to be as easy to use as possible while retaining the power of an advanced online multi-user portals.</p><p>IdegaWeb ePlatform isn't a fixed feature product but really a suit of web based application ranging from simple blogs to corporate content management, online sales and business process management to complete eGovernment solutions.</p><p>Getting started with building your online app is as easy as knowing how to click, drag and drop with your mouse. Click "Getting Started" to learn more.</p><p>The other topics on the left also include more specialized information about using the platform.</p><p>Also to learn more about ePlatform and to get add-ons please visit <a href\="http\://www.idega.com/" target\="_new">Idega Software's website</a></p> 
+welcome_texts.your_file_manager=welcome_texts.your_file_manager
 welcome_to_eplatform=Welcome to ePlatform

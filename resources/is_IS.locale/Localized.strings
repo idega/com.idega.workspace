@@ -1,8 +1,16 @@
 functions=A\u00F0ger\u00F0ir
-hostingpartyname=H\u00FDsingara\u00F0ili\:
+hostingpartyname=H\u00FDsingara\u00F0ili
 installedmodules=Uppsettar kerfiseiningar\:
-setuppartyname=Uppsetningara\u00F0ili\:
+setuppartyname=Uppsetningara\u00F0ili
 solutionlicencee=Leyfishafi kerfis\:
 solutionname=Kerfi\:
 solutionvendorname=Framlei\u00F0andi\:
-solutionversion=\u00DAtg\u00E1fa\:
+solutionversion=\u00DAtg\u00E1fa
+welcome_list.add_users_and_groups=Notendur og h\u00F3par
+welcome_list.adding_pages=B\u00E6ta vi\u00F0 s\u00ED\u00F0um
+welcome_list.creating_articles=Skrifa greinar
+welcome_list.getting_started=Hvar er best a\u00F0 byrja?
+welcome_list.properties=M\u00F3d\u00FAlastillingar
+welcome_list.welcome=Velkomin
+welcome_list.your_file_manager=Skjalakerfi\u00F0
+welcome_texts.welcome=<p>Welcome to IdegaWeb ePlatform your one stop application for creating online content.</p><p>IdegaWeb ePlatform is a Web 2.0 modular server application that is infinitely expandable with new features and it strives to be as easy to use as possible while retaining the power of an advanced online multi-user portals.</p><p>IdegaWeb ePlatform isn't a fixed feature product but really a suit of web based application ranging from simple blogs to corporate content management, online sales and business process management to complete eGovernment solutions.</p><p>Getting started with building your online app is as easy as knowing how to click, drag and drop with your mouse. Click "Getting Started" to learn more.</p><p>The other topics on the left also include more specialized information about using the platform.</p><p>Also to learn more about ePlatform and to get add-ons please visit <a href\="http\://www.idega.com/" target\="_new">Idega Software's website</a></p> 
