@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspaceLoginPage.java,v 1.13 2007/11/22 17:53:20 laddi Exp $
+ * $Id: WorkspaceLoginPage.java,v 1.14 2008/11/17 08:40:03 laddi Exp $
  * Created on 13.7.2004 in project com.idega.core
  * 
  * Copyright (C) 2004-2005 Idega Software hf. All Rights Reserved.
@@ -33,10 +33,10 @@ import com.idega.webface.WFUtil;
  * <p>
  * This is the component for the default login page in the idegaWeb Workspace.
  * </p>
- * Last modified: $Date: 2007/11/22 17:53:20 $ by $Author: laddi $
+ * Last modified: $Date: 2008/11/17 08:40:03 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 public class WorkspaceLoginPage extends Page {
 
@@ -89,6 +89,7 @@ public class WorkspaceLoginPage extends Page {
 
 		Login2 login = new Login2();
 		login.setEnterSubmits(true);
+		login.setGenerateContainingForm(false);
 
 		String redirectUri = iwc.getParameter(IWAuthenticator.PARAMETER_REDIRECT_URI_ONLOGON);
 		String loginUri = null;
