@@ -287,7 +287,8 @@ div.ws_smallloginbox p {
 }
 
 div.ws_smallloginbox div.submit {
-	float: left;	
+	float: left;
+	margin-top: 0;
 }
 
 div.ws_smallloginbox input {
