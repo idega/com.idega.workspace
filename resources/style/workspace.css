@@ -369,7 +369,7 @@ html>body .ws_mainloginbox {
 	margin: 0 auto !important;
 }
 
-.ws_mainloginbox form {
+.ws_mainloginbox .ws_mainloginbox_middle {
 	position: relative;
 	width: 340px;
 	height: 442px;
@@ -377,7 +377,7 @@ html>body .ws_mainloginbox {
 	background-color: #fff;
 }
 
-html>body .ws_mainloginbox form {
+html>body .ws_mainloginbox .ws_mainloginbox_middle {
 	width: 284px;
 	height: 374px;
 }

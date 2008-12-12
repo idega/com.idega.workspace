@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspaceLoginPage.java,v 1.14 2008/11/17 08:40:03 laddi Exp $
+ * $Id: WorkspaceLoginPage.java,v 1.15 2008/12/12 11:15:42 laddi Exp $
  * Created on 13.7.2004 in project com.idega.core
  * 
  * Copyright (C) 2004-2005 Idega Software hf. All Rights Reserved.
@@ -23,7 +23,6 @@ import com.idega.presentation.text.Link;
 import com.idega.presentation.text.ListItem;
 import com.idega.presentation.text.Lists;
 import com.idega.presentation.text.Text;
-import com.idega.presentation.ui.Form;
 import com.idega.servlet.filter.IWAuthenticator;
 import com.idega.webface.WFBezel;
 import com.idega.webface.WFContainer;
@@ -33,10 +32,10 @@ import com.idega.webface.WFUtil;
  * <p>
  * This is the component for the default login page in the idegaWeb Workspace.
  * </p>
- * Last modified: $Date: 2008/11/17 08:40:03 $ by $Author: laddi $
+ * Last modified: $Date: 2008/12/12 11:15:42 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.14 $
+ * @version $Revision: 1.15 $
  */
 public class WorkspaceLoginPage extends Page {
 
@@ -78,14 +77,15 @@ public class WorkspaceLoginPage extends Page {
 
 		add(outer);
 
-		Form form = new Form();
-		loginBox.add(form);
+		WFBezel middleBox = new WFBezel();
+		middleBox.setStyleClass("ws_mainloginbox_middle");
+		loginBox.add(middleBox);
 
 		WFBezel logo = new WFBezel();
 		logo.setStyleClass("logo");
-		form.add(logo);
+		middleBox.add(logo);
 		
-		form.add(getProductName());
+		middleBox.add(getProductName());
 
 		Login2 login = new Login2();
 		login.setEnterSubmits(true);
@@ -105,7 +105,7 @@ public class WorkspaceLoginPage extends Page {
 		login.setFocusOnLoad(true);
 		login.setURLToRedirectToOnLogon(loginUri);
 
-		form.add(login);
+		middleBox.add(login);
 
 		WFContainer cText = new WFContainer();
 		cText.setStyleClass("domaininfo");
@@ -114,8 +114,8 @@ public class WorkspaceLoginPage extends Page {
 		cText.add(tText);
 		//form.add(cText);
 
-		form.add(getVersionInfo());
-		form.add(getBuildId());
+		middleBox.add(getVersionInfo());
+		middleBox.add(getBuildId());
 
 		//AboutSystemButton aboutbutton = new AboutSystemButton();
 		//form.add(aboutbutton);
