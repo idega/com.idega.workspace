@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+    xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:t="http://myfaces.apache.org/tomahawk"
@@ -13,7 +14,7 @@
 				/idegaweb/bundles/com.idega.workspace.bundle/resources/javascript/workspace.js">
 			<h:form id="workspaceform1">
 				<wf:wfblock id="welcomeBlock" title="#{localizedStrings['com.idega.workspace']['welcome_to_eplatform']}">
-					<t:htmlTag value="h1"><h:outputText value="#{localizedStrings['com.idega.workspace']['welcome_to_eplatform']}"/></t:htmlTag>
+					<h1><h:outputText value="#{localizedStrings['com.idega.workspace']['welcome_to_eplatform']}"/></h1>
 					<t:div styleClass="welcomeBox">
 						<t:div styleClass="middle">
 							<t:div styleClass="top">

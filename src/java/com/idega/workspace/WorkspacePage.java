@@ -1,5 +1,5 @@
 /*
- *  $Id: WorkspacePage.java,v 1.28 2008/10/23 06:02:49 laddi Exp $
+ *  $Id: WorkspacePage.java,v 1.29 2008/12/13 15:35:45 civilis Exp $
  *
  *  Created on 13.7.2004 by Tryggvi Larusson
  *
@@ -36,10 +36,10 @@ import com.idega.webface.WFFrame;
  * This page should be around all UI components in the environment.<br>
  * 
  * <br>
- * Last modified: $Date: 2008/10/23 06:02:49 $ by $Author: laddi $
+ * Last modified: $Date: 2008/12/13 15:35:45 $ by $Author: civilis $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.28 $
+ * @version $Revision: 1.29 $
  */
 public class WorkspacePage extends Page {
 
@@ -435,10 +435,10 @@ public class WorkspacePage extends Page {
 	}
 	/**
 	 * 
-	 *  Last modified: $Date: 2008/10/23 06:02:49 $ by $Author: laddi $
+	 *  Last modified: $Date: 2008/12/13 15:35:45 $ by $Author: civilis $
 	 * 
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
-	 * @version $Revision: 1.28 $
+	 * @version $Revision: 1.29 $
 	 */
 	public class SpecialChildList implements List{
 		
@@ -462,7 +462,7 @@ public class WorkspacePage extends Page {
 				this.list.add(arg0, arg1);
 			}
 			else{
-				this.child.getChildren().add(arg0,arg1);
+				this.child.getChildren().add(arg0, (UIComponent)arg1);
 			}
 		}
 		/**
@@ -474,7 +474,7 @@ public class WorkspacePage extends Page {
 				return this.list.add(arg0);
 			}
 			else{
-				return this.child.getChildren().add(arg0);
+				return this.child.getChildren().add((UIComponent)arg0);
 			}
 		}
 		/**
