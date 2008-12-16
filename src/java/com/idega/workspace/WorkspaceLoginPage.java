@@ -1,5 +1,5 @@
 /*
- * $Id: WorkspaceLoginPage.java,v 1.15 2008/12/12 11:15:42 laddi Exp $
+ * $Id: WorkspaceLoginPage.java,v 1.16 2008/12/16 11:58:32 laddi Exp $
  * Created on 13.7.2004 in project com.idega.core
  * 
  * Copyright (C) 2004-2005 Idega Software hf. All Rights Reserved.
@@ -26,16 +26,15 @@ import com.idega.presentation.text.Text;
 import com.idega.servlet.filter.IWAuthenticator;
 import com.idega.webface.WFBezel;
 import com.idega.webface.WFContainer;
-import com.idega.webface.WFUtil;
 
 /**
  * <p>
  * This is the component for the default login page in the idegaWeb Workspace.
  * </p>
- * Last modified: $Date: 2008/12/12 11:15:42 $ by $Author: laddi $
+ * Last modified: $Date: 2008/12/16 11:58:32 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 public class WorkspaceLoginPage extends Page {
 
@@ -85,7 +84,7 @@ public class WorkspaceLoginPage extends Page {
 		logo.setStyleClass("logo");
 		middleBox.add(logo);
 		
-		middleBox.add(getProductName());
+		middleBox.add(getProductName(iwma));
 
 		Login2 login = new Login2();
 		login.setEnterSubmits(true);
@@ -114,8 +113,8 @@ public class WorkspaceLoginPage extends Page {
 		cText.add(tText);
 		//form.add(cText);
 
-		middleBox.add(getVersionInfo());
-		middleBox.add(getBuildId());
+		middleBox.add(getVersionInfo(iwma));
+		middleBox.add(getBuildId(iwma));
 
 		//AboutSystemButton aboutbutton = new AboutSystemButton();
 		//form.add(aboutbutton);
@@ -145,34 +144,38 @@ public class WorkspaceLoginPage extends Page {
 		list.add(item);
 	}
 
-	protected UIComponent getVersionInfo() {
+	protected UIComponent getVersionInfo(IWMainApplication iwma) {
 		WFContainer cText = new WFContainer();
 		cText.setStyleClass("versioninfo");
-		HtmlOutputText tText = WFUtil.getTextVB(IWMainApplication.APPLICATION_BEAN_ID + ".productInfo.version");
+		HtmlOutputText tText = new HtmlOutputText();
+		tText.setValue(iwma.getProductInfo().getVersion());
 		cText.add(tText);
 		return cText;
 	}
 
-	protected UIComponent getProductName() {
+	protected UIComponent getProductName(IWMainApplication iwma) {
 		WFContainer cText = new WFContainer();
 		cText.setStyleClass("productinfo");
-		HtmlOutputText tText = WFUtil.getTextVB(IWMainApplication.APPLICATION_BEAN_ID + ".productInfo.fullProductName");
+		HtmlOutputText tText = new HtmlOutputText();
+		tText.setValue(iwma.getProductInfo().getFullProductName());
 		cText.add(tText);
 		return cText;
 	}
 
-	protected UIComponent getBuildId() {
+	protected UIComponent getBuildId(IWMainApplication iwma) {
 		WFContainer cText = new WFContainer();
 		cText.setStyleClass("buildid");
-		HtmlOutputText tText = WFUtil.getTextVB(IWMainApplication.APPLICATION_BEAN_ID + ".productInfo.buildId");
+		HtmlOutputText tText = new HtmlOutputText();
+		tText.setValue(iwma.getProductInfo().getBuildId());
 		cText.add(tText);
 		return cText;
 	}
 
-	protected UIComponent getCopyrightText() {
+	protected UIComponent getCopyrightText(IWMainApplication iwma) {
 		WFContainer cText = new WFContainer();
 		cText.setStyleClass("copyrighttext");
-		HtmlOutputText tText = WFUtil.getTextVB(IWMainApplication.APPLICATION_BEAN_ID + ".productInfo.copyrightText");
+		HtmlOutputText tText = new HtmlOutputText();
+		tText.setValue(iwma.getProductInfo().getCopyrightText());
 		cText.add(tText);
 		return cText;
 	}

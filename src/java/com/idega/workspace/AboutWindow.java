@@ -1,5 +1,5 @@
 /**
- * $Id: AboutWindow.java,v 1.1 2007/02/05 06:53:42 tryggvil Exp $
+ * $Id: AboutWindow.java,v 1.2 2008/12/16 11:58:32 laddi Exp $
  * Created in 2007 by tryggvil
  *
  * Copyright (C) 2000-2007 Idega Software hf. All Rights Reserved.
@@ -25,14 +25,15 @@ import com.idega.webface.WFUtil;
  * <p>
  * Window that displays information about the current system
  * </p>
- *  Last modified: $Date: 2007/02/05 06:53:42 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2008/12/16 11:58:32 $ by $Author: laddi $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class AboutWindow extends WorkspacePage {
 	
 	
+	@Override
 	public void initializeContent(FacesContext context){
 		
 		setLayout(LAYOUT_COMPACT);
@@ -52,33 +53,33 @@ public class AboutWindow extends WorkspacePage {
 		aboutContainer.setStyleClass("aboutcontainer");
 		this.add(aboutContainer);
 		
-		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['solutionname']}","#{idegaweb_application.productInfo.name}");
-		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['solutionversion']}","#{idegaweb_application.productInfo.version}");
+		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['solutionname']}","#{idegawebApplication.productInfo.name}");
+		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['solutionversion']}","#{idegawebApplication.productInfo.version}");
 		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['installedmodules']}","#{localizedStrings['com.idega.core']['installedmodulessee']}","/window/aboutmodules/");
-		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['solutionvendorname']}","#{idegaweb_application.productInfo.vendor}","#{idegaweb_application.productInfo.vendorUrl}");
-		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['setuppartyname']}","#{idegaweb_application.installationInfo.setupPartyName}","http://www.idega.com");
-		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['hostingpartyname']}","#{idegaweb_application.installationInfo.hostingPartyName}","http://www.anza.is");
-		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['solutionlicencee']}","#{idegaweb_application.installationInfo.licenceOwner.name}");
+		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['solutionvendorname']}","#{idegawebApplication.productInfo.vendor}","#{idegawebApplication.productInfo.vendorUrl}");
+		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['setuppartyname']}","#{idegawebApplication.installationInfo.setupPartyName}","http://www.idega.com");
+		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['hostingpartyname']}","#{idegawebApplication.installationInfo.hostingPartyName}","http://www.anza.is");
+		addLine(aboutContainer,"#{localizedStrings['com.idega.workspace']['solutionlicencee']}","#{idegawebApplication.installationInfo.licenceOwner.name}");
 		
 		WFContainer logoContainer = new WFContainer();
 		logoContainer.setStyleClass("logocontainer");
 		aboutContainer.add(logoContainer);
 		
 		HtmlGraphicImage vendorImage = new HtmlGraphicImage();
-		ValueBinding vendorImageVB = WFUtil.createValueBinding("#{idegaweb_application.productInfo.vendorLogoUrl}");
+		ValueBinding vendorImageVB = WFUtil.createValueBinding("#{idegawebApplication.productInfo.vendorLogoUrl}");
 		vendorImage.setValueBinding("value",vendorImageVB);
 		vendorImage.setStyleClass("logoimage");
 		logoContainer.add(vendorImage);
 		
 		HtmlGraphicImage licenceeImage = new HtmlGraphicImage();
-		ValueBinding licenceeImageVB = WFUtil.createValueBinding("#{idegaweb_application.installationInfo.licenceOwner.logoUrl}");
+		ValueBinding licenceeImageVB = WFUtil.createValueBinding("#{idegawebApplication.installationInfo.licenceOwner.logoUrl}");
 		licenceeImage.setValueBinding("value",licenceeImageVB);
 		licenceeImage.setStyleClass("logoimage");
 		logoContainer.add(licenceeImage);
 		
 		WFContainer copyrightContainer = new WFContainer();
 		copyrightContainer.setStyleClass("copyrightcontainer");
-		HtmlOutputText crtext = WFUtil.getTextVB("idegaweb_application.productInfo.copyrightText");
+		HtmlOutputText crtext = WFUtil.getTextVB("idegawebApplication.productInfo.copyrightText");
 		copyrightContainer.getChildren().add(crtext);
 		this.add(copyrightContainer);
 	}
