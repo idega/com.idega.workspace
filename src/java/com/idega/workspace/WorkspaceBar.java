@@ -86,6 +86,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		div.setStyleClass(LOGIN_STYLE_CLASS);
 		
 		Login2 login = new Login2();
+		login.setUseSubmitLinks(true);
 		//login.setLayout(Login.SINGLE_LINE);
 		//login.setNoStyles();
 		
