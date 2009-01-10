@@ -9,7 +9,7 @@
 	<jsp:directive.page contentType="text/html" />
 	<f:view>
 		<ws:page id="workspacepage1" javascripturls="
-				/idegaweb/bundles/com.idega.block.web2.0.bundle/resources/javascript/jquery/1.2.3/jquery-compressed.js,
+				/idegaweb/bundles/com.idega.block.web2.0.bundle/resources/javascript/jquery/1.2.6/jquery-compressed.js,
 				/idegaweb/bundles/com.idega.block.web2.0.bundle/resources/javascript/jquery-ui/1.5b/ui.tabs.js,
 				/idegaweb/bundles/com.idega.workspace.bundle/resources/javascript/workspace.js">
 			<h:form id="workspaceform1">
