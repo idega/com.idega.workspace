@@ -9,9 +9,9 @@
 	<jsp:directive.page contentType="text/html" />
 	<f:view>
 
-		<ws:page id="workspacepage1" javascripturls="	#{idegaWebResourcePluginsResolver['jquery']},
-														#{idegaWebResourceResolver['com.idega.block.web2.0']['javascript/jquery-ui/1.5b/ui.tabs.js']},
-														#{idegaWebResourceResolver['com.idega.workspace']['javascript/workspace.js']}">
+		<ws:page id="workspacepage1" javascripturls="	#{iwResourcePluginsResolver['jquery']},
+														#{iwResourceResolver['com.idega.block.web2.0']['javascript/jquery-ui/1.5b/ui.tabs.js']},
+														#{iwResourceResolver['com.idega.workspace']['javascript/workspace.js']}">
 			<h:form id="workspaceform1">
 				<wf:wfblock id="welcomeBlock" title="#{localizedStrings['com.idega.workspace']['welcome_to_eplatform']}">
 					<h1><h:outputText value="#{localizedStrings['com.idega.workspace']['welcome_to_eplatform']}"/></h1>
