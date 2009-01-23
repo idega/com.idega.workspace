@@ -1,5 +1,3 @@
-jQuery.noConflict();
-
 jQuery(document).ready(function() {
 	jQuery('ul.welcomeList').tabs({ fx: { height: 'toggle', duration: 'fast' } });
 	

@@ -8,10 +8,10 @@
 	xmlns:ws="http://xmlns.idega.com/com.idega.workspace" version="1.2">
 	<jsp:directive.page contentType="text/html" />
 	<f:view>
-		<ws:page id="workspacepage1" javascripturls="
-				/idegaweb/bundles/com.idega.block.web2.0.bundle/resources/javascript/jquery/1.2.6/jquery-compressed.js,
-				/idegaweb/bundles/com.idega.block.web2.0.bundle/resources/javascript/jquery-ui/1.5b/ui.tabs.js,
-				/idegaweb/bundles/com.idega.workspace.bundle/resources/javascript/workspace.js">
+
+		<ws:page id="workspacepage1" javascripturls="	#{idegaWebResourcePluginsResolver['jquery']},
+														#{idegaWebResourceResolver['com.idega.block.web2.0']['javascript/jquery-ui/1.5b/ui.tabs.js']},
+														#{idegaWebResourceResolver['com.idega.workspace']['javascript/workspace.js']}">
 			<h:form id="workspaceform1">
 				<wf:wfblock id="welcomeBlock" title="#{localizedStrings['com.idega.workspace']['welcome_to_eplatform']}">
 					<h1><h:outputText value="#{localizedStrings['com.idega.workspace']['welcome_to_eplatform']}"/></h1>
