@@ -1,0 +1,18 @@
+<html
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:t="http://myfaces.apache.org/tomahawk"
+		xmlns:f="http://java.sun.com/jsf/core"
+>
+<ui:component>
+	<div class="#{loginBean.styleClass} loggedIn loginForm workspaceLogin">
+		<p class="currentUser"><h:outputText value="#{loginBean.output}"/></p>
+		<t:div styleClass="submit #{loginBean.localeStyle}">
+			<a href="javascript:void(0);">
+				<span><t:outputText value="#{localizedStrings['com.idega.block.login']['logout_text']}" /></span>
+			</a>
+		</t:div>
+		<input type="hidden" name="login_state" value="" />
+	</div>
+</ui:component>
+</html>

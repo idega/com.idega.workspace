@@ -21,8 +21,10 @@ import com.idega.block.login.presentation.Login2;
 import com.idega.core.view.KeyboardShortcut;
 import com.idega.core.view.ViewManager;
 import com.idega.core.view.ViewNode;
+import com.idega.idegaweb.IWBundle;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.text.Text;
+import com.idega.util.PresentationUtil;
 import com.idega.webface.WFContainer;
 import com.idega.webface.WFMenu;
 import com.idega.webface.WFTabBar;
@@ -67,7 +69,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		setStyleClass(MAIN_STYLE_CLASS);
 		addApplicationDecoration();
 		if(isShowLoginLogout()){
-			UIComponent login = getLogin();
+			UIComponent login = getLogin(context);
 			add(login);
 		}
 		addApplicationInstallationInfo();
@@ -81,25 +83,20 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 	/**
 	 * 
 	 */
-	private UIComponent getLogin() {
+	private UIComponent getLogin(FacesContext context) {
 		WFContainer div = new WFContainer();
 		div.setStyleClass(LOGIN_STYLE_CLASS);
 		
+		IWContext iwc = IWContext.getIWContext(context);
+		IWBundle iwb = iwc.getIWMainApplication().getBundle("com.idega.workspace");
+		PresentationUtil.addJavaScriptSourceLineToHeader(iwc, iwb.getResourcesVirtualPath() + "/javascript/workspaceLogin.js");
+		
 		Login2 login = new Login2();
-		login.setUseSubmitLinks(true);
-		//login.setLayout(Login.SINGLE_LINE);
-		//login.setNoStyles();
+		login.setAuthenticatedFaceletPath(iwb.getResourcesVirtualPath() + "/facelets/loggedIn.xhtml");
 		
 		div.getChildren().add(login);
 		
 		return div;
-		//WFLogin login = new WFLogin();
-		//login.setHeight("60");
-		//login.setWidth("70");
-		//login.setAllowCookieLogin(true);
-		//login.setLayoutSingleLine();
-		
-		//this.add(login);
 	}
 
 	/**
@@ -111,21 +108,6 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		return bar;
 	}
 	
-	
-	/**
-	 * 
-	 */
-	/*private UIComponent addPlatformInfo() {
-		
-		AboutSystemButton aboutbutton = new AboutSystemButton();
-		add(aboutbutton);
-		return aboutbutton;
-		
-//		WFPlainOutputText text = new WFPlainOutputText();
-//		text.setValue("<i>e</i>Platform");
-//		div.add(text);
-	}*/
-
 	/**
 	 * 
 	 */
@@ -135,9 +117,6 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		
 		add(div);
 		return div;
-//		WFPlainOutputText text = new WFPlainOutputText();
-//		text.setValue("<i>e</i>Platform");
-//		div.add(text);
 	}
 
 	
@@ -154,9 +133,6 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 				
 		add(div);
 		return div;
-//		WFPlainOutputText text = new WFPlainOutputText();
-//		text.setValue("<i>e</i>Platform");
-//		div.add(text);
 	}
 
 
@@ -285,6 +261,10 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		super.restoreState(ctx, values[0]);
 		Boolean bShowLL = (Boolean) values[1];
 		this.showLoginLogout=bShowLL.booleanValue();
+		
+		IWContext iwc = IWContext.getIWContext(ctx);
+		IWBundle iwb = iwc.getIWMainApplication().getBundle("com.idega.workspace");
+		PresentationUtil.addJavaScriptSourceLineToHeader(iwc, iwb.getResourcesVirtualPath() + "/javascript/workspace.js");
 	}
 	/* (non-Javadoc)
 	 * @see javax.faces.component.StateHolder#saveState(javax.faces.context.FacesContext)

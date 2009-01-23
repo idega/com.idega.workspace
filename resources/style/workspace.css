@@ -291,7 +291,7 @@ div.ws_smallloginbox div.submit {
 	margin-top: 0;
 }
 
-div.ws_smallloginbox input {
+div.ws_smallloginbox a {
 	background: transparent;
 	color: #ff4000;
 	font-size: 11px;
