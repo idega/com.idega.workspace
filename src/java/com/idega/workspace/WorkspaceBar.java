@@ -18,6 +18,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import com.idega.block.login.presentation.Login2;
+import com.idega.block.web2.business.Web2Business;
 import com.idega.core.view.KeyboardShortcut;
 import com.idega.core.view.ViewManager;
 import com.idega.core.view.ViewNode;
@@ -25,6 +26,7 @@ import com.idega.idegaweb.IWBundle;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.text.Text;
 import com.idega.util.PresentationUtil;
+import com.idega.util.expression.ELUtil;
 import com.idega.webface.WFContainer;
 import com.idega.webface.WFMenu;
 import com.idega.webface.WFTabBar;
@@ -87,8 +89,11 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		WFContainer div = new WFContainer();
 		div.setStyleClass(LOGIN_STYLE_CLASS);
 		
+		Web2Business business = ELUtil.getInstance().getBean(Web2Business.class);
+		
 		IWContext iwc = IWContext.getIWContext(context);
 		IWBundle iwb = iwc.getIWMainApplication().getBundle("com.idega.workspace");
+		PresentationUtil.addJavaScriptSourceLineToHeader(iwc, business.getBundleURIToJQueryLib());
 		PresentationUtil.addJavaScriptSourceLineToHeader(iwc, iwb.getResourcesVirtualPath() + "/javascript/workspaceLogin.js");
 		
 		Login2 login = new Login2();

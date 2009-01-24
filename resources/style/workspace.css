@@ -83,7 +83,7 @@ div.ws_head div.ws_appdecor {
 
 .ws_layout_onecolumn .ws_main {
 	position: absolute;
-	top: 0;
+	top: 80px;
 	bottom: 0;
 	left: 0;
 	right: 0;

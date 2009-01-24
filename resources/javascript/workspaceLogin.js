@@ -1,7 +1,9 @@
-jQuery(document).ready(function() {
-	jQuery(".workspaceLogin a").click(function() {
-		jQuery(".workspaceLogin input[name='login_state']").val('logoff');
-		jQuery(this).parents('form').submit();
+$j = jQuery.noConflict();
+
+$j(document).ready(function() {
+	$j(".workspaceLogin a").click(function() {
+		$j(".workspaceLogin input[name='login_state']").val('logoff');
+		$j(this).parents('form').submit();
 		return false;
 	});
 });
