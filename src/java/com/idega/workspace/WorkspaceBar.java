@@ -269,7 +269,6 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		
 		IWContext iwc = IWContext.getIWContext(ctx);
 		IWBundle iwb = iwc.getIWMainApplication().getBundle("com.idega.workspace");
-		PresentationUtil.addJavaScriptSourceLineToHeader(iwc, iwb.getResourcesVirtualPath() + "/javascript/workspace.js");
 	}
 	/* (non-Javadoc)
 	 * @see javax.faces.component.StateHolder#saveState(javax.faces.context.FacesContext)
