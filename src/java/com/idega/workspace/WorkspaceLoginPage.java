@@ -56,6 +56,8 @@ public class WorkspaceLoginPage extends Page {
 	public void initializeContent(FacesContext context) {
 		IWContext iwc = IWContext.getIWContext(context);
 
+		addNotifications(iwc);
+		
 		IWMainApplication iwma = iwc.getIWMainApplication();
 		Page thePage = this;
 		String productName = iwma.getProductInfo().getFullProductName();

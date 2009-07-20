@@ -168,7 +168,7 @@ public class WorkspacePage extends Page {
 	}
 	
 	@Override
-	public List getChildren(){
+	public List<UIComponent> getChildren(){
 		if(this.embedForm){
 			return getForm().getChildren();
 		}
@@ -311,9 +311,8 @@ public class WorkspacePage extends Page {
 	}
 	
 	private UIForm findSubForm(){
-		Collection children = getChildren();
-		for (Iterator iter = children.iterator(); iter.hasNext();) {
-			UIComponent child = (UIComponent) iter.next();
+		Collection<UIComponent> children = getChildren();
+		for (UIComponent child: children) {
 			if(child instanceof UIForm){
 				return (UIForm)child;
 			}
@@ -339,7 +338,8 @@ public class WorkspacePage extends Page {
 		ViewNode node = viewManager.getViewNodeForContext(iwc);
 		
 		addSessionPollingDWRFiles(iwc);
-
+		addNotifications(iwc);
+		
 		UIComponent layoutContainer = getLayoutContainer();
 		layoutContainer.encodeBegin(context);
 		
@@ -371,9 +371,8 @@ public class WorkspacePage extends Page {
 		//super.encodeChildren(context);
 		
 		//form.encodeChildren(context);
-		for (Iterator iter = form.getChildren().iterator(); iter.hasNext();) {
-			UIComponent child = (UIComponent) iter.next();
-			renderChild(context,child);
+		for (UIComponent child: form.getChildren()) {
+			renderChild(context, child);
 		}
 		
 		mainArea.encodeEnd(context);
@@ -441,16 +440,16 @@ public class WorkspacePage extends Page {
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
 	 * @version $Revision: 1.30 $
 	 */
-	public class SpecialChildList implements List{
+	public class SpecialChildList implements List<UIComponent> {
 		
 		UIComponent parent;
 		UIComponent child;
-		List list;
+		List<UIComponent> list;
 		
 		public SpecialChildList(UIComponent parent,UIComponent child){
 			this.parent=parent;
 			this.child=child;
-			List children = parent.getChildren();
+			List<UIComponent> children = parent.getChildren();
 			this.list=children;
 		}
 		
@@ -458,24 +457,24 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @param arg1
 		 */
-		public void add(int arg0, Object arg1) {
+		public void add(int arg0, UIComponent arg1) {
 			if(arg1.equals(this.child)){
 				this.list.add(arg0, arg1);
 			}
 			else{
-				this.child.getChildren().add(arg0, (UIComponent)arg1);
+				this.child.getChildren().add(arg0, arg1);
 			}
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
-		public boolean add(Object arg0) {
+		public boolean add(UIComponent arg0) {
 			if(arg0.equals(this.child)){
 				return this.list.add(arg0);
 			}
 			else{
-				return this.child.getChildren().add((UIComponent)arg0);
+				return this.child.getChildren().add(arg0);
 			}
 		}
 		/**
@@ -483,15 +482,16 @@ public class WorkspacePage extends Page {
 		 * @param arg1
 		 * @return
 		 */
-		public boolean addAll(int arg0, Collection arg1) {
-			return this.list.addAll(arg0, arg1);
+		public boolean addAll(int index, Collection<? extends UIComponent> c) {
+			return this.list.addAll(index, c);
 		}
+		
 		/**
 		 * @param arg0
 		 * @return
 		 */
-		public boolean addAll(Collection arg0) {
-			return this.list.addAll(arg0);
+		public boolean addAll(Collection<? extends UIComponent> c) {
+			return this.list.addAll(c);
 		}
 		/**
 		 * 
@@ -510,8 +510,8 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
-		public boolean containsAll(Collection arg0) {
-			return this.list.containsAll(arg0);
+		public boolean containsAll(Collection<?> c) {
+			return this.list.containsAll(c);
 		}
 		/* (non-Javadoc)
 		 * @see java.lang.Object#equals(java.lang.Object)
@@ -524,7 +524,7 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
-		public Object get(int arg0) {
+		public UIComponent get(int arg0) {
 			return this.list.get(arg0);
 		}
 		/* (non-Javadoc)
@@ -550,7 +550,7 @@ public class WorkspacePage extends Page {
 		/**
 		 * @return
 		 */
-		public Iterator iterator() {
+		public Iterator<UIComponent> iterator() {
 			return this.list.iterator();
 		}
 		/**
@@ -563,21 +563,21 @@ public class WorkspacePage extends Page {
 		/**
 		 * @return
 		 */
-		public ListIterator listIterator() {
+		public ListIterator<UIComponent> listIterator() {
 			return this.list.listIterator();
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
-		public ListIterator listIterator(int arg0) {
+		public ListIterator<UIComponent> listIterator(int arg0) {
 			return this.list.listIterator(arg0);
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
-		public Object remove(int arg0) {
+		public UIComponent remove(int arg0) {
 			return this.list.remove(arg0);
 		}
 		/**
@@ -591,22 +591,22 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
-		public boolean removeAll(Collection arg0) {
-			return this.list.removeAll(arg0);
+		public boolean removeAll(Collection<?> c) {
+			return this.list.removeAll(c);
 		}
 		/**
 		 * @param arg0
 		 * @return
 		 */
-		public boolean retainAll(Collection arg0) {
-			return this.list.retainAll(arg0);
+		public boolean retainAll(Collection<?> c) {
+			return this.list.retainAll(c);
 		}
 		/**
 		 * @param arg0
 		 * @param arg1
 		 * @return
 		 */
-		public Object set(int arg0, Object arg1) {
+		public UIComponent set(int arg0, UIComponent arg1) {
 			return this.list.set(arg0, arg1);
 		}
 		/**
@@ -620,7 +620,7 @@ public class WorkspacePage extends Page {
 		 * @param arg1
 		 * @return
 		 */
-		public List subList(int arg0, int arg1) {
+		public List<UIComponent> subList(int arg0, int arg1) {
 			return this.list.subList(arg0, arg1);
 		}
 		/**
@@ -629,19 +629,17 @@ public class WorkspacePage extends Page {
 		public Object[] toArray() {
 			return this.list.toArray();
 		}
-		/**
-		 * @param arg0
-		 * @return
-		 */
-		public Object[] toArray(Object[] arg0) {
-			return this.list.toArray(arg0);
-		}
+
 		/* (non-Javadoc)
 		 * @see java.lang.Object#toString()
 		 */
 		@Override
 		public String toString() {
 			return this.list.toString();
+		}
+
+		public <T> T[] toArray(T[] a) {
+			return this.list.toArray(a);
 		}
 	}
 	
