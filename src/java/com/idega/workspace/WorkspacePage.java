@@ -339,6 +339,7 @@ public class WorkspacePage extends Page {
 		
 		addSessionPollingDWRFiles(iwc);
 		addNotifications(iwc);
+		enableReverseAjax(iwc);
 		
 		UIComponent layoutContainer = getLayoutContainer();
 		layoutContainer.encodeBegin(context);
