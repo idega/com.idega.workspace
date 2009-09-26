@@ -96,13 +96,10 @@ public class WorkspacePage extends Page {
 		Page thePage = this;
 
 		thePage.setTitle("idegaWeb Applications");
-
-		//if(requestUri.indexOf("content")!=-1){
 		
 		if(displayFunctionMenu(node)){
 			try{
 				setLayout(LAYOUT_TWOCOLUMN);
-				//String nodeId = node.getViewId();
 				String nodeId = getNodeNameForFunctionMenu(node);
 				WorkspaceFunctionMenu menu = new WorkspaceFunctionMenu();
 				menu.setId(getId()+"WorkspaceFunctionMenu");
@@ -117,30 +114,11 @@ public class WorkspacePage extends Page {
 			FramedApplicationViewNode frameNode = (FramedApplicationViewNode)node;
 			WFFrame frame = new WFFrame(node.getName(),frameNode.getFrameUrl());
 			frame.setFrameHeight(0, 90);
-			//WFBlock frame = new WFBlock("test");
 			add(FACET_MAIN,frame);
 		}
 		
-		//UISaveState savestate = new UISaveState();
-		//form.getChildren().add(savestate);
-		
-		
 		//Initialize the WorkspaceBar:
 		/*WorkspaceBar bar =*/ getWorkspaceBar();
-		
-		boolean isLoggedOn = false;
-		try {
-			isLoggedOn = iwc.isLoggedOn();
-		}
-		catch (Exception e) {
-			isLoggedOn = false;
-		}
-
-		if (isLoggedOn) {
-		}
-		else {
-
-		}
 	}
 	
 	public WorkspaceBar getWorkspaceBar(){
@@ -151,7 +129,6 @@ public class WorkspacePage extends Page {
 			bar = new WorkspaceBar();
 			bar.setStyleClass("ws_mainnavigation");
 			bar.setId(getId()+"WorkspaceBar");
-			//form.getChildren().add(bar);
 			add(FACET_HEAD,bar);
 		}
 		return bar;
@@ -340,6 +317,7 @@ public class WorkspacePage extends Page {
 		addSessionPollingDWRFiles(iwc);
 		addNotifications(iwc);
 		enableReverseAjax(iwc);
+		enableChromeFrame(iwc);
 		
 		UIComponent layoutContainer = getLayoutContainer();
 		layoutContainer.encodeBegin(context);

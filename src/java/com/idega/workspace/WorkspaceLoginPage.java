@@ -58,6 +58,7 @@ public class WorkspaceLoginPage extends Page {
 
 		addNotifications(iwc);
 		enableReverseAjax(iwc);
+		enableChromeFrame(iwc);
 		
 		IWMainApplication iwma = iwc.getIWMainApplication();
 		Page thePage = this;
