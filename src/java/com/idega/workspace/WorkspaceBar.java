@@ -268,7 +268,7 @@ public class WorkspaceBar extends WFContainer implements  Serializable{
 		this.showLoginLogout=bShowLL.booleanValue();
 		
 		IWContext iwc = IWContext.getIWContext(ctx);
-		IWBundle iwb = iwc.getIWMainApplication().getBundle("com.idega.workspace");
+		iwc.getIWMainApplication().getBundle("com.idega.workspace");
 	}
 	/* (non-Javadoc)
 	 * @see javax.faces.component.StateHolder#saveState(javax.faces.context.FacesContext)
