@@ -10,8 +10,9 @@
 package com.idega.workspace;
 
 import javax.faces.component.UIComponent;
-import javax.servlet.jsp.JspException;
+
 import com.idega.presentation.PageTag;
+import com.idega.util.StringUtil;
 
 /**
  * JSP tag for Workspace
@@ -22,61 +23,56 @@ import com.idega.presentation.PageTag;
  * @version $Revision: 1.6 $
  */
 public class WorkspacePageTag extends PageTag {
-	
-	String layout;
-	Boolean showFunctionMenu;
-	
-	/**
-	 * @see javax.faces.webapp.UIComponentTag#getRendererType()
-	 */
+
+	private String layout;
+	private String showFunctionMenu;
+
+	@Override
 	public String getRendererType() {
 		return null;
 	}
-		
-	/**
-	 * @see javax.faces.webapp.UIComponentTag#getComponentType()
-	 */
+
+	@Override
 	public String getComponentType() {
 		return "WorkspacePage";
 	}
-	
-	
-	/* (non-Javadoc)
-	 * @see com.idega.presentation.PageTag#setProperties(javax.faces.component.UIComponent)
-	 */
+
+	@Override
 	protected void setProperties(UIComponent component) {
-		// TODO Auto-generated method stub
 		super.setProperties(component);
-		WorkspacePage page = (WorkspacePage)component;
-		if(this.layout!=null){
-			page.setLayout(this.layout);
+
+		if (component instanceof WorkspacePage) {
+			WorkspacePage page = (WorkspacePage) component;
+
+			page.setLayout(getLayout());
+			if (StringUtil.isEmpty(getShowFunctionMenu())) {
+				setShowFunctionMenu(Boolean.TRUE.toString());
+			}
+			page.setShowFunctionMenu(Boolean.valueOf(getShowFunctionMenu()));
 		}
-		if(this.showFunctionMenu!=null){
-			page.setShowFunctionMenu(this.showFunctionMenu.booleanValue());
-		}
 	}
 
-	public void setLayout(String layout){
-		this.layout=layout;
-	}
-	
-	public void setShowFunctionMenu(boolean showMenu){
-		this.showFunctionMenu=new Boolean(showMenu);
+	@Override
+	public void release() {
+		super.release();
+
+		layout = null;
+		showFunctionMenu = null;
 	}
 
-	/* (non-Javadoc)
-	 * @see javax.faces.webapp.UIComponentTag#doEndTag()
-	 */
-	public int doEndTag() throws JspException {
-		// TODO Auto-generated method stub
-		return super.doEndTag();
+	public String getLayout() {
+		return layout;
 	}
 
-	/* (non-Javadoc)
-	 * @see javax.faces.webapp.UIComponentTag#doStartTag()
-	 */
-	public int doStartTag() throws JspException {
-		// TODO Auto-generated method stub
-		return super.doStartTag();
+	public void setLayout(String layout) {
+		this.layout = layout;
+	}
+
+	public String getShowFunctionMenu() {
+		return showFunctionMenu;
+	}
+
+	public void setShowFunctionMenu(String showFunctionMenu) {
+		this.showFunctionMenu = showFunctionMenu;
 	}
 }
