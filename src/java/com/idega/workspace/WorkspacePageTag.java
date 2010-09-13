@@ -9,10 +9,10 @@
  */
 package com.idega.workspace;
 
+import javax.el.ValueExpression;
 import javax.faces.component.UIComponent;
 
 import com.idega.presentation.PageTag;
-import com.idega.util.StringUtil;
 
 /**
  * JSP tag for Workspace
@@ -25,7 +25,7 @@ import com.idega.util.StringUtil;
 public class WorkspacePageTag extends PageTag {
 
 	private String layout;
-	private String showFunctionMenu;
+	private Object showFunctionMenu;
 
 	@Override
 	public String getRendererType() {
@@ -45,10 +45,13 @@ public class WorkspacePageTag extends PageTag {
 			WorkspacePage page = (WorkspacePage) component;
 
 			page.setLayout(getLayout());
-			if (StringUtil.isEmpty(getShowFunctionMenu())) {
-				setShowFunctionMenu(Boolean.TRUE.toString());
+			
+			Boolean showFunctionMenu = isShowFunctionMenu();
+			if (showFunctionMenu == null) {
+				showFunctionMenu = Boolean.TRUE;
+				setShowFunctionMenu(showFunctionMenu);
 			}
-			page.setShowFunctionMenu(Boolean.valueOf(getShowFunctionMenu()));
+			page.setShowFunctionMenu(showFunctionMenu);
 		}
 	}
 
@@ -63,16 +66,30 @@ public class WorkspacePageTag extends PageTag {
 	public String getLayout() {
 		return layout;
 	}
-
 	public void setLayout(String layout) {
 		this.layout = layout;
 	}
 
-	public String getShowFunctionMenu() {
-		return showFunctionMenu;
+	public Boolean isShowFunctionMenu() {
+		if (showFunctionMenu == null) {
+			return Boolean.TRUE;
+		}
+		
+		if (showFunctionMenu instanceof ValueExpression) {
+			return (Boolean) ((ValueExpression) showFunctionMenu).getValue(getELContext());
+		} else if (showFunctionMenu instanceof Boolean) {
+			return (Boolean) showFunctionMenu;
+		} else if (showFunctionMenu instanceof String) {
+			return Boolean.valueOf((String) showFunctionMenu);
+		}
+		
+		return Boolean.TRUE;
 	}
 
-	public void setShowFunctionMenu(String showFunctionMenu) {
+	public Object getShowFunctionMenu() {
+		return showFunctionMenu;
+	}
+	public void setShowFunctionMenu(Object showFunctionMenu) {
 		this.showFunctionMenu = showFunctionMenu;
 	}
 }

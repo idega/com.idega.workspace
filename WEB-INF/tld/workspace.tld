@@ -53,7 +53,7 @@
 			<name>showFunctionMenu</name>
 			<deferred-value></deferred-value>
 			<description><![CDATA[Function menu]]></description>
-			<rtexprvalue>false</rtexprvalue>
+			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
 			<name>useHtmlTag</name>
