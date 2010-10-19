@@ -24,7 +24,7 @@ import com.idega.presentation.PageTag;
  */
 public class WorkspacePageTag extends PageTag {
 
-	private String layout;
+	private Object layout;
 	private Object showFunctionMenu;
 
 	@Override
@@ -44,8 +44,11 @@ public class WorkspacePageTag extends PageTag {
 		if (component instanceof WorkspacePage) {
 			WorkspacePage page = (WorkspacePage) component;
 
-			page.setLayout(getLayout());
-			
+			String layout = getValue(this.layout);
+			if (layout != null) {
+				page.setLayout(layout);
+			}
+
 			Boolean showFunctionMenu = isShowFunctionMenu();
 			if (showFunctionMenu == null) {
 				showFunctionMenu = Boolean.TRUE;
@@ -63,10 +66,10 @@ public class WorkspacePageTag extends PageTag {
 		showFunctionMenu = null;
 	}
 
-	public String getLayout() {
+	public Object getLayout() {
 		return layout;
 	}
-	public void setLayout(String layout) {
+	public void setLayout(Object layout) {
 		this.layout = layout;
 	}
 
@@ -74,7 +77,7 @@ public class WorkspacePageTag extends PageTag {
 		if (showFunctionMenu == null) {
 			return Boolean.TRUE;
 		}
-		
+
 		if (showFunctionMenu instanceof ValueExpression) {
 			return (Boolean) ((ValueExpression) showFunctionMenu).getValue(getELContext());
 		} else if (showFunctionMenu instanceof Boolean) {
@@ -82,7 +85,7 @@ public class WorkspacePageTag extends PageTag {
 		} else if (showFunctionMenu instanceof String) {
 			return Boolean.valueOf((String) showFunctionMenu);
 		}
-		
+
 		return Boolean.TRUE;
 	}
 

@@ -47,7 +47,7 @@
 			<name>layout</name>
 			<deferred-value></deferred-value>
 			<description><![CDATA[Layout type]]></description>
-			<rtexprvalue>false</rtexprvalue>
+			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
 			<name>showFunctionMenu</name>
