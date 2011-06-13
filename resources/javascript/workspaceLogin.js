@@ -7,10 +7,22 @@ jQuery(document).ready(function() {
 		});
 		
 		var form = jQuery(this).parents('form');
-		if (form.attr('enctype') != 'application/x-www-form-urlencoded') {
-			form.attr('enctype', 'application/x-www-form-urlencoded');
+		var onSubmit = form.attr('onsubmit');
+		if (onSubmit == null || onSubmit == '') {
+			if (form.attr('enctype') != 'application/x-www-form-urlencoded') {
+				form.attr('enctype', 'application/x-www-form-urlencoded');
+			}
+			form.submit();
+			return false;
+		} else {
+			LazyLoader.loadMultiple(['/dwr/engine.js', '/dwr/interface/WebUtil.js'], function() {
+				WebUtil.logOut({
+					callback: function(result) {
+						if (result)
+							window.location.href = window.location.href;
+					}
+				});
+			});
 		}
-		form.submit();
-		return false;
 	});
 });
