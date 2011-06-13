@@ -31,7 +31,7 @@ public class WorkspaceApplicationNode extends ApplicationViewNode {
 		
 		IWMainApplication iwma = getIWMainApplication();
 		IWBundle workspaceBundle = iwma.getBundle(CoreConstants.WORKSPACE_BUNDLE_IDENTIFIER);
-		setJspUri(workspaceBundle.getJSPURI("workspace.jsp"));
+		setFaceletUri(workspaceBundle.getFaceletURI("workspace.xhtml"));
 		setAuthorizedRoles(roles);
 		
 	}
