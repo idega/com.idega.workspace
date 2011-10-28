@@ -925,3 +925,8 @@ body#workspacepage1.ws_body #workspaceform1 .ws_functionmenu .wf_titlebar,
 body#workspacepage1.ws_body #workspaceform1 .wf_block .wf_block .wf_titlebar{
 	display: block;
 }
+
+body.imagechooser div.wf_list.scrollContainer, body.linkchooser div.wf_list.scrollContainer {
+	height: 300px;
+	overflow: auto !important;
+}
