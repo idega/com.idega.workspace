@@ -925,3 +925,13 @@ body#workspacepage1.ws_body #workspaceform1 .ws_functionmenu .wf_titlebar,
 body#workspacepage1.ws_body #workspaceform1 .wf_block .wf_block .wf_titlebar{
 	display: block;
 }
+
+div.contentMigrationFailuresContainer {
+	height: 500px;
+	width:	85%;
+	overflow: auto;
+}
+
+input.repositoryValueInput {
+	width: 85%;
+}

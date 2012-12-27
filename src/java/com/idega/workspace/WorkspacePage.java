@@ -35,55 +35,53 @@ import com.idega.webface.WFFrame;
 /**
  * A base page for using in the Workspace environment.<br>
  * This page should be around all UI components in the environment.<br>
- * 
+ *
  * <br>
  * Last modified: $Date: 2009/01/07 11:35:02 $ by $Author: valdas $
- * 
+ *
  * @author <a href="mailto:tryggvil@idega.com">Tryggvi Larusson</a>
  * @version $Revision: 1.30 $
  */
 public class WorkspacePage extends Page {
 
-
 	private final static String IW_BUNDLE_IDENTIFIER = "com.idega.webface";
 
-	//private List specialList;
 	private boolean embedForm=false;
 	private boolean isInitalized=false;
 	private transient UIForm form;
 	private String WF_PAGE_CLASS="ws_body";
-	
+
 	public static String LAYOUT_ONECOLUMN="ws_layout_onecolumn";
 	public static String LAYOUT_TWOCOLUMN="ws_layout_twocolumn";
 	public static String LAYOUT_COMPACT="ws_layout_compact";
-	
+
 	private String layout=LAYOUT_ONECOLUMN;
 
 	private Boolean showFunctionMenu;
-	
+
 	private Boolean useHtmlTag = Boolean.TRUE;
-	
+
 	public static String FACET_HEAD="ws_head";
 	public static String FACET_FUNCTIONMENU="ws_functionmenu";
 	public static String FACET_MAIN="ws_main";
 	public static String FACET_LAYOUT="ws_layout";
-	
+
 	public WorkspacePage() {
 		setTransient(false);
 		setPrintScriptSourcesDirectly(false);
 	}
-	
+
 	@Override
 	public String getBundleIdentifier() {
 		return IW_BUNDLE_IDENTIFIER;
 	}
 	public void initializeContent(FacesContext context) {
 		IWContext iwc = IWContext.getIWContext(context);
-		
+
 		//TODO: Change this, this is a hack for the function menu:
 		ViewManager viewManager = getViewManager(iwc);
 		ViewNode node = viewManager.getViewNodeForContext(iwc);
-		
+
 		ViewNode parentNode = node.getParent();
 
 		this.setStyleClass(this.WF_PAGE_CLASS + " " + node.getViewId() + (parentNode != null && !parentNode.getViewId().equals(CoreConstants.WORKSPACE_VIEW_MANAGER_ID) ? " " + parentNode.getViewId() : ""));
@@ -96,7 +94,7 @@ public class WorkspacePage extends Page {
 		Page thePage = this;
 
 		thePage.setTitle("idegaWeb Applications");
-		
+
 		if(displayFunctionMenu(node)){
 			try{
 				setLayout(LAYOUT_TWOCOLUMN);
@@ -104,7 +102,7 @@ public class WorkspacePage extends Page {
 				WorkspaceFunctionMenu menu = new WorkspaceFunctionMenu();
 				menu.setId(getId()+"WorkspaceFunctionMenu");
 				menu.setApplication(nodeId);
-				add(FACET_FUNCTIONMENU,menu);					
+				add(FACET_FUNCTIONMENU,menu);
 			}
 			catch(Throwable t){
 				t.printStackTrace();
@@ -116,11 +114,11 @@ public class WorkspacePage extends Page {
 			frame.setFrameHeight(0, 90);
 			add(FACET_MAIN,frame);
 		}
-		
+
 		//Initialize the WorkspaceBar:
 		/*WorkspaceBar bar =*/ getWorkspaceBar();
 	}
-	
+
 	public WorkspaceBar getWorkspaceBar(){
 		String componentId = this.getId()+"WorkspaceBar";
 		UIComponent region = getPageFacet(FACET_HEAD);
@@ -133,17 +131,17 @@ public class WorkspacePage extends Page {
 		}
 		return bar;
 	}
-	
+
 	private ViewManager getViewManager(){
 		FacesContext context = FacesContext.getCurrentInstance();
 		return getViewManager(context);
 	}
-	
+
 	private ViewManager getViewManager(FacesContext context){
 		IWContext iwc = IWContext.getIWContext(context);
 		return ViewManager.getInstance(iwc.getIWMainApplication());
 	}
-	
+
 	@Override
 	public List<UIComponent> getChildren(){
 		if(this.embedForm){
@@ -152,10 +150,10 @@ public class WorkspacePage extends Page {
 		else{
 			return super.getChildren();
 		}
-		
+
 	}
-	
-	
+
+
 	protected boolean displayFunctionMenu(ViewNode node){
 		if(this.showFunctionMenu!=null){
 			return this.showFunctionMenu.booleanValue();
@@ -177,7 +175,7 @@ public class WorkspacePage extends Page {
 			}
 		}
 	}
-	
+
 	public String getNodeNameForFunctionMenu(ViewNode node){
 		ViewNode appNode = node;
 		ViewNode parentNode = appNode.getParent();
@@ -189,12 +187,12 @@ public class WorkspacePage extends Page {
 		}
 		return appNode.getViewId();
 	}
-	
+
 	@Override
 	public void add(UIComponent comp){
 		this.getForm().getChildren().add(comp);
 	}
-	
+
 	public void add(String key,UIComponent child){
 		getForm();
 		UIComponent setComp = getPageFacet(key);
@@ -208,15 +206,15 @@ public class WorkspacePage extends Page {
 			setComp.getChildren().add(child);
 		}
 	}
-	
+
 	public void setPageFacet(String facetKey,UIComponent component){
 		getForm().getFacets().put(facetKey,component);
 	}
-	
+
 	public UIComponent getPageFacet(String facetKey){
 		return getForm().getFacets().get(facetKey);
 	}
-	
+
 	public UIComponent getLayoutContainer(){
 		UIComponent area = getPageFacet(FACET_LAYOUT);
 		if(area==null){
@@ -228,7 +226,7 @@ public class WorkspacePage extends Page {
 		}
 		return area;
 	}
-	
+
 	public UIComponent getMainArea(){
 		UIComponent area = getPageFacet(FACET_MAIN);
 		if(area==null){
@@ -240,7 +238,7 @@ public class WorkspacePage extends Page {
 		}
 		return area;
 	}
-	
+
 	public UIComponent getHead(){
 		UIComponent head = getPageFacet(FACET_HEAD);
 		if(head==null){
@@ -252,7 +250,7 @@ public class WorkspacePage extends Page {
 		}
 		return head;
 	}
-	
+
 	public UIComponent getFunctionMenu(ViewNode node){
 		UIComponent menu = getPageFacet(FACET_FUNCTIONMENU);
 		if(menu==null){
@@ -264,7 +262,7 @@ public class WorkspacePage extends Page {
 		}
 		return menu;
 	}
-	
+
 	/**
 	 * This sets the page to embed a UIForm. This does not currently handle restoring state.
 	 * @param doEmbed
@@ -273,7 +271,7 @@ public class WorkspacePage extends Page {
 		//TODO: implement handling of this fully
 		this.embedForm=doEmbed;
 	}
-	
+
 	private UIForm getForm(){
 		//String formId = this.getId()+"-form";
 		//return (UIForm)getFacets().get(formId);
@@ -286,7 +284,7 @@ public class WorkspacePage extends Page {
 		}
 		return this.form;
 	}
-	
+
 	private UIForm findSubForm(){
 		Collection<UIComponent> children = getChildren();
 		for (UIComponent child: children) {
@@ -296,7 +294,7 @@ public class WorkspacePage extends Page {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public void encodeBegin(FacesContext context) throws IOException{
 		if(!this.isInitalized){
@@ -305,7 +303,7 @@ public class WorkspacePage extends Page {
 		}
 		super.encodeBegin(context);
 	}
-	
+
 	@Override
 	public void encodeChildren(FacesContext context) throws IOException{
 		IWContext iwc = IWContext.getIWContext(context);
@@ -313,25 +311,25 @@ public class WorkspacePage extends Page {
 
 		ViewManager viewManager = getViewManager(iwc);
 		ViewNode node = viewManager.getViewNodeForContext(iwc);
-		
+
 		addSessionPollingDWRFiles(iwc);
 		addNotifications(iwc);
 		enableReverseAjax(iwc);
 		enableChromeFrame(iwc);
-		
+
 		UIComponent layoutContainer = getLayoutContainer();
 		layoutContainer.encodeBegin(context);
-		
+
 		UIForm form = getForm();
 		//if(this.embedForm){
 			form.encodeBegin(context);
 		//}
 		//super.encodeChildren(context);
-		
+
 		if(layoutContainer.getRendersChildren()){
 			layoutContainer.encodeChildren(context);
 		}
-			
+
 		UIComponent bar = getHead();
 		this.renderChild(context,bar);
 		UIComponent fMenu = getFunctionMenu(node);
@@ -341,36 +339,36 @@ public class WorkspacePage extends Page {
 			mainArea = new WFContainer();
 			((WFContainer)mainArea).setStyleClass(FACET_MAIN);
 		}
-		
+
 		mainArea.encodeBegin(context);
-		
+
 		if(mainArea.getRendersChildren()){
 			mainArea.encodeChildren(context);
 		}
 		//super.encodeChildren(context);
-		
+
 		//form.encodeChildren(context);
 		for (UIComponent child: form.getChildren()) {
 			renderChild(context, child);
 		}
-		
+
 		mainArea.encodeEnd(context);
-		
-		
+
+
 		//if(this.embedForm){
 			//form.encodeChildren(context);
 			form.encodeEnd(context);
 		//}
-			
+
 		layoutContainer.encodeEnd(context);
 	}
-	
+
 	@Override
 	public void encodeEnd(FacesContext context) throws IOException{
 		super.encodeEnd(context);
 	}
-	
-	
+
+
 	/* (non-Javadoc)
 	 * @see javax.faces.component.StateHolder#restoreState(javax.faces.context.FacesContext, java.lang.Object)
 	 */
@@ -395,8 +393,8 @@ public class WorkspacePage extends Page {
 		values[3] = Boolean.valueOf(this.embedForm);
 		return values;
 	}
-	
-	
+
+
 
 	/* (non-Javadoc)
 	 * @see javax.faces.component.UIComponent#processRestoreState(javax.faces.context.FacesContext, java.lang.Object)
@@ -413,29 +411,30 @@ public class WorkspacePage extends Page {
 		return super.processSaveState(arg0);
 	}
 	/**
-	 * 
+	 *
 	 *  Last modified: $Date: 2009/01/07 11:35:02 $ by $Author: valdas $
-	 * 
+	 *
 	 * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
 	 * @version $Revision: 1.30 $
 	 */
 	public class SpecialChildList implements List<UIComponent> {
-		
+
 		UIComponent parent;
 		UIComponent child;
 		List<UIComponent> list;
-		
+
 		public SpecialChildList(UIComponent parent,UIComponent child){
 			this.parent=parent;
 			this.child=child;
 			List<UIComponent> children = parent.getChildren();
 			this.list=children;
 		}
-		
+
 		/**
 		 * @param arg0
 		 * @param arg1
 		 */
+		@Override
 		public void add(int arg0, UIComponent arg1) {
 			if(arg1.equals(this.child)){
 				this.list.add(arg0, arg1);
@@ -448,6 +447,7 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public boolean add(UIComponent arg0) {
 			if(arg0.equals(this.child)){
 				return this.list.add(arg0);
@@ -461,20 +461,23 @@ public class WorkspacePage extends Page {
 		 * @param arg1
 		 * @return
 		 */
+		@Override
 		public boolean addAll(int index, Collection<? extends UIComponent> c) {
 			return this.list.addAll(index, c);
 		}
-		
+
 		/**
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public boolean addAll(Collection<? extends UIComponent> c) {
 			return this.list.addAll(c);
 		}
 		/**
-		 * 
+		 *
 		 */
+		@Override
 		public void clear() {
 			this.list.clear();
 		}
@@ -482,6 +485,7 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public boolean contains(Object arg0) {
 			return this.list.contains(arg0);
 		}
@@ -489,6 +493,7 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public boolean containsAll(Collection<?> c) {
 			return this.list.containsAll(c);
 		}
@@ -503,6 +508,7 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public UIComponent get(int arg0) {
 			return this.list.get(arg0);
 		}
@@ -517,18 +523,21 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public int indexOf(Object arg0) {
 			return this.list.indexOf(arg0);
 		}
 		/**
 		 * @return
 		 */
+		@Override
 		public boolean isEmpty() {
 			return this.list.isEmpty();
 		}
 		/**
 		 * @return
 		 */
+		@Override
 		public Iterator<UIComponent> iterator() {
 			return this.list.iterator();
 		}
@@ -536,12 +545,14 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public int lastIndexOf(Object arg0) {
 			return this.list.lastIndexOf(arg0);
 		}
 		/**
 		 * @return
 		 */
+		@Override
 		public ListIterator<UIComponent> listIterator() {
 			return this.list.listIterator();
 		}
@@ -549,6 +560,7 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public ListIterator<UIComponent> listIterator(int arg0) {
 			return this.list.listIterator(arg0);
 		}
@@ -556,6 +568,7 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public UIComponent remove(int arg0) {
 			return this.list.remove(arg0);
 		}
@@ -563,6 +576,7 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public boolean remove(Object arg0) {
 			return this.list.remove(arg0);
 		}
@@ -570,6 +584,7 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public boolean removeAll(Collection<?> c) {
 			return this.list.removeAll(c);
 		}
@@ -577,6 +592,7 @@ public class WorkspacePage extends Page {
 		 * @param arg0
 		 * @return
 		 */
+		@Override
 		public boolean retainAll(Collection<?> c) {
 			return this.list.retainAll(c);
 		}
@@ -585,12 +601,14 @@ public class WorkspacePage extends Page {
 		 * @param arg1
 		 * @return
 		 */
+		@Override
 		public UIComponent set(int arg0, UIComponent arg1) {
 			return this.list.set(arg0, arg1);
 		}
 		/**
 		 * @return
 		 */
+		@Override
 		public int size() {
 			return this.list.size();
 		}
@@ -599,12 +617,14 @@ public class WorkspacePage extends Page {
 		 * @param arg1
 		 * @return
 		 */
+		@Override
 		public List<UIComponent> subList(int arg0, int arg1) {
 			return this.list.subList(arg0, arg1);
 		}
 		/**
 		 * @return
 		 */
+		@Override
 		public Object[] toArray() {
 			return this.list.toArray();
 		}
@@ -617,12 +637,13 @@ public class WorkspacePage extends Page {
 			return this.list.toString();
 		}
 
+		@Override
 		public <T> T[] toArray(T[] a) {
 			return this.list.toArray(a);
 		}
 	}
-	
-	
+
+
 	/**
 	 * Sets the layout (style class) that will control how the main content of the page is displayed.
 	 * <br>The standard style classes are defined as static contants called LAYOUT_... in this class.
@@ -631,7 +652,7 @@ public class WorkspacePage extends Page {
 	public void setLayout(String layoutClass){
 		this.layout=layoutClass;
 	}
-	
+
 	/**
 	 * Gets the set layout (style class).
 	 * @return
@@ -639,16 +660,15 @@ public class WorkspacePage extends Page {
 	public String getLayout(){
 		return this.layout;
 	}
-	
+
 	public void setShowFunctionMenu(boolean showMenu){
 		this.showFunctionMenu=new Boolean(showMenu);
 	}
-	
-	
+
 	public void setJavascripturls(String scriptUrls) {
 		super.setJavascriptURLs(scriptUrls);
 	}
-	
+
 	public void setStylesheeturls(String styleSheetUrls) {
 		super.setStyleSheetURL(styleSheetUrls);
 	}
@@ -657,5 +677,5 @@ public class WorkspacePage extends Page {
 		this.useHtmlTag = useHtmlTag;
 		super.setUseHtmlTag(this.useHtmlTag);
 	}
-	
+
 }
