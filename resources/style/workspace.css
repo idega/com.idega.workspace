@@ -926,6 +926,7 @@ body#workspacepage1.ws_body #workspaceform1 .wf_block .wf_block .wf_titlebar{
 	display: block;
 }
 
+
 div.contentMigrationFailuresContainer {
 	height: 500px;
 	width:	85%;
@@ -934,4 +935,9 @@ div.contentMigrationFailuresContainer {
 
 input.repositoryValueInput {
 	width: 85%;
+}
+
+body.imagechooser div.wf_list.scrollContainer, body.linkchooser div.wf_list.scrollContainer {
+	height: 300px;
+	overflow: auto !important;
 }

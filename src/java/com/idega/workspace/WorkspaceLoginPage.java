@@ -24,6 +24,7 @@ import com.idega.presentation.text.ListItem;
 import com.idega.presentation.text.Lists;
 import com.idega.presentation.text.Text;
 import com.idega.servlet.filter.IWAuthenticator;
+import com.idega.util.StringUtil;
 import com.idega.webface.WFBezel;
 import com.idega.webface.WFContainer;
 
@@ -161,7 +162,11 @@ public class WorkspaceLoginPage extends Page {
 		WFContainer cText = new WFContainer();
 		cText.setStyleClass("productinfo");
 		HtmlOutputText tText = new HtmlOutputText();
-		tText.setValue(iwma.getProductInfo().getFullProductName());
+		
+		String productName = iwma.getSettings().getProperty("product_name");
+		if (StringUtil.isEmpty(productName))
+			productName = iwma.getProductInfo().getFullProductName();
+		tText.setValue(productName);
 		cText.add(tText);
 		return cText;
 	}
