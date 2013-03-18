@@ -72,9 +72,15 @@ public class WorkspacePage extends Page {
 	}
 
 	@Override
+	public String getLocalizedTitle(IWContext iwc) {
+		return super.getTitle();
+	}
+
+	@Override
 	public String getBundleIdentifier() {
 		return IW_BUNDLE_IDENTIFIER;
 	}
+
 	public void initializeContent(FacesContext context) {
 		IWContext iwc = IWContext.getIWContext(context);
 
@@ -115,8 +121,7 @@ public class WorkspacePage extends Page {
 			add(FACET_MAIN,frame);
 		}
 
-		//Initialize the WorkspaceBar:
-		/*WorkspaceBar bar =*/ getWorkspaceBar();
+		getWorkspaceBar();
 	}
 
 	public WorkspaceBar getWorkspaceBar(){
@@ -144,21 +149,16 @@ public class WorkspacePage extends Page {
 
 	@Override
 	public List<UIComponent> getChildren(){
-		if(this.embedForm){
+		if (this.embedForm)
 			return getForm().getChildren();
-		}
-		else{
-			return super.getChildren();
-		}
 
+		return super.getChildren();
 	}
 
-
 	protected boolean displayFunctionMenu(ViewNode node){
-		if(this.showFunctionMenu!=null){
+		if (this.showFunctionMenu != null) {
 			return this.showFunctionMenu.booleanValue();
-		}
-		else{
+		} else {
 			if(getLayout().equals(LAYOUT_COMPACT)){
 				return false;
 			}
