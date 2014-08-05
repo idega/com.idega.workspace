@@ -1,4 +1,10 @@
 /*** General HTML definitions ***/
+
+.errorMessage {
+	text-align: center;
+	margin-bottom: 150px !important;
+}
+
 html,body {
 	width: 100% !important;
 	height: 100% !important;
