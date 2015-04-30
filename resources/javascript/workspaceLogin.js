@@ -18,8 +18,13 @@ jQuery(document).ready(function() {
 			LazyLoader.loadMultiple(['/dwr/engine.js', '/dwr/interface/WebUtil.js'], function() {
 				WebUtil.logOut({
 					callback: function(result) {
-						if (result)
-							window.location.href = window.location.href;
+						var uri = null;
+						if (result == null) {
+							uri = window.location.href;
+						} else {
+							uri = result;
+						}
+						window.location.href = uri;
 					}
 				});
 			});
