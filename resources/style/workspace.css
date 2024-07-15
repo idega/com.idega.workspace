@@ -948,3 +948,9 @@ body.imagechooser div.wf_list.scrollContainer, body.linkchooser div.wf_list.scro
 	height: 300px;
 	overflow: auto !important;
 }
+
+.ws_mainloginbox .loggedOut .explanation-text,
+.explanation-text {
+	font-size: 10px !important;
+}
+

@@ -15,8 +15,10 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.context.FacesContext;
 
+import com.idega.block.login.LoginConstants;
 import com.idega.block.login.presentation.Login2;
 import com.idega.block.login.presentation.LoginWithSMSCode;
+import com.idega.block.login.presentation.LoginWithTwoStepAuth;
 import com.idega.idegaweb.IWMainApplication;
 import com.idega.presentation.IWContext;
 import com.idega.presentation.Page;
@@ -98,6 +100,12 @@ public class WorkspaceLoginPage extends Page {
 			String secondStepUI = iwma.getSettings().getProperty("login.second_step_ui");
 			if (!StringUtil.isEmpty(secondStepUI)) {
 				login.setSmsAuthenticationFaceletPath(secondStepUI);
+			}
+		} else if (iwma.getSettings().getBoolean(LoginConstants.APP_PROPERTY_USE_2_STEP_AUTH, false)) {
+			login = new LoginWithTwoStepAuth();
+			String twoStepAuthUI = iwma.getSettings().getProperty("login.two_step_auth_ui");
+			if (!StringUtil.isEmpty(twoStepAuthUI)) {
+				login.setTwoStepAuthenticationFaceletPath(twoStepAuthUI);
 			}
 		} else {
 			login = new Login2();
