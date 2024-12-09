@@ -2,7 +2,7 @@ jQuery.noConflict();
 
 jQuery(document).ready(function() {
 	jQuery(".workspaceLogin a").click(function() {
-		jQuery(".workspaceLogin input[name='login_state']").each(function() {
+		/*jQuery(".workspaceLogin input[name='login_state']").each(function() {
 			jQuery(this).attr('value', 'logoff');
 		});
 		
@@ -14,7 +14,8 @@ jQuery(document).ready(function() {
 			}
 			form.submit();
 			return false;
-		} else {
+		} else {*/
+			showLoadingMessage('');
 			LazyLoader.loadMultiple(['/dwr/engine.js', '/dwr/interface/WebUtil.js'], function() {
 				WebUtil.logOut({
 					callback: function(result) {
@@ -28,6 +29,6 @@ jQuery(document).ready(function() {
 					}
 				});
 			});
-		}
+		//}
 	});
 });
